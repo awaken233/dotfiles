@@ -12,6 +12,12 @@ au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
 au BufWrite /private/etc/pw.* set nowritebackup nobackup
 
 let skip_defaults_vim=1
+
+"leader key 空格不执行任何操作"
+nnoremap <SPACE> <Nop>
+let mapleader = " "
+
+
 syntax on
 set number
 set clipboard=unnamed
@@ -35,7 +41,31 @@ Plug 'gcmt/wildfire.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'vim-autoformat/vim-autoformat'
+Plug 'https://github.com/easymotion/vim-easymotion'
+Plug 'https://github.com/preservim/nerdtree'
+Plug 'https://github.com/tpope/vim-commentary'
+Plug 'https://github.com/inkarkat/vim-ReplaceWithRegister'
+Plug 'https://github.com/vim-scripts/argtextobj.vim'
+Plug 'https://github.com/tommcdo/vim-exchange'
+Plug 'https://github.com/kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
+Plug 'https://github.com/machakann/vim-highlightedyank'
+Plug 'https://github.com/dbakker/vim-paragraph-motion'
+Plug 'chrisbra/matchit'
+Plug 'unblevable/quick-scope'       
 call plug#end()
 
 "autoformat config
 let g:python3_host_prog="/opt/homebrew/bin"
+
+" other settings
+" 清除搜索的高亮"
+nnoremap <Leader>sc :nohlsearch<CR>
+
+
+" plugin key map
+" nerdtree
+nnoremap <leader>e :NERDTreeFocus<CR>
+" easymotion
+map s <Plug>(easymotion-s)
+

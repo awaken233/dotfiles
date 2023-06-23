@@ -57,6 +57,12 @@ map s <Plug>(easymotion-s)
 " edit
 inoremap <C-d> <Delete>
 
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+vnoremap H ^
+vnoremap L $
+
+
 " popup"
 nnoremap gf :action FileStructurePopup<CR>
 map <leader>e :action SelectInProjectView<CR>
@@ -71,12 +77,6 @@ nnoremap H :action Back<CR>
 nnoremap L :action Forward<CR>
 nnoremap [[ :action MethodUp<cr>
 nnoremap ]] :action MethodDown<cr>
-
-
-inoremap <C-a> <Home>
-inoremap <C-e> <End>
-vnoremap H ^
-vnoremap L $
 
 
 " code
