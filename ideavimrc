@@ -2,7 +2,6 @@
 nnoremap <SPACE> <Nop>
 let mapleader = " "
 
-" search
 set hlsearch
 set incsearch
 set smartcase
@@ -10,8 +9,13 @@ set ignorecase
 set showmode
 "show debug info
 set de=on
-set scrolloff=5
+set scrolloff=5       "滚动时保持几行可见"
 set relativenumber    " 显示从当前行数的前后行数
+
+" Idea specific settings ------------------
+set ideajoin      "eg: join comment auto remove // etc."
+set ideaput       "default on. enable native IJ paste
+set idearefactormode=visual
 
 " plugins
 set ideamarks
@@ -19,47 +23,44 @@ set easymotion
 set surround
 set argtextobj
 set multiple-cursors
-set exchange
+set multicursor
 set highlightedyank
 set textobj-entire
-set keep-english-in-normal-and-restore-in-insert
+set keep-english-in-normal
 set NERDTree
 set ReplaceWithRegister
+set repeat
+set exchange
+set quickscope
+set vim-paragraph-motion
+set matchit
 
-" Idea specific settings ------------------
-set ideajoin
-set idearefactormode=keep
 
-
-" Remap multiple-cursors shortcuts for Mac
-"nmap <C-n> <Plug>NextWholeOccurrence
-"xmap <C-n> <Plug>NextWholeOccurrence
-"nmap <C-x> <Plug>SkipOccurrence
-"xmap <C-x> <Plug>SkipOccurrence
+" multiple-cursors
+map <C-g> <Plug>NextWholeOccurrence
+" xmap <C-g> <Plug>NextWholeOccurrence
+nmap <C-x> <Plug>SkipOccurrence
+xmap <C-x> <Plug>SkipOccurrence
 "nmap <C-p> <Plug>RemoveOccurrence
 "xmap <C-p> <Plug>RemoveOccurrence
-"nmap <S-C-n> <Plug>AllWholeOccurrences
-"xmap <S-C-n> <Plug>AllWholeOccurrences
+nmap <M-C-g> <Plug>AllWholeOccurrences
+xmap <M-C-g> <Plug>AllWholeOccurrences
 
-
-" nerdtree
-map <leader>e :action SelectInProjectView<CR>
-"nnoremap <leader>d :NERDTreeFocus<CR>
 
 
 " 清除搜索的高亮"
 nnoremap <Leader>sc :nohlsearch<CR>
 
 " easymotion
-map f <Plug>(easymotion-s)
+map s <Plug>(easymotion-s)
 
-" Insert mode shortcut
-inoremap <C-a> <Home>
-inoremap <C-e> <End>
+" edit
 inoremap <C-d> <Delete>
 
 " popup"
 nnoremap gf :action FileStructurePopup<CR>
+map <leader>e :action SelectInProjectView<CR>
+
 
 " goto/navigate
 nnoremap gl :action JumpToLastChange<CR>
@@ -72,7 +73,13 @@ nnoremap [[ :action MethodUp<cr>
 nnoremap ]] :action MethodDown<cr>
 
 
-" code 
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+vnoremap H ^
+vnoremap L $
+
+
+" code
 nnoremap R :action RenameElement<CR>
 nnoremap == :action ReformatCode<CR>
 vnoremap = :action ReformatCode<CR>
