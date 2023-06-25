@@ -20,7 +20,6 @@ let mapleader = " "
 
 syntax on
 set number
-set clipboard=unnamed
 set relativenumber	" 显示从当前行数的前后行数
 set cursorline	" 高亮显示当前行
 set showcmd	" 显示指令
@@ -58,9 +57,11 @@ call plug#end()
 "autoformat config
 let g:python3_host_prog="/opt/homebrew/bin"
 
-" other settings
-" 清除搜索的高亮"
-nnoremap <Leader>sc :nohlsearch<CR>
+" clear search highlight
+nnoremap <Esc> <Esc>:noh<CR>
+
+" copy
+vnoremap <leader>y "*y
 
 
 " plugin key map
