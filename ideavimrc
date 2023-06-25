@@ -58,6 +58,7 @@ nmap S ysiw
 inoremap <C-d> <Delete>
 " Make Y behave the same way as D and C.
 nnoremap Y y$
+vnoremap <leader>y "*y
 
 
 " move
