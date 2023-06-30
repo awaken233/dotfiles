@@ -35,6 +35,7 @@ set exchange
 set quickscope
 set vim-paragraph-motion
 set matchit
+set commentary
 
 
 " multiple-cursors
@@ -58,6 +59,7 @@ nmap S ysiw
 inoremap <C-d> <Delete>
 " Make Y behave the same way as D and C.
 nnoremap Y y$
+nnoremap vv V
 vnoremap <leader>y "*y
 
 
@@ -76,24 +78,29 @@ vnoremap t F
 nnoremap gf :action FileStructurePopup<CR>
 nnoremap <leader>e :action SelectInProjectView<CR>
 nnoremap <leader>x :action CloseContent<CR>
+nnoremap <leader>ha :action HideAllWindows<CR>
+nnoremap <leader>lw :action JumpToLastWindow<CR>
 
 
 " goto/navigate
-nnoremap gl :action JumpToLastChange<CR>
+nnoremap g; :action JumpToLastChange<CR>
 nnoremap gi :action GotoImplementation<CR>
 nnoremap gd :action GotoDeclaration<CR>
 nnoremap gt :action GotoTypeDeclaration<CR>
+nnoremap ga :action Annotate<CR>
 nnoremap H :action Back<CR>
 nnoremap L :action Forward<CR>
 nnoremap [[ :action MethodUp<cr>
 nnoremap ]] :action MethodDown<cr>
 
 
-" code
+" refactor
 nnoremap R :action RenameElement<CR>
+nnoremap <leader>uw :action Unwrap<CR>
+
+" code
 nnoremap == :action ReformatCode<CR>
 vnoremap = :action ReformatCode<CR>
-nnoremap -- :action OptimizeImports<CR>
 nnoremap cc :action CommentByLineComment<CR>
 vnoremap cc :action CommentByLineComment<CR>
 
