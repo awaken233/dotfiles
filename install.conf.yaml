@@ -8,6 +8,9 @@
     ~/.ideavimrc: ideavimrc
     ~/.vimrc: vimrc
     ~/.gitignore_global: gitignore_global
+    ~/.config/karabiner/assets/complex_modifications:
+        create: true
+        path: karabiner
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
