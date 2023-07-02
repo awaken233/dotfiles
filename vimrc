@@ -60,8 +60,10 @@ let g:python3_host_prog="/opt/homebrew/bin"
 " clear search highlight
 nnoremap <Esc> <Esc>:noh<CR>
 
-" copy
+" clipboard
 vnoremap <leader>y "*y
+" 将复制寄存器中的内容放置到粘贴寄存器中"
+map <leader>yo :let @+ = @0<CR>
 
 
 " plugin key map

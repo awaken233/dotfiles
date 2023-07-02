@@ -27,7 +27,7 @@ set multiple-cursors
 set multicursor
 set highlightedyank
 set textobj-entire
-set keep-english-in-normal
+set keep-english-in-normal-and-restore-in-insert
 set NERDTree
 set ReplaceWithRegister
 set repeat
@@ -36,7 +36,7 @@ set quickscope
 set vim-paragraph-motion
 set matchit
 set commentary
-
+set textobj-indent
 
 " multiple-cursors
 map <C-g> <Plug>NextWholeOccurrence
@@ -60,8 +60,11 @@ inoremap <C-d> <Delete>
 " Make Y behave the same way as D and C.
 nnoremap Y y$
 nnoremap vv V
-vnoremap <leader>y "*y
 
+" clipboard"
+vnoremap <leader>y "*y
+" 将复制寄存器中的内容放置到粘贴寄存器中"
+map <leader>yo :let @+ = @0<CR>
 
 " move
 inoremap <C-a> <Home>
