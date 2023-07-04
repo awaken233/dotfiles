@@ -64,6 +64,8 @@ nnoremap <Esc> <Esc>:noh<CR>
 vnoremap <leader>y "*y
 " 将复制寄存器中的内容放置到粘贴寄存器中"
 map <leader>yo :let @+ = @0<CR>
+" select last change text"
+nnoremap gp `[v`]
 
 
 " plugin key map
