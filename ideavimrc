@@ -27,7 +27,7 @@ set multiple-cursors
 set multicursor
 set highlightedyank
 set textobj-entire
-set keep-english-in-normal-and-restore-in-insert
+set keep-english-in-normal
 set NERDTree
 set ReplaceWithRegister
 set repeat
@@ -60,6 +60,8 @@ inoremap <C-d> <Delete>
 " Make Y behave the same way as D and C.
 nnoremap Y y$
 nnoremap vv V
+" select last change text"
+nnoremap gp `[v`]
 
 " clipboard"
 vnoremap <leader>y "*y
@@ -83,6 +85,7 @@ nnoremap <leader>e :action SelectInProjectView<CR>
 nnoremap <leader>x :action CloseContent<CR>
 nnoremap <leader>ha :action HideAllWindows<CR>
 nnoremap <leader>lw :action JumpToLastWindow<CR>
+nnoremap <leader>cl :action ConsoleView.ClearAll<CR>
 
 
 " goto/navigate
@@ -100,6 +103,7 @@ nnoremap ]] :action MethodDown<cr>
 " refactor
 nnoremap R :action RenameElement<CR>
 nnoremap <leader>uw :action Unwrap<CR>
+nnoremap <leader>cs :action ChangeSignature<CR>
 
 " code
 nnoremap == :action ReformatCode<CR>
