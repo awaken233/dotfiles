@@ -18,7 +18,7 @@ set visualbell
 
 " plugins
 set ideamarks
-set easymotion
+"set easymotion
 set surround
 set argtextobj
 set multiple-cursors
@@ -50,7 +50,7 @@ xmap <M-C-g> <Plug>AllWholeOccurrences
 nnoremap <Esc> <Esc>:noh<CR>
 
 " plugin settings
-nnoremap s <Plug>(easymotion-s)
+map s <Action>(AceAction)
 nnoremap S ysiw
 let g:argtextobj_pairs="(:),{:},<:>"
 
