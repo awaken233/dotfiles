@@ -54,11 +54,26 @@ Plug 'chrisbra/matchit'
 Plug 'unblevable/quick-scope'       
 call plug#end()
 
-"autoformat config
-let g:python3_host_prog="/opt/homebrew/bin"
-
 " clear search highlight
 nnoremap <Esc> <Esc>:noh<CR>
+
+
+" plugins settings
+"autoformat config
+let g:python3_host_prog="/opt/homebrew/bin"
+nmap S ysiw
+let g:argtextobj_pairs="(:),{:},<:>"
+let g:qs_accepted_chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+
+
+" edit
+" Make Y behave the same way as D and C.
+nnoremap Y y$
+nnoremap vv V
+" select last change text"
+nnoremap gp `[v`]
+
+
 
 " clipboard
 vnoremap <leader>y "*y
@@ -72,5 +87,5 @@ nnoremap gp `[v`]
 " nerdtree
 nnoremap <leader>e :NERDTreeFocus<CR>
 " easymotion
-map s <Plug>(easymotion-s)
+map s <Plug>(easymotion-s2)
 
