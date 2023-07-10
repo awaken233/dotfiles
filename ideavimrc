@@ -139,3 +139,4 @@ nnoremap <Leader>dC :action RunToCursor<CR>
 nnoremap <Leader>do :action StepOut<CR>
 " Step Into	"
 nnoremap <Leader>di :action StepInto<CR>
+nnoremap <Leader>dg :action ShowExecutionPoint<CR>
