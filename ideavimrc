@@ -104,6 +104,8 @@ nnoremap H :action Back<CR>
 nnoremap L :action Forward<CR>
 nnoremap [[ :action MethodUp<cr>
 nnoremap ]] :action MethodDown<cr>
+nnoremap [e :action GotoPreviousError<cr>
+nnoremap ]e :action GotoNextError<cr>
 nnoremap <leader>se :action ShowErrorDescription<CR>
 
 
@@ -112,6 +114,8 @@ nnoremap R :action RenameElement<CR>
 nnoremap <leader>uw :action Unwrap<CR>
 nnoremap <leader>cs :action ChangeSignature<CR>
 nnoremap <leader>sd :action SafeDelete<CR>
+nnoremap <A-j> :action MoveLineDown<CR>
+nnoremap <A-k> :action MoveLineUp<CR>
 
 " code
 nnoremap == :action ReformatCode<CR>
@@ -122,7 +126,8 @@ nnoremap <leader>cr :action CopyReference<CR>
 
 
 " run
-nnoremap <Leader>r :action Run<CR>
+nnoremap <Leader>re :action Rerun<CR>
+nnoremap <Leader>rj :action JRebel Debug<CR>
 nnoremap <Leader>rr :action RunClass<CR>
 nnoremap <Leader>ra :action RunAnything<CR>
 
