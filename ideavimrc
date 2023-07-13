@@ -52,8 +52,9 @@ nnoremap <Esc> <Esc>:noh<CR>
 " plugin settings
 map s <Action>(AceAction)
 nmap S ysiw
-let g:argtextobj_pairs="(:),{:},<:>"
+let g:argtextobj_pairs="(:),{:},<:>,[:]"
 let g:qs_accepted_chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+
 
 
 " edit
@@ -91,7 +92,6 @@ nnoremap <leader>a :action GotoAction<CR>
 nnoremap <leader>f :action GotoFile<CR>
 nnoremap <leader>ss :action GotoSymbol<CR>
 nnoremap q :action ShowIntentionActions<CR>
-xnoremap q :action ShowIntentionActions<CR>
 vnoremap q :action ShowIntentionActions<CR>
 
 " goto/navigate
@@ -116,6 +116,8 @@ nnoremap <leader>cs :action ChangeSignature<CR>
 nnoremap <leader>sd :action SafeDelete<CR>
 nnoremap <A-j> :action MoveLineDown<CR>
 nnoremap <A-k> :action MoveLineUp<CR>
+vnoremap <A-j> :action MoveLineDown<CR>
+vnoremap <A-k> :action MoveLineUp<CR>
 
 " code
 nnoremap == :action ReformatCode<CR>
