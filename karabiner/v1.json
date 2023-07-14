@@ -60,9 +60,7 @@
                 "to": [
                   {
                     "key_code": "caps_lock",
-                    "modifiers": [
-                      "left_control"
-                    ]
+                    "modifiers": ["left_control"]
                   }
                 ]
               },
@@ -206,7 +204,8 @@
                 },
                 "to": [
                   {
-                    "key_code": "home"
+                    "key_code": "a",
+                    "modifiers": ["left_control"]
                   }
                 ]
               },
@@ -222,7 +221,8 @@
                 },
                 "to": [
                   {
-                    "key_code": "end"
+                    "key_code": "e",
+                    "modifiers": ["left_control"]
                   }
                 ]
               },
