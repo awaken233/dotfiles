@@ -106,6 +106,7 @@ alias unproxy='unset http_proxy https_proxy'
 alias rm="trash -F"
 alias lg="lazygit"
 alias -g G='| grep -i'
+alias vim='nvim'
 
 ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
 
