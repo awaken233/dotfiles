@@ -704,7 +704,7 @@
                 "description": "F13 = Rewind",
                 "type": "basic",
                 "from": {
-                  "key_code": "f13",
+                  "key_code": "print_screen",
                   "modifiers": {
                     "mandatory": [
                       "fn"
@@ -721,7 +721,7 @@
                 "description": "F14 = Play/Pause",
                 "type": "basic",
                 "from": {
-                  "key_code": "f14",
+                  "key_code": "scroll_lock",
                   "modifiers": {
                     "mandatory": [
                       "fn"
@@ -738,7 +738,7 @@
                 "description": "F15 = Fast Forward",
                 "type": "basic",
                 "from": {
-                  "key_code": "f15",
+                  "key_code": "pause",
                   "modifiers": {
                     "mandatory": [
                       "fn"
