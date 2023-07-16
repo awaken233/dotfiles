@@ -122,8 +122,6 @@ vnoremap <A-k> :action MoveLineUp<CR>
 " code
 nnoremap == :action ReformatCode<CR>
 vnoremap = :action ReformatCode<CR>
-nnoremap cc :action CommentByLineComment<CR>
-vnoremap cc :action CommentByLineComment<CR>
 nnoremap <leader>cr :action CopyReference<CR>
 
 
