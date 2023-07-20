@@ -71,15 +71,16 @@ vnoremap <leader>y "*y
 map <leader>yo :let @+ = @0<CR>
 
 " move
-inoremap <C-a> <Home>
+inoremap <C-a> <Esc>^I
 inoremap <C-e> <End>
 " ^$ The symbol is too hard to press
 nnoremap <C-a> ^
 nnoremap <C-e> $
+vnoremap <C-a> ^
+vnoremap <C-e> $
 vnoremap H ^
 vnoremap L $
 nnoremap t F
-vnoremap t F
 
 " view
 nnoremap gf :action FileStructurePopup<CR>

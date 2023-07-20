@@ -1,0 +1,23 @@
+{
+  "description": "tab + 3 = F3",
+  "type": "basic",
+  "from": {
+    "key_code": "3",
+    "modifiers": {
+      "optional": [
+        "any"
+      ]
+    }
+  },
+  "to": [
+    {
+      "key_code": "f3",
+      "lazy": true
+    }
+  ],
+  "to_if_alone": [
+    {
+      "key_code": "tab"
+    }
+  ]
+}
