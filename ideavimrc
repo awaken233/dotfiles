@@ -140,9 +140,10 @@ nnoremap <Leader>d0 :action StepOver<CR>
 " resume "
 nnoremap <Leader>dr :action Resume<CR>
 "Run to Cursor	"
-nnoremap <Leader>dC :action RunToCursor<CR>
+nnoremap <Leader>dc :action RunToCursor<CR>
 " Step Out	"
 nnoremap <Leader>do :action StepOut<CR>
 " Step Into	"
 nnoremap <Leader>di :action StepInto<CR>
 nnoremap <Leader>dg :action ShowExecutionPoint<CR>
+
