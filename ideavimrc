@@ -113,6 +113,9 @@ nnoremap <leader>se :action ShowErrorDescription<CR>
 " refactor
 nnoremap R :action RenameElement<CR>
 nnoremap <leader>uw :action Unwrap<CR>
+nnoremap <leader>im :action ImplementMethods<CR>
+nnoremap <leader>sw :action SurroundWith<CR>
+vnoremap <leader>sw :action SurroundWith<CR>
 nnoremap <leader>cs :action ChangeSignature<CR>
 nnoremap <leader>sd :action SafeDelete<CR>
 nnoremap <A-j> :action MoveLineDown<CR>
@@ -137,6 +140,7 @@ nnoremap <Leader>dd :<C-u>action ChooseDebugConfiguration<CR>
 nnoremap <Leader>db :action ToggleLineBreakpoint<CR>
 " 单步"
 nnoremap <Leader>d0 :action StepOver<CR>
+nnoremap <Leader>ds :action StepOver<CR>
 " resume "
 nnoremap <Leader>dr :action Resume<CR>
 "Run to Cursor	"
