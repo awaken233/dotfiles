@@ -101,8 +101,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias proxy='export http_proxy=http://127.0.0.1:7890;export https_proxy=http://127.0.0.1:7890;'
-alias unproxy='unset http_proxy https_proxy'
+alias proxy='export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890'
+alias unproxy='unset http_proxy https_proxy all_proxy'
 alias rm="trash -F"
 alias lg="lazygit"
 alias -g G='| grep -i'
