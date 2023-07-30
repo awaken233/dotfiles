@@ -872,13 +872,7 @@
                   },
                   {
                     "key_code": "o",
-                    "modifiers": [
-                      "left_shift"
-                    ]
-                  },
-                  {
-                    "key_code": "spacebar",
-                    "modifiers": ["left_option"]
+                    "modifiers": ["left_shift"]
                   }
                 ]
               },
@@ -895,10 +889,9 @@
                 },
                 "to": [
                   {
-                    "key_code": "open_bracket"
-                  },
-                  {
-                    "key_code": "open_bracket"
+                    "key_code": "f2",
+                    "modifiers": ["left_shift"],
+                    "hold_down_milliseconds": 100
                   },
                   {
                     "key_code": "return_or_enter",
