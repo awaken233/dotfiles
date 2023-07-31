@@ -8,6 +8,7 @@
     ~/.ideavimrc: ideavimrc
     ~/.vimrc: vimrc
     ~/.zshrc: zshrc
+    ~/.tmux.conf: tmuxconf
     ~/.gitignore_global: gitignore_global
     ~/.config/karabiner/assets/complex_modifications:
         create: true

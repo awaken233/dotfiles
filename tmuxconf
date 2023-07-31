@@ -1,0 +1,94 @@
+# -- general
+# 打开tmux的路径是执行的路径
+#set-option default-path "$PWD"
+
+
+# Some tweaks to the status line
+set -g status-right "%H:%M"
+set -g window-status-current-style "underscore"
+
+# If running inside tmux ($TMUX is set), then change the status line to red
+%if #{TMUX}
+set -g status-bg red
+%endif
+
+# Enable RGB colour if running in xterm(1)
+set-option -sa terminal-overrides ",xterm*:Tc"
+
+# Change the default $TERM to tmux-256color
+set -g default-terminal "tmux-256color"
+
+# No bells at all
+set -g bell-action none
+
+# Keep windows around after they exit
+#set -g remain-on-exit on
+
+# Turn the mouse on, but without copy mode dragging
+set -g mouse on
+unbind -n MouseDrag1Pane
+unbind -Tcopy-mode MouseDrag1Pane
+
+
+# allow utf8 support
+set -q -g status-utf8 on     # expect UTF-8 (tmux < 2.2)
+setw -q -g utf8 on
+
+# vi copy mode
+setw -g mode-keys vi
+bind -T copy-mode-vi v send-keys -X begin-selection
+bind -T copy-mode-vi y send-keys -X copy-selection-and-cancel
+bind -T copy-mode-vi Y send-keys -X copy-end-of-line
+
+
+# 修改prifix和命令键之间的之间的按键时间
+set -sg escape-time 1
+
+bind r source-file ~/.tmux.conf \; display "Reloaded!"
+
+# window navigation
+unbind 1
+unbind 2
+unbind 3
+unbind 4
+unbind 5
+unbind 6
+unbind 7
+unbind 8
+unbind 9
+unbind 0
+
+
+bind -n M-0 select-window -t 0
+bind -n M-1 select-window -t 1
+bind -n M-2 select-window -t 2
+bind -n M-3 select-window -t 3
+bind -n M-4 select-window -t 4
+bind -n M-5 select-window -t 5
+bind -n M-6 select-window -t 6
+bind -n M-7 select-window -t 7
+bind -n M-8 select-window -t 8
+bind -n M-9 select-window -t 9
+
+# 指定方向create pane
+bind | split-window -h
+bind - split-window -v
+
+# pane navigation
+bind 0 select-pane -t:.0
+bind 1 select-pane -t:.1
+bind 2 select-pane -t:.2
+bind 3 select-pane -t:.3
+bind 4 select-pane -t:.4
+bind 5 select-pane -t:.5
+bind 6 select-pane -t:.6
+bind 7 select-pane -t:.7
+bind 8 select-pane -t:.8
+bind 9 select-pane -t:.9
+
+# 移动到指定方向的pane
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+

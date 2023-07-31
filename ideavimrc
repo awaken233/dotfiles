@@ -114,6 +114,8 @@ nnoremap <leader>se :action ShowErrorDescription<CR>
 nnoremap R :action RenameElement<CR>
 nnoremap <leader>uw :action Unwrap<CR>
 nnoremap <leader>im :action ImplementMethods<CR>
+nnoremap <leader>om :action OverrideMethods<CR>
+inoremap <C-i> :action ImplementMethods<CR>
 nnoremap <leader>sw :action SurroundWith<CR>
 vnoremap <leader>sw :action SurroundWith<CR>
 nnoremap <leader>cs :action ChangeSignature<CR>
@@ -136,7 +138,7 @@ nnoremap <Leader>rr :action RunClass<CR>
 nnoremap <Leader>ra :action RunAnything<CR>
 
 " debug
-nnoremap <Leader>dd :<C-u>action ChooseDebugConfiguration<CR>
+nnoremap <Leader>dd :action ChooseDebugConfiguration<CR>
 nnoremap <Leader>db :action ToggleLineBreakpoint<CR>
 " 单步"
 nnoremap <Leader>d0 :action StepOver<CR>
