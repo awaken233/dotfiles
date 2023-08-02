@@ -861,7 +861,9 @@
                   },
                   {
                     "key_code": "return_or_enter",
-                    "modifiers": ["left_command"],
+                    "modifiers": [
+                      "left_command"
+                    ],
                     "hold_down_milliseconds": 100
                   },
                   {
@@ -872,7 +874,9 @@
                   },
                   {
                     "key_code": "o",
-                    "modifiers": ["left_shift"]
+                    "modifiers": [
+                      "left_shift"
+                    ]
                   }
                 ]
               },
@@ -890,12 +894,17 @@
                 "to": [
                   {
                     "key_code": "f2",
-                    "modifiers": ["left_shift"],
+                    "modifiers": [
+                      "left_shift"
+                    ],
                     "hold_down_milliseconds": 100
                   },
                   {
                     "key_code": "return_or_enter",
-                    "modifiers": ["left_option", "left_shift"]
+                    "modifiers": [
+                      "left_option",
+                      "left_shift"
+                    ]
                   }
                 ]
               }
@@ -937,7 +946,8 @@
                     "shell_command": "open -a Cursor"
                   }
                 ]
-              },{
+              },
+              {
                 "description": "Termius",
                 "type": "basic",
                 "from": {
@@ -953,7 +963,8 @@
                     "shell_command": "open -a Termius"
                   }
                 ]
-              },{
+              },
+              {
                 "description": "Sublime Text",
                 "type": "basic",
                 "from": {
