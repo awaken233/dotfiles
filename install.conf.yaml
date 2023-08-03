@@ -10,6 +10,7 @@
     ~/.zshrc: zshrc
     ~/.tmux.conf: tmuxconf
     ~/.gitignore_global: gitignore_global
+    ~/.config/karabiner/karabiner.json: karabiner/karabiner_bk.json
     ~/.config/karabiner/assets/complex_modifications:
         create: true
         path: karabiner
