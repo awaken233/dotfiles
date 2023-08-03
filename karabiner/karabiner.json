@@ -842,7 +842,7 @@
             "description": "Hyper idea",
             "manipulators": [
               {
-                "description": "javadoc",
+                "description": "method javadoc",
                 "type": "basic",
                 "from": {
                   "key_code": "d",
@@ -876,7 +876,57 @@
                     "key_code": "o",
                     "modifiers": [
                       "left_shift"
+                    ],
+                    "hold_down_milliseconds": 100
+                  },
+                  {
+                    "key_code": "spacebar",
+                    "modifiers": [
+                      "left_option"
+                    ],
+                    "hold_down_milliseconds": 100
+                  }
+                ]
+              },
+              {
+                "description": "field javadoc",
+                "type": "basic",
+                "from": {
+                  "key_code": "d",
+                  "modifiers": {
+                    "mandatory": [
+                      "fn",
+                      "left_command"
                     ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "return_or_enter",
+                    "modifiers": [
+                      "left_command"
+                    ],
+                    "hold_down_milliseconds": 100
+                  },
+                  {
+                    "key_code": "j"
+                  },
+                  {
+                    "key_code": "return_or_enter"
+                  },
+                  {
+                    "key_code": "o",
+                    "modifiers": [
+                      "left_shift"
+                    ],
+                    "hold_down_milliseconds": 100
+                  },
+                  {
+                    "key_code": "spacebar",
+                    "modifiers": [
+                      "left_option"
+                    ],
+                    "hold_down_milliseconds": 100
                   }
                 ]
               },
