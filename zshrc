@@ -72,7 +72,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git extract history-substring-search zsh-syntax-highlighting zsh-autosuggestions z)
+plugins=(git extract zsh-syntax-highlighting history-substring-search zsh-autosuggestions z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -112,6 +112,9 @@ ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_V
 
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
+# tmux up/down search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # environment variable
 export TERM="screen-256color"
