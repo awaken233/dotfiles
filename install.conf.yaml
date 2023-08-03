@@ -13,6 +13,9 @@
     ~/.config/karabiner/assets/complex_modifications:
         create: true
         path: karabiner
+    ~/.config/nvim:
+        create: true
+        path: lazyvim
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
