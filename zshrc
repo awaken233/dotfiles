@@ -118,4 +118,5 @@ bindkey '^[[B' history-substring-search-down
 
 # environment variable
 export TERM="screen-256color"
+# eval "$(starship init zsh)"
 
