@@ -132,8 +132,10 @@ nnoremap <leader>cr :action CopyReference<CR>
 
 
 " run
+nnoremap <Leader>ru :action Run<CR>
 nnoremap <Leader>re :action Rerun<CR>
 nnoremap <Leader>rj :action JRebel Debug<CR>
+" 在当前上下文运行 eg: run http, run main, 光标需要定位到运行的位置"
 nnoremap <Leader>rr :action RunClass<CR>
 nnoremap <Leader>ra :action RunAnything<CR>
 
