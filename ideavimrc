@@ -25,7 +25,7 @@ set multiple-cursors
 set multicursor
 set highlightedyank
 set textobj-entire
-set keep-english-in-normal
+"set keep-english-in-normal
 set NERDTree
 set ReplaceWithRegister
 set repeat
