@@ -876,12 +876,7 @@
                     "key_code": "o",
                     "modifiers": [
                       "left_shift"
-                    ],
-                    "hold_down_milliseconds": 100
-                  },
-                  {
-                    "key_code": "left_shift",
-                    "hold_down_milliseconds": 100
+                    ]
                   }
                 ]
               },
@@ -915,12 +910,7 @@
                     "key_code": "o",
                     "modifiers": [
                       "left_shift"
-                    ],
-                    "hold_down_milliseconds": 100
-                  },
-                  {
-                    "key_code": "left_shift",
-                    "hold_down_milliseconds": 100
+                    ]
                   }
                 ]
               },
