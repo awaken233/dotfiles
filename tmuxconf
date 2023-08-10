@@ -1,7 +1,6 @@
 # -- general
-# 打开tmux的路径是执行的路径
-#set-option default-path "$PWD"
-
+# 继承打开window/pane默认的路径 not work
+# set-option -g default-path "$PWD"
 
 # Some tweaks to the status line
 set -g status-right "%H:%M"
@@ -46,9 +45,9 @@ set -sg escape-time 1
 
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
-# 指定方向create pane
-bind v split-window -h
-bind - split-window -v
+# 指定方向create pane and set default path
+bind v split-window -h -c '#{pane_current_path}'
+bind - split-window -v -c '#{pane_current_path}'
 
 
 # 移动到指定方向的pane
