@@ -57,3 +57,7 @@ bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
 
+# tmux disable confirmation prompt on kill-window/pane
+bind-key & kill-window
+bind-key x kill-pane
+
