@@ -1,0 +1,7 @@
+# https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
+os:
+  # e command program
+  editPreset: 'nvim'
+gui:
+  # show nerdFont
+  nerdFontsVersion: "3"
