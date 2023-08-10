@@ -62,6 +62,7 @@ inoremap <C-d> <Delete>
 " Make Y behave the same way as D and C.
 nnoremap Y y$
 nnoremap vv V
+vnoremap p P
 " select last change text"
 nnoremap gp `[v`]
 
@@ -71,7 +72,7 @@ vnoremap <leader>y "*y
 map <leader>yo :let @+ = @0<CR>
 
 " move
-inoremap <C-a> <Esc>^I
+inoremap <C-a> <Esc>I
 inoremap <C-e> <End>
 " ^$ The symbol is too hard to press
 nnoremap <C-a> ^
@@ -92,6 +93,7 @@ nnoremap <leader>cl :action ConsoleView.ClearAll<CR>
 nnoremap <leader>a :action GotoAction<CR>
 nnoremap <leader>f :action GotoFile<CR>
 nnoremap <leader>ss :action GotoSymbol<CR>
+nnoremap <leader><space> :action GotoSymbol<CR>
 nnoremap q :action ShowIntentionActions<CR>
 vnoremap q :action ShowIntentionActions<CR>
 
