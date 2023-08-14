@@ -4,3 +4,4 @@
 local opt = vim.opt
 
 opt.clipboard = ""
+opt.expandtab = false -- Use spaces instead of tabs

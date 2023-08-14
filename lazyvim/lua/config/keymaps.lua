@@ -6,3 +6,4 @@ local keymap = vim.keymap
 
 -- clipboard
 keymap.set("n", "<leader>yo", "<cmd>let @+ = @0<CR>", { desc = "exchange clipboard to system" })
+keymap.set("n", "t", "F")

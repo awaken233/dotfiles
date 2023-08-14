@@ -107,6 +107,8 @@ alias rm="trash -F"
 alias lg="lazygit"
 alias -g G='| grep -i'
 alias vim='nvim'
+alias v='nvim'
+alias vi='nvim'
 
 ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
 
@@ -117,6 +119,29 @@ bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
 # environment variable
+# tmux 真彩色配置
 export TERM="screen-256color"
+# 设置zsh的prompt, 需要安装starship
 eval "$(starship init zsh)"
 
+
+# lf configuration
+# 设置lf默认的编辑器
+export VISUAL=nvim
+# 当退出lf时,让zsh切换到lf退出时的路径
+# lfcd () {
+#     tmp="$(mktemp)"
+#     # `command` is needed in case `lfcd` is aliased to `lf`
+#     command lf -last-dir-path="$tmp" "$@"
+#     if [ -f "$tmp" ]; then
+#         dir="$(cat "$tmp")"
+#         rm -f "$tmp"
+#         if [ -d "$dir" ]; then
+#             if [ "$dir" != "$(pwd)" ]; then
+#                 cd "$dir"
+#             fi
+#         fi
+#     fi
+# }
+#
+# alias lf='lfcd'

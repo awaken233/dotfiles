@@ -18,6 +18,9 @@
     ~/.config/nvim:
         create: true
         path: lazyvim
+    ~/.config/lf:
+        create: true
+        path: lf
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
