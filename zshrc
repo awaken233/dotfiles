@@ -32,12 +32,14 @@ eval "$(starship init zsh)"
 # lf configuration
 # 设置lf默认的编辑器
 export VISUAL=nvim
+export PAGER=bat
 
 # fzf setting
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-# 使用 rg 进行搜索, 而不是find命令进行搜索, 需要安装rg
+# 使用 rg 进行搜索, 而不是find命令进行搜索, 需要安装ripgrep
 export FZF_DEFAULT_COMMAND='rg --files --hidden'
-# 使用bat进行预览, bat会语法高亮,需要安装bat, 但是我的终端是透明的,高亮反而导致我看不清楚
-# export FZF_DEFAULT_OPTS="--preview 'bat --style=numbers --color always {}'"
-export FZF_DEFAULT_OPTS="--preview 'cat {}'"
+# 使用bat进行预览, bat会语法高亮, 支持git高亮,需要安装bat
+# 设置bat的主题
+export BAT_THEME="Dracula"
+export FZF_DEFAULT_OPTS="--preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 
