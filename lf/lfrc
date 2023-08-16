@@ -55,16 +55,6 @@ cmd open &{{
 # (also see 'man mv' for backup/overwrite options)
 cmd trash %set -f; mv $fx ~/.trash
 
-# define a custom 'delete' command
-# cmd delete ${{
-#     set -f
-#     printf "$fx\n"
-#     printf "delete?[y/n]"
-#     read ans
-#     [ "$ans" = "y" ] && rm -rf $fx
-# }}
-
-
 # extract the current file with the right command
 # (xkcd link: https://xkcd.com/1168/)
 cmd extract ${{
@@ -97,6 +87,18 @@ cmd zip ${{
     rm -rf $1
 }}
 
+#Combining fzf with ripgrep, you can interactively search in the contents of files under the current directory and select a file from the results:
+cmd fzf_search ${{
+    res="$( \
+        RG_PREFIX="rg --column --line-number --no-heading --color=always \
+            --smart-case "
+        FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
+            fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+            --ansi --layout=reverse --header 'Search in files' \
+            | cut -d':' -f1
+    )"
+    [ ! -z "$res" ] && lf -remote "send $id select \"$res\""
+}}
 
 map y
 map yy copy
@@ -115,7 +117,7 @@ map R reload
 map a :push %touch<space>
 map A :push %mkdir<space>-p<space>
 
-map x :push $rm<space>$f<enter>
+map x %trash -F ${(f)fx}
 
 # 用默认程序打开文件
 map o :push %open<space>$f<enter>
@@ -123,17 +125,9 @@ map o :push %open<space>$f<enter>
 # 常用快捷路径
 map gh cd ~
 map gi cd ~/IdeaProjects/
-map gdl cd ~/Downloads/
-map gdo cd ~/Documents/
-map gdt cd ~/IdeaProjects/dotfiles/
+map gl cd ~/Downloads/
+map gc cd ~/Documents/
+map gt cd ~/IdeaProjects/dotfiles/
 
-# map <c-o> jump-prev # default is [
-# map <c-i> jump-next # default is ]
+map <c-s> :fzf_search
 
-# jump to file
-# map zz push :z<space>
-# cmd on-quit ${{
-#     marks=~/.local/share/lf/marks
-#     sed -i "/^'/d" "$marks"
-#     echo "':$PWD" >> "$marks"
-# }}

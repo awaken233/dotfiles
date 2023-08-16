@@ -907,10 +907,7 @@
                     "key_code": "return_or_enter"
                   },
                   {
-                    "key_code": "o",
-                    "modifiers": [
-                      "left_shift"
-                    ]
+                    "key_code": "i"
                   }
                 ]
               },
