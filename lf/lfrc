@@ -101,6 +101,20 @@ cmd fzf_search ${{
     [ ! -z "$res" ] && lf -remote "send $id select \"$res\""
 }}
 
+# 搜索当前目录下的文件
+cmd fzf_jump ${{
+    res="$(find . -maxdepth 5 | fzf --reverse --header='Jump to location')"
+    if [ -n "$res" ]; then
+        if [ -d "$res" ]; then
+            cmd="cd"
+        else
+            cmd="select"
+        fi
+        res="$(printf '%s' "$res" | sed 's/\\/\\\\/g;s/"/\\"/g')"
+        lf -remote "send $id $cmd \"$res\""
+    fi
+}}
+
 map y
 map yy copy
 # 这里的dirname,printf是shell script 函数
@@ -131,6 +145,7 @@ map gc cd ~/Documents/
 map gt cd ~/IdeaProjects/dotfiles/
 
 map <c-s> :fzf_search
+map <c-f> :fzf_jump
 
 map i $~/.config/lf/pv.sh $f | less -R
 
