@@ -88,6 +88,7 @@ cmd zip ${{
     rm -rf $1
 }}
 
+# 当前目录下进行全文搜索
 #Combining fzf with ripgrep, you can interactively search in the contents of files under the current directory and select a file from the results:
 cmd fzf_search ${{
     res="$( \
