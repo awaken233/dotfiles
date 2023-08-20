@@ -105,6 +105,9 @@ nnoremap gt :action GotoTypeDeclaration<CR>
 nnoremap ga :action Annotate<CR>
 nnoremap H :action Back<CR>
 nnoremap L :action Forward<CR>
+" 使用idea的前进后退(vim的前进后退如果开启多个工程,前进后退时文件buffer会串掉)"
+nnoremap <C-O> :action Back<CR>
+nnoremap <C-I> :action Forward<CR>
 nnoremap [[ :action MethodUp<cr>
 nnoremap ]] :action MethodDown<cr>
 nnoremap [e :action GotoPreviousError<cr>
@@ -131,15 +134,23 @@ vnoremap <A-k> :action MoveLineUp<CR>
 nnoremap == :action ReformatCode<CR>
 vnoremap = :action ReformatCode<CR>
 nnoremap <leader>cr :action CopyReference<CR>
+"mybatis sql log: restore sql"
+vnoremap <leader>sq :action ar<CR>
 
 
 " run
 nnoremap <Leader>ru :action Run<CR>
+" 重新运行控制台上次执行的程序(如果上一次是jrebel debug运行的, 这一次也会jrebel debug运行)"
 nnoremap <Leader>re :action Rerun<CR>
+" jrebel debug 工具栏选择的程序"
 nnoremap <Leader>rj :action JRebel Debug<CR>
-" 在当前上下文运行 eg: run http, run main, 光标需要定位到运行的位置"
+" 在当前上下文 jrebel debug 当前程序"
+nnoremap <Leader>rd :action JRebel Debug context-action-does-not-exist<CR>
+" 在当前上下文运行. eg: run http, run main, 光标需要定位到运行的位置"
 nnoremap <Leader>rr :action RunClass<CR>
 nnoremap <Leader>ra :action RunAnything<CR>
+" jrebel hotswap"
+nnoremap <Leader>hs :action Hotswap<CR>
 
 " debug
 nnoremap <Leader>dd :action ChooseDebugConfiguration<CR>
