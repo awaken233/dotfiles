@@ -156,7 +156,6 @@ nnoremap <Leader>hs :action Hotswap<CR>
 nnoremap <Leader>dd :action ChooseDebugConfiguration<CR>
 nnoremap <Leader>db :action ToggleLineBreakpoint<CR>
 " 单步"
-nnoremap <Leader>d0 :action StepOver<CR>
 nnoremap <Leader>ds :action StepOver<CR>
 " resume "
 nnoremap <Leader>dr :action Resume<CR>
@@ -165,6 +164,10 @@ nnoremap <Leader>dc :action RunToCursor<CR>
 " Step Out	"
 nnoremap <Leader>do :action StepOut<CR>
 " Step Into	"
-nnoremap <Leader>di :action StepInto<CR>
+nnoremap <Leader>di :action SmartStepInto<CR>
+" 跳转到执行点"
 nnoremap <Leader>dg :action ShowExecutionPoint<CR>
-
+nnoremap <Leader>dm :action XDebugger.MuteBreakpoints<CR>
+nnoremap <Leader>dp :action Debugger.PopFrame<CR>
+nnoremap <Leader>dt :action Debugger.ForceEarlyReturn<CR>
+nnoremap <Leader>de :action EvaluateExpression<CR>
