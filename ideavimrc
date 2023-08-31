@@ -125,10 +125,10 @@ nnoremap <leader>sw :action SurroundWith<CR>
 vnoremap <leader>sw :action SurroundWith<CR>
 nnoremap <leader>cs :action ChangeSignature<CR>
 nnoremap <leader>sd :action SafeDelete<CR>
-nnoremap <A-j> :action MoveLineDown<CR>
-nnoremap <A-k> :action MoveLineUp<CR>
-vnoremap <A-j> :action MoveLineDown<CR>
-vnoremap <A-k> :action MoveLineUp<CR>
+nnoremap <A-j> :action MoveStatementDown<CR>
+nnoremap <A-k> :action MoveStatementUp<CR>
+vnoremap <A-j> :action MoveStatementDown<CR>
+vnoremap <A-k> :action MoveStatementUp<CR>
 
 " code
 nnoremap == :action ReformatCode<CR>
@@ -149,6 +149,7 @@ nnoremap <Leader>rd :action JRebel Debug context-action-does-not-exist<CR>
 " 在当前上下文运行. eg: run http, run main, 光标需要定位到运行的位置"
 nnoremap <Leader>rr :action RunClass<CR>
 nnoremap <Leader>ra :action RunAnything<CR>
+nnoremap <Leader>` :action RunAnything<CR>
 " jrebel hotswap"
 nnoremap <Leader>hs :action Hotswap<CR>
 
