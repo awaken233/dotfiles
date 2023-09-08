@@ -139,6 +139,9 @@ vnoremap <leader>sq :action ar<CR>
 
 " git"
 nnoremap <leader>gb :action Git.Branches<CR>
+noremap <leader>go :action Vcs.QuickListPopupAction<CR>
+nnoremap <leader>gs :action Git.Stash<CR>
+nnoremap <leader>gu :action Git.Unstash<CR>
 
 " run
 nnoremap <Leader>ru :action Run<CR>
@@ -174,3 +177,27 @@ nnoremap <Leader>dm :action XDebugger.MuteBreakpoints<CR>
 nnoremap <Leader>dp :action Debugger.PopFrame<CR>
 nnoremap <Leader>dt :action Debugger.ForceEarlyReturn<CR>
 nnoremap <Leader>de :action EvaluateExpression<CR>
+
+
+" handler"
+sethandler <C-6> a:vim
+sethandler <C-S-6> a:vim
+sethandler <C-A> a:vim
+sethandler <C-B> a:ide
+sethandler <C-D> a:vim
+sethandler <C-E> a:vim
+sethandler <C-F> a:ide
+sethandler <C-G> a:ide
+sethandler <C-H> a:vim
+sethandler <C-I> a:vim
+sethandler <C-J> a:vim
+sethandler <C-K> a:vim
+sethandler <C-L> a:vim
+sethandler <C-N> a:vim
+sethandler <C-O> a:vim
+sethandler <C-P> a:vim
+sethandler <C-R> a:vim
+sethandler <C-S> a:vim
+sethandler <C-T> a:ide
+sethandler <C-V> a:vim
+sethandler <C-W> a:vim
