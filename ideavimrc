@@ -137,6 +137,8 @@ nnoremap <leader>cr :action CopyReference<CR>
 "mybatis sql log: restore sql"
 vnoremap <leader>sq :action ar<CR>
 
+" git"
+nnoremap <leader>gb :action Git.Branches<CR>
 
 " run
 nnoremap <Leader>ru :action Run<CR>
