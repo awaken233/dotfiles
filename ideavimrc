@@ -60,7 +60,7 @@ sethandler <C-V> a:vim
 sethandler <C-W> a:vim
 
 " multiple-cursors
-map <C-g> <Plug>NextWholeOccurrence
+map <C-g> <Plug>NextOccurrence
 " xmap <C-g> <Plug>NextWholeOccurrence
 nmap <C-x> <Plug>SkipOccurrence
 xmap <C-x> <Plug>SkipOccurrence
