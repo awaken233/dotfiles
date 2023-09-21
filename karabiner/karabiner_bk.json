@@ -1011,7 +1011,25 @@
                     "shell_command": "open -a \"Sublime Text\""
                   }
                 ]
-              }
+              },
+							{
+								"description": "edge",
+								"type": "basic",
+								"from": {
+									"key_code": "e",
+									"modifiers": {
+										"mandatory": [
+											"fn",
+											"left_command"
+										]
+									}
+								},
+								"to": [
+									{
+										"shell_command": "open -a \"Microsoft Edge\""
+									}
+								]
+							}
             ]
           }
         ]
