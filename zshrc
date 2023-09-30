@@ -2,7 +2,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git extract zsh-syntax-highlighting history-substring-search zsh-autosuggestions z)
+plugins=(git extract zsh-syntax-highlighting history-substring-search zsh-autosuggestions z kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
