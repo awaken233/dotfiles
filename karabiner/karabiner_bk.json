@@ -433,6 +433,29 @@
                 ]
               },
               {
+                "description": "caps+a = opt+v",
+                "type": "basic",
+                "from": {
+                  "key_code": "a",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ],
+                    "mandatory": [
+                      "fn"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "v",
+                    "modifiers": [
+                        "left_option"
+                    ]
+                  }
+                ]
+              },
+              {
                 "description": "' = ^",
                 "type": "basic",
                 "from": {
