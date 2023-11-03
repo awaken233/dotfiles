@@ -133,11 +133,17 @@ nnoremap L :action Forward<CR>
 " 使用idea的前进后退(vim的前进后退如果开启多个工程,前进后退时文件buffer会串掉)"
 nnoremap <C-O> :action Back<CR>
 nnoremap <C-I> :action Forward<CR>
-nnoremap [[ :action MethodUp<cr>
-nnoremap ]] :action MethodDown<cr>
 nnoremap [e :action GotoPreviousError<cr>
 nnoremap ]e :action GotoNextError<cr>
 nnoremap <leader>se :action ShowErrorDescription<CR>
+
+if &ide =~? 'intellij idea'
+    nnoremap [[ :action MethodUp<cr>
+    nnoremap ]] :action MethodDown<cr>
+else
+    nnoremap [[ :action StatementUp<cr>
+    nnoremap ]] :action StatementDown<cr>
+endif
 
 
 " refactor
