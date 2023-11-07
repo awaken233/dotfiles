@@ -6,14 +6,17 @@ plugins=(git extract zsh-syntax-highlighting history-substring-search zsh-autosu
 
 source $ZSH/oh-my-zsh.sh
 
+# alias
 alias proxy='export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890'
 alias unproxy='unset http_proxy https_proxy all_proxy'
 alias rm="trash -F"
 alias lg="lazygit"
-alias -g G='| grep -i'
+alias -g G='| rg -i'
+alias -g L='| less'
 alias vim='nvim'
 alias v='nvim'
 alias vi='nvim'
+alias bs='brew services'
 
 ___MY_VMOPTIONS_SHELL_FILE="${HOME}/.jetbrains.vmoptions.sh"; if [ -f "${___MY_VMOPTIONS_SHELL_FILE}" ]; then . "${___MY_VMOPTIONS_SHELL_FILE}"; fi
 
