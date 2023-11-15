@@ -6,6 +6,7 @@
 
 - link:
     ~/.ideavimrc: ideavimrc
+    ~/Documents/Obsidian Vault/.obsidian.vimrc: obsidianvimrc
     ~/.vimrc: vimrc
     ~/.zshrc: zshrc
     ~/.tmux.conf: tmuxconf

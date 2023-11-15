@@ -7,5 +7,7 @@ local keymap = vim.keymap
 -- clipboard
 keymap.set("n", "<leader>yo", "<cmd>let @+ = @0<CR>", { desc = "exchange clipboard to system" })
 keymap.set("n", "t", "F")
-keymap.set({ "n", "v", "i" }, "<C-a>", "^")
-keymap.set({ "n", "v", "i" }, "<C-e>", "$")
+keymap.set({ "n", "v" }, "<C-a>", "^")
+keymap.set({ "n", "v" }, "<C-e>", "$")
+keymap.set({ "i" }, "<C-a>", "<home>")
+keymap.set({ "i" }, "<C-e>", "<end>")
