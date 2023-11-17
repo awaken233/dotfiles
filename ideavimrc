@@ -56,7 +56,7 @@ sethandler <C-P> a:vim
 sethandler <C-R> a:vim
 sethandler <C-S> a:vim
 sethandler <C-T> a:ide
-sethandler <C-V> a:vim
+sethandler <C-V> a:ide
 sethandler <C-W> a:vim
 
 " multiple-cursors
@@ -90,7 +90,6 @@ vnoremap p P
 nnoremap gp `[v`]
 
 " clipboard"
-vnoremap <leader>y "*y
 " 将复制寄存器中的内容放置到粘贴寄存器中"
 map <leader>yo :let @+ = @0<CR>
 
@@ -130,7 +129,7 @@ nnoremap gt :action GotoTypeDeclaration<CR>
 nnoremap ga :action Annotate<CR>
 nnoremap H :action Back<CR>
 nnoremap L :action Forward<CR>
-" 使用idea的前进后退(vim的前进后退如果开启多个工程,前进后退时文件buffer会串掉)"
+" 使用idea的前进后退(vim的前进后退如果开启多个工程,前进后退时文件buffer会串掉) 后来官方修复了此bug
 nnoremap <C-O> :action Back<CR>
 nnoremap <C-I> :action Forward<CR>
 nnoremap [e :action GotoPreviousError<cr>
@@ -169,7 +168,7 @@ nnoremap <leader>cr :action CopyReference<CR>
 vnoremap <leader>sq :action ar<CR>
 
 " git"
-nnoremap <leader>gb :action Git.Branches<CR>
+nnoremap <leader>gg :action Git.Branches<CR>
 noremap <leader>go :action Vcs.QuickListPopupAction<CR>
 nnoremap <leader>gss :action Git.Stash<CR>
 nnoremap <leader>gsu :action Git.Unstash<CR>
