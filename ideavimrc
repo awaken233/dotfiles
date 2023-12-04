@@ -184,6 +184,7 @@ nnoremap <Leader>rd :action JRebel Debug context-action-does-not-exist<CR>
 " 在当前上下文运行. eg: run http, run main, 光标需要定位到运行的位置"
 nnoremap <Leader>rr :action RunClass<CR>
 nnoremap <Leader>` :action RunAnything<CR>
+vnoremap <Leader>` :action RunAnything<CR>
 
 " debug
 nnoremap <Leader>dd :action ChooseDebugConfiguration<CR>
