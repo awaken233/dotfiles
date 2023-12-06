@@ -9,8 +9,8 @@ nmap k gk
 nmap H ^
 nmap L $
 
-nmap <C-a> ^
-nmap <C-e> $
+map <C-a> ^
+map <C-e> $
 
 " Quickly remove search highlights
 nmap <F9> :nohl
@@ -49,8 +49,8 @@ map s[ :surround_square_brackets
 map s{ :surround_curly_brackets
 map s} :surround_curly_brackets
 
-
-exmap nextHeading jsfile mdHelpers.js {jumpHeading(true)}
-exmap prevHeading jsfile mdHelpers.js {jumpHeading(false)}
-nmap ]] :nextHeading
-nmap [[ :prevHeading
+" 和wiki 快捷键冲突了"
+" exmap nextHeading jsfile mdHelpers.js {jumpHeading(true)}
+" exmap prevHeading jsfile mdHelpers.js {jumpHeading(false)}
+" nmap ]] :nextHeading
+" nmap [[ :prevHeading
