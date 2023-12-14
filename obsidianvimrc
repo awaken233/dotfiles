@@ -12,10 +12,13 @@ nmap L $
 map <C-a> ^
 map <C-e> $
 
-" Quickly remove search highlights
-nmap <F9> :nohl
+" <Esc> clears highlights
+nnoremap <Esc> :nohl
 
 nmap t F
+
+" Y consistent with D and C to the end of line
+nnoremap Y y$
 
 " Go back and forward with Ctrl+O and Ctrl+I
 " (make sure to remove default Obsidian shortcuts for these to work)
