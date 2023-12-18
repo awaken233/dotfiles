@@ -104,7 +104,7 @@ cmd fzf_search ${{
 
 # 搜索当前目录下的文件
 cmd fzf_jump ${{
-    res="$(find . -maxdepth 15 | fzf --reverse --header='Jump to location')"
+    res="$(find . | fzf --reverse --header='Jump to location')"
     if [ -n "$res" ]; then
         if [ -d "$res" ]; then
             cmd="cd"
