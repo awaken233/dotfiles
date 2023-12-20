@@ -6,8 +6,13 @@ unmap <Space>
 nmap j gj
 nmap k gk
 
-nmap H ^
-nmap L $
+
+"Tab Switching
+exmap tabnext obcommand workspace:next-tab
+nmap L :tabnext
+exmap tabprev obcommand workspace:previous-tab
+nmap H :tabprev
+
 
 map <C-a> ^
 map <C-e> $
