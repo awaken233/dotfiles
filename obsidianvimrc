@@ -62,3 +62,12 @@ map s} :surround_curly_brackets
 " exmap prevHeading jsfile mdHelpers.js {jumpHeading(false)}
 " nmap ]] :nextHeading
 " nmap [[ :prevHeading
+
+
+" Make o and O respect context(need plugin obsidian-editor-shortcuts, 在代码块和列表按o会自动缩进)
+exmap blankBelow obcommand obsidian-editor-shortcuts:insertLineBelow
+exmap blankAbove obcommand obsidian-editor-shortcuts:insertLineAbove
+nmap &a& :blankAbove
+nmap &b& :blankBelow
+nmap o &b&i
+nmap O &a&i
