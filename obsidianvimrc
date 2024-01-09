@@ -72,5 +72,6 @@ nmap &b& :blankBelow
 nmap o &b&i
 nmap O &a&i
 
+"执行大纲搜索"
 exmap show_outline obcommand outline:open
 nmap gf :show_outline
