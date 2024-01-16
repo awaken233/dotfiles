@@ -133,12 +133,12 @@ nnoremap [e :action GotoPreviousError<cr>
 nnoremap ]e :action GotoNextError<cr>
 nnoremap <leader>se :action ShowErrorDescription<CR>
 
-if &ide =~? 'intellij idea'
-    nnoremap [[ :action MethodUp<cr>
-    nnoremap ]] :action MethodDown<cr>
-else
+if &ide =~? 'DataGrip'
     nnoremap [[ :action StatementUp<cr>
     nnoremap ]] :action StatementDown<cr>
+else
+    nnoremap [[ :action MethodUp<cr>
+    nnoremap ]] :action MethodDown<cr>
 endif
 
 
