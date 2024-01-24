@@ -85,6 +85,11 @@ nnoremap vv V
 vnoremap p P
 " select last change text"
 nnoremap gp `[v`]
+" Increase or decrease numbers"
+nnoremap + <C-a>
+nnoremap - <C-x>
+" goto last edit position"
+nnoremap gI gi
 
 " clipboard"
 " 将复制寄存器中的内容放置到粘贴寄存器中"
