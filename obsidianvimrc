@@ -14,6 +14,8 @@ exmap tabprev obcommand workspace:previous-tab
 nmap H :tabprev
 
 
+map + <C-a>
+map - <C-e>
 map <C-a> ^
 map <C-e> $
 
