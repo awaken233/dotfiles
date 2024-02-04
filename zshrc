@@ -46,6 +46,7 @@ eval "$(starship init zsh)"
 # 设置lf默认的编辑器
 export VISUAL=nvim
 export PAGER=bat
+export EDITOR=/opt/homebrew/bin/nvim
 
 # fzf setting
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -64,7 +65,7 @@ rgfzf() {
   local CHOICE=$(fzf --bind "change:reload:$RG_PREFIX {q} || true" \
     --sort \
     --multi \
-    --preview '[[ ! -z {} ]] && rg --pretty --context 5 {q} {}' \
+    --preview '[[ ! -z {} ]] && rg --ignore-case --pretty --context 5 {q} {}' \
     --ansi --phony --query "$INITIAL_QUERY")
 
   [ -n "$CHOICE" ] && "$EDITOR" "$CHOICE"
