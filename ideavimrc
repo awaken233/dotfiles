@@ -172,10 +172,12 @@ vnoremap <leader>sq :action ar<CR>
 " git"
 nnoremap <leader>gg :action Git.Branches<CR>
 noremap <leader>go :action Vcs.QuickListPopupAction<CR>
+noremap <leader>gf :action Git.Fetch<CR>
+noremap <leader>gsl :action Vcs.Show.Log<CR>
 nnoremap <leader>gss :action Git.Stash<CR>
 nnoremap <leader>gsu :action Git.Unstash<CR>
-nnoremap <leader>glh :action LocalHistory.ShowHistory<CR>
 nnoremap <leader>gsh :action Vcs.ShowTabbedFileHistory<CR>
+nnoremap <leader>glh :action LocalHistory.ShowHistory<CR>
 
 " run
 nnoremap <Leader>ru :action Run<CR>
