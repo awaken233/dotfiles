@@ -45,13 +45,13 @@ exmap surround_square_brackets surround [ ]
 exmap surround_curly_brackets surround { }
 
 " NOTE: must use 'map' and not 'nmap'
+" 只有 surround , 无 delete replace surround
 map [[ :surround_wiki
 nunmap s
 vunmap s
 map s" :surround_double_quotes
 map s' :surround_single_quotes
 map s` :surround_backticks
-map sb :surround_brackets
 map s( :surround_brackets
 map s) :surround_brackets
 map s[ :surround_square_brackets
