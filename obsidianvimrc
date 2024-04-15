@@ -13,6 +13,9 @@ nmap L :tabnext
 exmap tabprev obcommand workspace:previous-tab
 nmap H :tabprev
 
+"global search"
+exmap global_search obcommand global-search:open
+nmap <Space><Space> :global_search
 
 map + <C-a>
 map - <C-e>
