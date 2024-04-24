@@ -17,6 +17,12 @@ nmap H :tabprev
 exmap global_search obcommand global-search:open
 nmap <Space><Space> :global_search
 
+exmap switcher_open obcommand switcher:open
+nmap <Space>f :switcher_open
+
+exmap cp_open obcommand command-palette:open
+nmap <Space>a :cp_open
+
 map + <C-a>
 map - <C-e>
 map <C-a> ^
