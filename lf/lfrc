@@ -126,7 +126,8 @@ map yd $dirname -- "$f"| pbcopy
 map yf $basename -a -- $fx | pbcopy
 # 复制全路径(包含文件名)
 map yp $printf "%s" "$fx" | pbcopy
-
+# 复制文件内容到剪贴板中(二进制内容 pbcopy 无法复制)
+map yc $pbcopy < "$fx"
 # rename file
 map r :rename; cmd-end
 map R reload
