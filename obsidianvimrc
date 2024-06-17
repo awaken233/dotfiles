@@ -27,8 +27,8 @@ nmap <Space>a :cp_open
 exmap open_link obcommand editor:open-link-in-new-leaf
 nmap gd :open_link
 
-map + <C-a>
-map - <C-e>
+nnoremap + <C-a>
+nnoremap - <C-e>
 map <C-a> ^
 map <C-e> $
 
@@ -36,6 +36,7 @@ map <C-e> $
 nnoremap <Esc> :nohl
 
 nmap t F
+nmap vv V
 
 " Y consistent with D and C to the end of line
 nnoremap Y y$
