@@ -219,3 +219,6 @@ nnoremap <Leader>rt :action DatabaseView.Refresh<CR>
 " vim debug"
 nnoremap <Leader>vt :action VimFindActionIdAction<CR>
 nnoremap <Leader>va :action VimActions<CR>
+
+"quit
+nnoremap <Leader>qq :action CloseProject<CR>
