@@ -39,7 +39,7 @@ map <C-e> $
 nnoremap <Esc> :nohl
 
 nmap t F
-nmap vv V
+nnoremap vv V
 
 " Y consistent with D and C to the end of line
 nnoremap Y y$
