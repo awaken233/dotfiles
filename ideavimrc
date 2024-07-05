@@ -129,9 +129,10 @@ nnoremap gi :action GotoImplementation<CR>
 nnoremap gd :action GotoDeclaration<CR>
 nnoremap gt :action GotoTypeDeclaration<CR>
 nnoremap ga :action Annotate<CR>
-nnoremap H :action Back<CR>
-nnoremap L :action Forward<CR>
-" 使用idea的前进后退(vim的前进后退如果开启多个工程,前进后退时文件buffer会串掉) 后来官方修复了此bug
+nnoremap H :action PreviousTab<CR>
+nnoremap L :action NextTab<CR>
+" nnoremap H :action Back<CR>
+" nnoremap L :action Forward<CR>
 nnoremap <C-O> :action Back<CR>
 nnoremap <C-I> :action Forward<CR>
 nnoremap [e :action GotoPreviousError<cr>
