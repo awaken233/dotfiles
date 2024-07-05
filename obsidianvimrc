@@ -88,3 +88,15 @@ nmap O &a&i
 "执行大纲搜索"
 exmap show_outline obcommand outline:open
 nmap gf :show_outline
+
+"Folding
+exmap togglefold obcommand editor:toggle-fold
+nmap zo :togglefold
+nmap zc :togglefold
+nmap za :togglefold
+
+exmap unfoldall obcommand editor:unfold-all
+nmap zR :unfoldall
+
+exmap foldall obcommand editor:fold-all
+nmap zM :foldall
