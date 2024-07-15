@@ -30,6 +30,11 @@ nmap <Space>e :raf
 exmap open_link obcommand editor:open-link-in-new-leaf
 nmap gd :open_link
 
+exmap next_header obcommand obsidian-editor-shortcuts:goToNextHeading
+nmap ]m :next_header
+exmap prev_header obcommand obsidian-editor-shortcuts:goToPrevHeading
+nmap [m :prev_header
+
 nnoremap + <C-a>
 nnoremap - <C-e>
 map <C-a> ^
