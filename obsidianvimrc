@@ -20,12 +20,15 @@ vmap <Space><Space> :global_search
 
 exmap switcher_open obcommand switcher:open
 nmap <Space>f :switcher_open
+vmap <Space>f :switcher_open
 
 exmap cp_open obcommand command-palette:open
 nmap <Space>a :cp_open
+vmap <Space>a :cp_open
 
 exmap raf obcommand file-explorer:reveal-active-file
 nmap <Space>e :raf
+vmap <Space>e :raf
 
 exmap open_link obcommand editor:open-link-in-new-leaf
 nmap gd :open_link
