@@ -33,6 +33,10 @@ vmap <Space>e :raf
 exmap open_link obcommand editor:open-link-in-new-leaf
 nmap gd :open_link
 
+"unlink (need plugins links)
+exmap unlink obcommand links:editor-unlink-link
+nmap K :unlink
+
 exmap next_header obcommand obsidian-editor-shortcuts:goToNextHeading
 nmap ]m :next_header
 exmap prev_header obcommand obsidian-editor-shortcuts:goToPrevHeading
