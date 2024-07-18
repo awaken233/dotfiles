@@ -37,11 +37,6 @@ nmap gd :open_link
 exmap unlink obcommand links:editor-unlink-link
 nmap K :unlink
 
-unmap v
-nnoremap vv V
-exmap sel_line obcommand obsidian-editor-shortcuts:selectLine
-nnoremap v :sel_line
-
 exmap next_header obcommand obsidian-editor-shortcuts:goToNextHeading
 nmap ]m :next_header
 exmap prev_header obcommand obsidian-editor-shortcuts:goToPrevHeading
