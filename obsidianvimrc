@@ -27,8 +27,8 @@ nmap <Space>a :cp_open
 vmap <Space>a :cp_open
 
 exmap raf obcommand file-explorer:reveal-active-file
-nmap <Space>e :raf
 vmap <Space>e :raf
+nmap <Space>e :raf
 
 exmap open_link obcommand editor:open-link-in-new-leaf
 nmap gd :open_link
@@ -36,6 +36,11 @@ nmap gd :open_link
 "unlink (need plugins links)
 exmap unlink obcommand links:editor-unlink-link
 nmap K :unlink
+
+unmap v
+nnoremap vv V
+exmap sel_line obcommand obsidian-editor-shortcuts:selectLine
+nnoremap v :sel_line
 
 exmap next_header obcommand obsidian-editor-shortcuts:goToNextHeading
 nmap ]m :next_header
@@ -51,7 +56,6 @@ map <C-e> $
 nnoremap <Esc> :nohl
 
 nmap t F
-nnoremap vv V
 
 " Y consistent with D and C to the end of line
 nnoremap Y y$
