@@ -952,6 +952,28 @@
       "description": "Hyper wnd(moom)",
       "manipulators": [
         {
+          "description": "wnd left",
+          "type": "basic",
+          "from": {
+            "key_code": "left_arrow",
+            "modifiers": {
+              "mandatory": [
+                "fn"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_arrow",
+              "modifiers": [
+                "right_option",
+                "right_shift",
+                "right_control"
+              ]
+            }
+          ]
+        },
+        {
           "description": "wnd right",
           "type": "basic",
           "from": {
