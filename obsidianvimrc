@@ -1,12 +1,45 @@
 " 不支持leader和vimscript"
-
 unmap <Space>
+unmap q
 
+"--------------------- navigate"
 " Have j and k navigate visual lines rather than logical ones
 nmap j gj
 nmap k gk
 
+exmap jumpToLink obcommand mrj-jump-to-link:activate-lightspeed-jump
+nmap s :jumpToLink
 
+" 默认 [[ / ]]"
+" exmap next_header obcommand obsidian-editor-shortcuts:goToNextHeading
+" nmap ]m :next_header
+" exmap prev_header obcommand obsidian-editor-shortcuts:goToPrevHeading
+" nmap [m :prev_header
+
+nnoremap + <C-a>
+nnoremap - <C-e>
+map <C-a> ^
+map <C-e> $
+
+" <Esc> clears highlights
+nnoremap <Esc> :nohl
+
+nmap t F
+
+" Y consistent with D and C to the end of line
+nnoremap Y y$
+
+" Go back and forward with Ctrl+O and Ctrl+I
+" (make sure to remove default Obsidian shortcuts for these to work)
+exmap back obcommand app:go-back
+exmap forward obcommand app:go-forward
+nmap <C-o> :back
+nmap <C-i> :forward
+
+" alias go to last change
+nnoremap g; `.
+
+"--------------------- obsidian action"
 "Tab Switching
 exmap tabnext obcommand workspace:next-tab
 nmap L :tabnext
@@ -32,36 +65,18 @@ nmap <Space>e :raf
 
 exmap open_link obcommand editor:open-link-in-new-leaf
 nmap gd :open_link
+"执行大纲搜索"
+exmap show_outline obcommand outline:open
+nmap gf :show_outline
+
+"---------------------- edit"
 
 "unlink (need plugins links)
 exmap unlink obcommand links:editor-unlink-link
 nmap K :unlink
 
-exmap next_header obcommand obsidian-editor-shortcuts:goToNextHeading
-nmap ]m :next_header
-exmap prev_header obcommand obsidian-editor-shortcuts:goToPrevHeading
-nmap [m :prev_header
 
-nnoremap + <C-a>
-nnoremap - <C-e>
-map <C-a> ^
-map <C-e> $
-
-" <Esc> clears highlights
-nnoremap <Esc> :nohl
-
-nmap t F
-
-" Y consistent with D and C to the end of line
-nnoremap Y y$
-
-" Go back and forward with Ctrl+O and Ctrl+I
-" (make sure to remove default Obsidian shortcuts for these to work)
-exmap back obcommand app:go-back
-exmap forward obcommand app:go-forward
-nmap <C-o> :back
-nmap <C-i> :forward
-
+"----------------------- surround"
 " surround.vim mappings
 " 正常模式下默认环绕当前单词"
 exmap surround_wiki surround [[ ]]
@@ -74,18 +89,22 @@ exmap surround_curly_brackets surround { }
 
 " NOTE: must use 'map' and not 'nmap'
 " 只有 surround , 无 delete replace surround
-map [[ :surround_wiki
-nunmap s
-vunmap s
-map s" :surround_double_quotes
-map s' :surround_single_quotes
-map s` :surround_backticks
-map s( :surround_brackets
-map s) :surround_brackets
-map s[ :surround_square_brackets
-map s[ :surround_square_brackets
-map s{ :surround_curly_brackets
-map s} :surround_curly_brackets
+map qi :surround_wiki
+nunmap S
+vunmap S
+map S" :surround_double_quotes
+map S' :surround_single_quotes
+map S` :surround_backticks
+map S( :surround_brackets
+map S) :surround_brackets
+map S[ :surround_square_brackets
+map S[ :surround_square_brackets
+map S{ :surround_curly_brackets
+map S} :surround_curly_brackets
+
+"---------------------- edit
+exmap insertHr jscommand { editor.replaceSelection("\n---\n"); }
+nnoremap ql :insertHr
 
 
 " Make o and O respect context(need plugin obsidian-editor-shortcuts, 在代码块和列表按o会自动缩进)
@@ -96,9 +115,6 @@ nmap &b& :blankBelow
 nmap o &b&i
 nmap O &a&i
 
-"执行大纲搜索"
-exmap show_outline obcommand outline:open
-nmap gf :show_outline
 
 "Folding
 exmap togglefold obcommand editor:toggle-fold
@@ -111,3 +127,42 @@ nmap zR :unfoldall
 
 exmap foldall obcommand editor:fold-all
 nmap zM :foldall
+
+
+"───────────────────────────────────────────────────────────────────────────────
+" SUBSTITUTE
+
+" HACK poor man's substitute.nvim: brut-forcing all possible text objects 💀
+" https://github.com/chrisgrieser/.config/blob/main/obsidian/vimrc/obsidian-vimrc.vim
+nunmap gr
+
+nnoremap grr VP
+nnoremap gr$ vg$P
+nnoremap grj VjP
+nnoremap grJ VjjP
+nnoremap griW viWP
+nnoremap graW vaWP
+nnoremap griw viwP
+nnoremap graw vawP
+nnoremap gris visP
+nnoremap gras vasP
+nnoremap grip VipP
+nnoremap grap VapP
+nnoremap grib vi)P
+nnoremap grab va)P
+nnoremap gra" va"P
+nnoremap gri" vi"P
+nnoremap gri" vi"P
+nnoremap gra' va'P
+nnoremap gri' vi'P
+nnoremap gra` va`P
+nnoremap gri` vi`P
+nnoremap gri[ vi]P
+nnoremap gra[ va]P
+nnoremap gri} vi}P
+nnoremap gra} va}P
+nnoremap grrg vGP
+nnoremap grrp v}P
+nnoremap grgg vggGP
+nnoremap grm vt]P
+
