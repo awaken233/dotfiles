@@ -26,8 +26,23 @@ nnoremap <Esc> :nohl
 
 nmap t F
 
+"───────────────────────────────────────────────────────────────────────────────
+" CLIPBOARD
+
+" yank to system clipboard
+set clipboard=unnamed
+
+" don't pollute the register (HACK since we can't map to `"_x` or `"_C` directly)
+nnoremap C "_c$
+nnoremap x "_dl
+" nnoremap c "_c " BUG not working with vimrc plugin
+
+" don't override register
+vnoremap p P
 " Y consistent with D and C to the end of line
 nnoremap Y y$
+
+"───────────────────────────────────────────────────────────────────────────────
 
 " Go back and forward with Ctrl+O and Ctrl+I
 " (make sure to remove default Obsidian shortcuts for these to work)
