@@ -1,6 +1,5 @@
 " 不支持leader和vimscript"
 unmap <Space>
-unmap q
 
 "--------------------- navigate"
 " Have j and k navigate visual lines rather than logical ones
@@ -35,7 +34,8 @@ set clipboard=unnamed
 " don't pollute the register (HACK since we can't map to `"_x` or `"_C` directly)
 nnoremap C "_c$
 nnoremap x "_dl
-" nnoremap c "_c " BUG not working with vimrc plugin
+ " BUG not working with vimrc plugin
+nnoremap c "_c
 
 " don't override register
 vnoremap p P
