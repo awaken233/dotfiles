@@ -29,13 +29,13 @@ nmap t F
 " CLIPBOARD
 
 " yank to system clipboard
-set clipboard=unnamed
-
-" don't pollute the register (HACK since we can't map to `"_x` or `"_C` directly)
-nnoremap C "_c$
-nnoremap x "_dl
- " BUG not working with vimrc plugin
-nnoremap c "_c
+" set clipboard=unnamed
+"
+" " don't pollute the register (HACK since we can't map to `"_x` or `"_C` directly)
+" nnoremap C "_c$
+" nnoremap x "_dl
+"  " BUG not working with vimrc plugin
+" nnoremap c "_c
 
 " don't override register
 vnoremap p P
