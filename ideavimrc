@@ -133,6 +133,8 @@ nnoremap H :action PreviousTab<CR>
 nnoremap L :action NextTab<CR>
 " nnoremap H :action Back<CR>
 " nnoremap L :action Forward<CR>
+vnoremap <C-O> <Esc>:action Back<CR>
+vnoremap <C-I> <Esc>:action Forward<CR>
 nnoremap <C-O> :action Back<CR>
 nnoremap <C-I> :action Forward<CR>
 nnoremap [e :action GotoPreviousError<cr>
