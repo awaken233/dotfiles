@@ -153,6 +153,7 @@ endif
 " refactor
 nnoremap R :action RenameElement<CR>
 nnoremap <leader>uw :action Unwrap<CR>
+" 需要到实现类中按此快捷键才能触发
 nnoremap <leader>im :action ImplementMethods<CR>
 nnoremap <leader>om :action OverrideMethods<CR>
 inoremap <C-i> :action ImplementMethods<CR>
