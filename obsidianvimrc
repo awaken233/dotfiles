@@ -7,7 +7,7 @@ nmap j gj
 nmap k gk
 
 exmap jumpToLink obcommand mrj-jump-to-link:activate-lightspeed-jump
-nmap s :jumpToLink
+nmap s :jumpToLink<CR>
 
 " 默认 [[ / ]]"
 " exmap next_header obcommand obsidian-editor-shortcuts:goToNextHeading
@@ -21,7 +21,7 @@ map <C-a> ^
 map <C-e> $
 
 " <Esc> clears highlights
-nnoremap <Esc> :nohl
+nnoremap <Esc> :nohl<CR>
 
 nmap t F
 
@@ -48,8 +48,8 @@ nnoremap Y y$
 " (make sure to remove default Obsidian shortcuts for these to work)
 exmap back obcommand app:go-back
 exmap forward obcommand app:go-forward
-nmap <C-o> :back
-nmap <C-i> :forward
+nmap <C-o> :back<CR>
+nmap <C-i> :forward<CR>
 
 " alias go to last change
 nnoremap g; `.
@@ -57,38 +57,38 @@ nnoremap g; `.
 "--------------------- obsidian action"
 "Tab Switching
 exmap tabnext obcommand workspace:next-tab
-nmap L :tabnext
+nmap L :tabnext<CR>
 exmap tabprev obcommand workspace:previous-tab
-nmap H :tabprev
+nmap H :tabprev<CR>
 
 "global search"
 exmap global_search obcommand global-search:open
-nmap <Space><Space> :global_search
-vmap <Space><Space> :global_search
+nmap <Space><Space> :global_search<CR>
+vmap <Space><Space> :global_search<CR>
 
 exmap switcher_open obcommand switcher:open
-nmap <Space>f :switcher_open
-vmap <Space>f :switcher_open
+nmap <Space>f :switcher_open<CR>
+vmap <Space>f :switcher_open<CR>
 
 exmap cp_open obcommand command-palette:open
-nmap <Space>a :cp_open
-vmap <Space>a :cp_open
+nmap <Space>a :cp_open<CR>
+vmap <Space>a :cp_open<CR>
 
 exmap raf obcommand file-explorer:reveal-active-file
-vmap <Space>e :raf
-nmap <Space>e :raf
+vmap <Space>e :raf<CR>
+nmap <Space>e :raf<CR>
 
 exmap open_link obcommand editor:open-link-in-new-leaf
-nmap gd :open_link
+nmap gd :open_link<CR>
 "执行大纲搜索"
 exmap show_outline obcommand outline:open
-nmap gf :show_outline
+nmap gf :show_outline<CR>
 
 "---------------------- edit"
 
 "unlink (need plugins links)
 exmap unlink obcommand links:editor-unlink-link
-nmap K :unlink
+nmap K :unlink<CR>
 
 
 "----------------------- surround"
@@ -104,44 +104,44 @@ exmap surround_curly_brackets surround { }
 
 " NOTE: must use 'map' and not 'nmap'
 " 只有 surround , 无 delete replace surround
-map qi :surround_wiki
+map qi :surround_wiki<CR>
 nunmap S
 vunmap S
-map S" :surround_double_quotes
-map S' :surround_single_quotes
-map S` :surround_backticks
-map S( :surround_brackets
-map S) :surround_brackets
-map S[ :surround_square_brackets
-map S[ :surround_square_brackets
-map S{ :surround_curly_brackets
-map S} :surround_curly_brackets
+map S" :surround_double_quotes<CR>
+map S' :surround_single_quotes<CR>
+map S` :surround_backticks<CR>
+map S( :surround_brackets<CR>
+map S) :surround_brackets<CR>
+map S[ :surround_square_brackets<CR>
+map S[ :surround_square_brackets<CR>
+map S{ :surround_curly_brackets<CR>
+map S} :surround_curly_brackets<CR>
 
 "---------------------- edit
 exmap insertHr jscommand { editor.replaceSelection("\n---\n"); }
-nnoremap ql :insertHr
+nnoremap ql :insertHr<CR>
 
 
 " Make o and O respect context(need plugin obsidian-editor-shortcuts, 在代码块和列表按o会自动缩进)
 exmap blankBelow obcommand obsidian-editor-shortcuts:insertLineBelow
 exmap blankAbove obcommand obsidian-editor-shortcuts:insertLineAbove
-nmap &a& :blankAbove
-nmap &b& :blankBelow
+nmap &a& :blankAbove<CR>
+nmap &b& :blankBelow<CR>
 nmap o &b&i
 nmap O &a&i
 
 
 "Folding
 exmap togglefold obcommand editor:toggle-fold
-nmap zo :togglefold
-nmap zc :togglefold
-nmap za :togglefold
+nmap zo :togglefold<CR>
+nmap zc :togglefold<CR>
+nmap za :togglefold<CR>
 
 exmap unfoldall obcommand editor:unfold-all
-nmap zR :unfoldall
+nmap zR :unfoldall<CR>
 
 exmap foldall obcommand editor:fold-all
-nmap zM :foldall
+nmap zM :foldall<CR>
 
 
 "───────────────────────────────────────────────────────────────────────────────
