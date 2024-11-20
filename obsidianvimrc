@@ -181,3 +181,19 @@ nnoremap grrp v}P
 nnoremap grgg vggGP
 nnoremap grm vt]P
 
+
+" paste url into selection/cword
+" INFO on macOS, as opposed to nvim, cmd-key mappings are <M-*>, not <D-*>
+" 和ob自带的hotkey行为的区别是: 
+" ob: N模式下不会自动选中当前词范围创建link,但是光标会默认移动到link的()中
+" vim: N模式会自动选中当前次范围创建link, 光标不会自动移动到link的()中
+" vim 这个配置并不是利用剪贴板的信息来创建link, 就是常规ob创建links.
+" noremap <M-k> :pasteinto<CR>
+
+" ensure compatibility with macOS clipboard managers or other pasting methods
+vnoremap <M-v> "+p
+
+
+" [s]plit line
+nnoremap \s i<CR><CR><Esc>
+
