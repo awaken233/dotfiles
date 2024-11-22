@@ -195,5 +195,5 @@ vnoremap <M-v> "+p
 
 
 " [s]plit line
-nnoremap \s i<CR><CR><Esc>
+nnoremap <Space>s i<CR><Esc>
 
