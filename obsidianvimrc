@@ -9,7 +9,7 @@ nnoremap I g0i
 nnoremap A g$a
 map <C-a> g^
 map <C-e> g$
-imap <C-a> <Esc>g^a
+imap <C-a> <Esc>g^i
 imap <C-e> <Esc>g$a
 
 exmap jumpToLink obcommand mrj-jump-to-link:activate-lightspeed-jump
