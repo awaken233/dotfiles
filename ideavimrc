@@ -37,6 +37,7 @@ set commentary
 set textobj-indent
 
 " handler"
+sethandler <S-CR> a:ide
 sethandler <C-6> a:vim
 sethandler <C-S-6> a:vim
 sethandler <C-A> a:vim
