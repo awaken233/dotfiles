@@ -35,6 +35,7 @@ set vim-paragraph-motion
 set matchit
 set commentary
 set textobj-indent
+set peekaboo
 
 " handler"
 sethandler <S-CR> a:ide
