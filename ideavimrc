@@ -36,6 +36,8 @@ set matchit
 set commentary
 set textobj-indent
 set peekaboo
+set functiontextobj
+set switch
 
 " handler"
 sethandler <S-CR> a:ide
@@ -78,6 +80,10 @@ nnoremap <Esc> <Esc>:noh<CR>
 map s <Action>(AceAction)
 nmap S ysiw
 let g:argtextobj_pairs="(:),{:},<:>,[:]"
+
+" switch
+nnoremap \s :Switch<CR>
+let g:switch_definitions = 'group:basic,java_visibility'
 
 " edit
 inoremap <C-d> <Delete>
