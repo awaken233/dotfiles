@@ -160,6 +160,7 @@ endif
 
 " refactor
 nnoremap R :action RenameElement<CR>
+" delete surround
 nnoremap <leader>uw :action Unwrap<CR>
 " 需要到实现类中按此快捷键才能触发
 nnoremap <leader>im :action ImplementMethods<CR>
