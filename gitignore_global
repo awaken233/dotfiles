@@ -7,3 +7,4 @@ rebel.xml
 .venv
 venv
 .cursorignore
+.cursorrule
