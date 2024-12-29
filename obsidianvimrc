@@ -5,6 +5,8 @@ unmap <Space>
 " navigate visual lines rather than logical ones
 nmap j gj
 nmap k gk
+vmap j gj
+vmap k gk
 nnoremap I g0i
 nnoremap A g$a
 map <C-a> g^
@@ -199,5 +201,5 @@ vnoremap <M-v> "+p
 
 
 " [s]plit line
-nnoremap <Space>s i<CR><Esc>
+nnoremap \s i<CR><Esc>
 
