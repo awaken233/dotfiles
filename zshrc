@@ -34,6 +34,8 @@ bindkey -M emacs '^N' history-substring-search-down
 # tmux up/down search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+# zsh-autosuggestions 只接受一个单词
+bindkey '^F' forward-word
 
 # tmux 真彩色配置
 export TERM="screen-256color"
