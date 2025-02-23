@@ -24,7 +24,7 @@ nmap s :jumpToLink<CR>
 " nmap [m :prev_header
 
 nnoremap + <C-a>
-nnoremap - <C-e>
+nnoremap - <C-x>
 
 " <Esc> clears highlights
 nnoremap <Esc> :nohl<CR>
