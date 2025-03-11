@@ -9,3 +9,4 @@ venv
 .cursorignore
 .cursorrules
 .cursor/rules
+.env
