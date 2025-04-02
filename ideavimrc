@@ -38,6 +38,8 @@ set textobj-indent
 set peekaboo
 set functiontextobj
 set switch
+set mini-ai
+
 
 " handler"
 sethandler <S-CR> a:ide
