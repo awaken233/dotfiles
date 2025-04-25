@@ -88,7 +88,7 @@ exmap open_link obcommand editor:open-link-in-new-leaf
 nmap gd :open_link<CR>
 "执行大纲搜索"
 exmap show_outline obcommand outline:open
-nmap gf :show_outline<CR>
+" nmap gf :show_outline<CR>
 
 "---------------------- edit"
 
