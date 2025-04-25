@@ -84,10 +84,11 @@ exmap raf obcommand file-explorer:reveal-active-file
 vmap <Space>e :raf<CR>
 nmap <Space>e :raf<CR>
 
-exmap open_link obcommand editor:open-link-in-new-leaf
-nmap gd :open_link<CR>
-"执行大纲搜索"
-exmap show_outline obcommand outline:open
+" 默认的gf更加的好用, 对于 [[的链接, 可以不用跳转到[[的末尾就可以打开链接, gd和cmd+enter 是做不到的. 而且更加符合vim默认的键配置
+" exmap open_link obcommand editor:open-link-in-new-leaf
+" nmap gd :open_link<CR>
+" "执行大纲搜索"
+" exmap show_outline obcommand outline:open
 " nmap gf :show_outline<CR>
 
 "---------------------- edit"
