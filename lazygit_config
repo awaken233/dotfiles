@@ -5,3 +5,4 @@ os:
 gui:
   # show nerdFont
   nerdFontsVersion: "3"
+  language: "en"
