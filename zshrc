@@ -57,20 +57,23 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git/*"'
 export BAT_THEME="Dracula"
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 
-
 # 定义 rg + fzf 全文搜索函数
 rgfzf() {
-  local RG_PREFIX="rg --column --files-with-matches --smart-case --color=always"
+  local RG_PREFIX="rg --column --files-with-matches --smart-case --color=always --fixed-strings"
   local INITIAL_QUERY=""
   local CHOICE=$(fzf --bind "change:reload:$RG_PREFIX {q} || true" \
     --sort \
     --multi \
-    --preview '[[ ! -z {} ]] && rg --ignore-case --pretty --context 5 {q} {}' \
-    --ansi --phony --query "$INITIAL_QUERY")
+    --preview '[[ ! -z {} ]] && rg --ignore-case --pretty --context 5 --fixed-strings {q} {}' \
+    --ansi --phony --query "$INITIAL_QUERY" \
+    --prompt "字面量搜索> " \
+    --header "F2:切换到正则模式" \
+    --bind "f2:change-prompt(正则搜索> )+reload(rg --column --files-with-matches --smart-case --color=always {q} || true)+change-preview([[ ! -z {} ]] && rg --ignore-case --pretty --context 5 {q} {})")
 
   [ -n "$CHOICE" ] && "$EDITOR" "$CHOICE"
 }
 
+# 将函数注册为 zsh 编辑器小部件
 zle -N rgfzf
 bindkey '^S' rgfzf
 
