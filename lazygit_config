@@ -6,3 +6,17 @@ gui:
   # show nerdFont
   nerdFontsVersion: "3"
   language: "en"
+customCommands:
+  # 使用 idea 打开当前目录
+  - key: '<f2>'
+    command: 'idea . &'
+    description: 'Open repository in IntelliJ IDEA'
+    context: 'global'
+    subprocess: false
+
+  # 使用 cursor 打开当前目录
+  - key: '<f4>'
+    command: 'cursor . &'
+    description: 'Open repository in Cursor'
+    context: 'global'
+    subprocess: false
