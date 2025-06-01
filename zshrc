@@ -10,7 +10,6 @@ source $ZSH/oh-my-zsh.sh
 alias proxy='export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890'
 alias unproxy='unset http_proxy https_proxy all_proxy'
 alias rm="trash -F"
-alias lg="lazygit"
 alias -g G='| rg -i'
 alias -g L='| less'
 alias vim='nvim'
@@ -78,3 +77,15 @@ zle -N rgfzf
 bindkey '^S' rgfzf
 
 
+# 当使用 ctrl+r 切换了 repo, 退出 shell 将将当前目录切换到 repo 目录, 如果希望不切换目录, 可以按下 shift+Q
+lg()
+{
+    export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+
+    lazygit "$@"
+
+    if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
+            cd "$(cat $LAZYGIT_NEW_DIR_FILE)"
+            rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
+    fi
+}
