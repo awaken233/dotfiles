@@ -17,3 +17,8 @@ customCommands:
     command: 'cursor . &'
     description: 'Open repository in Cursor'
     context: 'global'
+git:
+  # 使用 delta 作为 git 的 pager, 好用的 diff 视图, 点击行号可以使用默认的编辑器编辑
+   paging:
+     colorArg: always
+     pager: delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
