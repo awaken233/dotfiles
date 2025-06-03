@@ -5,6 +5,7 @@
 - clean: ['~']
 
 - link:
+    ~/.gitconfig: gitconfig
     ~/.ideavimrc: ideavimrc
     ~/Documents/Obsidian Vault/.obsidian.vimrc: obsidianvimrc
     ~/.vimrc: vimrc

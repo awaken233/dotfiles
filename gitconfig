@@ -1,0 +1,55 @@
+[core]
+	excludesfile = /Users/ve/.gitignore_global
+	quotepath = false
+	autocrlf = input
+	pager = delta
+[http]
+	proxy = socks5://127.0.0.1:7890
+	postBuffer = 524288000
+[https]
+	proxy = socks5://127.0.0.1:7890
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[credential]
+	helper = osxkeychain
+[rerere]
+	enabled = true
+[includeIf "gitdir:~/IdeaProjects/"]
+    path = .gitconfig-work
+[includeIf "gitdir:~/idea2/"]
+    path = .gitconfig-self
+[column]
+; 按照列显示是分支, 可以看到更多分支
+	ui = auto
+[branch]
+; 按照日期排序分支, 而不是按照字母排序
+	sort = -committerdate
+[tag]
+; 按照数字排序tag, 而不是按照字母排序
+	sort = version:refname
+[diff]
+; 更优良的diff算法
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+[push]
+; 推送本地分支到远程, 如果远程同名分支不存在, 将默认创建
+	autoSetupRemote = true
+; 推送内容自动推送tag
+	followTags = true
+[rebase]
+	autoStash = true
+[pull]
+	rebase = true
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	light = true
+[merge]
+	conflictStyle = zdiff3
+
