@@ -10,7 +10,8 @@ source $ZSH/oh-my-zsh.sh
 alias proxy='export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890'
 alias unproxy='unset http_proxy https_proxy all_proxy'
 alias rm="trash -F"
-alias -g G='| rg -i'
+# 忽略大小写和正则
+alias -g G='| rg -i -F'
 alias -g L='| less'
 alias vim='nvim'
 alias v='nvim'
@@ -91,3 +92,16 @@ lg()
             rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
     fi
 }
+
+# 快速打开指定项目目录的 lazygit
+project_lazygit() {
+  local selected_dir=$(fd -t d -d 1 '' ~/IdeaProjects ~/Idea2 ~/PycharmProjects 2>/dev/null | fzf --prompt "选择项目目录> " --preview 'ls -la {}')
+  
+  if [[ -n "$selected_dir" ]]; then
+    lazygit -p "$selected_dir"
+  fi
+}
+
+# 将函数注册为 zsh 编辑器小部件
+zle -N project_lazygit
+bindkey '^G' project_lazygit
