@@ -68,11 +68,11 @@ rgfzf() {
   local CHOICE=$(fzf --bind "change:reload:$RG_PREFIX {q} || true" \
     --sort \
     --multi \
-    --preview '[[ ! -z {} ]] && echo {} | cut -d: -f1 | xargs -I{} rg --ignore-case --pretty --context 25 --fixed-strings {q} {}' \
+    --preview '[[ ! -z {} ]] && filename=$(echo {} | cut -d: -f1) && line_number=$(echo {} | cut -d: -f2) && bat --color=always --style=numbers --highlight-line "$line_number" "$filename"' \
     --ansi --phony --query "$INITIAL_QUERY" \
     --prompt "字面量搜索> " \
     --header "F2:切换到正则模式 | Enter:跳转到目标行" \
-    --bind "f2:change-prompt(正则搜索> )+reload(rg --line-number --column --smart-case --color=always {q} || true)+change-preview([[ ! -z {} ]] && echo {} | cut -d: -f1 | xargs -I{} rg --ignore-case --pretty --context 25 {q} {})")
+    --bind "f2:change-prompt(正则搜索> )+reload(rg --line-number --column --smart-case --color=always {q} || true)+change-preview([[ ! -z {} ]] && filename=\$(echo {} | cut -d: -f1) && line_number=\$(echo {} | cut -d: -f2) && bat --color=always --style=numbers --highlight-line \"\$line_number\" \"\$filename\")")
 
   if [ -n "$CHOICE" ]; then
     # 解析文件名和行号 (格式: filename:line:column:content)
