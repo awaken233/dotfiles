@@ -50,6 +50,9 @@ export VISUAL=nvim
 export PAGER=bat
 export EDITOR=/opt/homebrew/bin/nvim
 
+# 设置bat的主题
+export BAT_THEME="Dracula"
+
 # fzf setting
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # 使用 rg 进行搜索, 而不是find搜索, 需要安装ripgrep, 且忽略.git 目录
@@ -57,8 +60,6 @@ export EDITOR=/opt/homebrew/bin/nvim
 export FZF_DEFAULT_COMMAND='fd --type f'
 # 使用bat进行预览, bat会语法高亮, 支持git高亮,需要安装bat
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always --style=numbers --line-range=:500 {}'"
-# 设置bat的主题
-export BAT_THEME="Dracula"
 
 # 定义 rg + fzf 全文搜索函数, enter 打开并跳转到目标行
 rgfzf() {
