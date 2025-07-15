@@ -3,6 +3,7 @@
 -- Add any additional keymaps here
 
 local keymap = vim.keymap
+local unmap = vim.keymap.del
 
 -- clipboard
 keymap.set("n", "<leader>yo", "<cmd>let @+ = @0<CR>", { desc = "exchange clipboard to system" })
@@ -14,5 +15,5 @@ keymap.set({ "i" }, "<C-a>", "<home>")
 keymap.set({ "i" }, "<C-e>", "<end>")
 
 -- 取消 Alt+j/k 映射，避免在 tmux 中的按键冲突
-keymap.set({ "n", "i", "v" }, "<M-j>", "<nop>")
-keymap.set({ "n", "i", "v" }, "<M-k>", "<nop>")
+unmap({ "n", "i", "v" }, "<A-j>")
+unmap({ "n", "i", "v" }, "<A-k>")

@@ -5,6 +5,7 @@ local opt = vim.opt
 
 opt.clipboard = ""
 opt.expandtab = false -- Use spaces instead of tabs
+opt.ttimeoutlen = 5   -- 立即处理 ESC 键，无延迟退出插入模式
 
 -- 配置代理环境变量
 vim.env.http_proxy = "http://127.0.0.1:7890"
