@@ -9,5 +9,9 @@ venv
 .cursorignore
 .cursorrules
 .cursor/rules
+.augment/rules
+.codebuddy/.rules
+.gemini-clipboard
+QWEN.md
 .env
 .mine

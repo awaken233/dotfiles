@@ -2,7 +2,15 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git extract zsh-syntax-highlighting history-substring-search zsh-autosuggestions z)
+plugins=(
+  git
+  extract
+  zsh-syntax-highlighting
+  history-substring-search
+  zsh-autosuggestions
+  z
+  kubectl
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,3 +124,22 @@ project_lazygit() {
 # 将函数注册为 zsh 编辑器小部件
 zle -N project_lazygit
 bindkey '^G' project_lazygit
+
+# 安装 cursor cli 才添加的配置
+export PATH="$HOME/.local/bin:$PATH"
+
+# K8s 多集群管理
+function switch-to-dev() {
+    kubectx dev
+    kubens dev
+    echo "✅ 已切换到dev环境"
+}
+
+function switch-to-scilink() {
+    kubectx scilink
+    kubens scilink
+    echo "✅ 已切换到scilink环境"
+}
+
+alias kdev='switch-to-dev'
+alias ksci='switch-to-scilink'
