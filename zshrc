@@ -21,6 +21,7 @@ alias rm="trash -F"
 # 忽略大小写和正则
 alias -g G='| rg -i -F'
 alias -g L='| less'
+alias -g F='| fzf'
 alias vim='nvim'
 alias v='nvim'
 alias vi='nvim'
