@@ -9,6 +9,7 @@
     ~/.ideavimrc: ideavimrc
     ~/Documents/Obsidian Vault/.obsidian.vimrc: obsidianvimrc
     ~/.vimrc: vimrc
+    ~/.config/starship.toml: starship.toml
     ~/.zshrc: zshrc
     ~/.tmux.conf: tmuxconf
     ~/.gitignore_global: gitignore_global

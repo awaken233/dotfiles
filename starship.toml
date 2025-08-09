@@ -1,0 +1,6 @@
+# 在默认格式基础上，将 kubernetes 追加到同一行末尾，并换行后显示提示符字符
+format = "$all$kubernetes$line_break$character"
+
+[kubernetes]
+format = '[⛵$context](cyan bold) '
+disabled = false
