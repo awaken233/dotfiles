@@ -1,3 +1,4 @@
+# 官方网址 https://github.com/gokcehan/lf 
 # interpreter for shell commands
 set shell zsh
 set relativenumber
@@ -47,6 +48,11 @@ cmd open &{{
         text/*) lf -remote "send $id \$$EDITOR \$fx";;
         *) for f in $fx; do $OPENER $f > /dev/null 2> /dev/null & done;;
     esac
+}}
+
+# 在 Finder 中打开当前目录（macOS）
+cmd finder_here &{{
+    open -a Finder "$PWD"
 }}
 
 # define a custom 'rename' command without prompt for overwrite
@@ -145,6 +151,10 @@ map x %trash -F ${(f)fx}
 
 # 用默认程序打开文件
 map o :push %open<space>$f<enter>
+
+# Finder 集成快捷键（macOS）
+# gf: 在 Finder 中打开当前目录
+map gf finder_here
 
 # 常用快捷路径
 map gh cd ~
