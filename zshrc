@@ -22,6 +22,7 @@ alias rm="trash -F"
 alias -g G='| rg -i -F'
 alias -g L='| less'
 alias -g F='| fzf'
+alias -g C='| pbcopy'
 alias vim='nvim'
 alias v='nvim'
 alias vi='nvim'
