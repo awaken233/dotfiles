@@ -15,6 +15,12 @@
     ~/.gitignore_global: gitignore_global
     ~/Library/Application Support/lazygit/config.yml: lazygit_config
     ~/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings: sublime_settings
+    ~/Library/Application Support/Cursor/User/settings.json:
+        force: true
+        path: cursor_settings.json
+    ~/Library/Application Support/Cursor/User/keybindings.json:
+        force: true
+        path: cursor_keybindings.json
     # ~/.config/karabiner 不能使用软链接, 会自动删除.
     ~/.config/karabiner/assets/complex_modifications:
         create: true
