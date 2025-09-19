@@ -14,8 +14,8 @@
     ~/.tmux.conf: tmuxconf
     ~/.gitignore_global: gitignore_global
     ~/Library/Application Support/lazygit/config.yml: lazygit_config
-    ~/.config/karabiner/karabiner.json: karabiner/karabiner_bk.json
     ~/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings: sublime_settings
+    # ~/.config/karabiner 不能使用软链接, 会自动删除.
     ~/.config/karabiner/assets/complex_modifications:
         create: true
         path: karabiner
