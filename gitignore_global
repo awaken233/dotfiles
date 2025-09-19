@@ -8,9 +8,10 @@ rebel.xml
 venv
 .cursorignore
 .cursorrules
-.cursor/rules
-.augment/rules
-.codebuddy/.rules
+.cursor
+.augment
+.codebuddy
+AGENTS.md
 .gemini-clipboard
 QWEN.md
 .env

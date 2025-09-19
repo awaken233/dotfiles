@@ -165,3 +165,7 @@ kfl() {
         kubectl logs "$selected_pod" -f
     fi
 }
+
+
+# Added by CodeBuddy
+export PATH="/Users/ve/.codebuddy/bin:$PATH"

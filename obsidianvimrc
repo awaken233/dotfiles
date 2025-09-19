@@ -22,6 +22,8 @@ nmap s :jumpToLink<CR>
 " nmap ]m :next_header
 " exmap prev_header obcommand obsidian-editor-shortcuts:goToPrevHeading
 " nmap [m :prev_header
+nnoremap ]] ]]zz
+" nnoremap [[ [[zz 这个有bug, 会跑到文档最顶部.
 
 nnoremap + <C-a>
 nnoremap - <C-x>
