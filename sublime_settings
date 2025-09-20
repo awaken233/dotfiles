@@ -6,14 +6,10 @@
 	"highlight_line": true,
 	"show_encoding": true,
 	"show_line_endings": true,
-	"color_scheme": "auto",
-	"theme": "auto",
-	"dark_color_scheme": "Packages/ayu/ayu-dark.sublime-color-scheme",
-	"light_color_scheme": "Packages/ayu/ayu-light.sublime-color-scheme",
-	"dark_theme": "ayu-dark.sublime-theme",
-	"light_theme": "ayu-light.sublime-theme",
-	"ignored_packages": [],
-	"relative_line_numbers": true,
+	"color_scheme": "Packages/Color Scheme - Default/Mariana.sublime-color-scheme",
+	"theme": "Default.sublime-theme",
+	"ignored_packages": ["Vintage",
+	],
 
 	// 编辑器增强
 	"auto_complete": true,
@@ -23,6 +19,22 @@
 	"indent_guide_options": ["draw_normal", "draw_active"],
 
 	// 性能优化
-	"folder_exclude_patterns": [".svn", ".git", ".hg", "CVS", "node_modules", "__pycache__", "*.pyc"],
-	"index_files": true
+	"folder_exclude_patterns": [".svn", ".git", ".hg", "CVS", "node_modules", "__pycache__", "*.pyc", ".DS_Store", "Thumbs.db"],
+	"file_exclude_patterns": ["*.pyc", "*.pyo", "*.exe", "*.dll", "*.obj","*.o", "*.a", "*.lib", "*.so", "*.dylib", "*.ncb", "*.sdf", "*.suo", "*.pdb", "*.idb", ".DS_Store", "*.class", "*.psd", "*.db", "*.sublime-workspace"],
+	"index_files": true,
+	"index_exclude_patterns": ["*.log", "node_modules/*", ".git/*", "__pycache__/*"],
+	
+	// 内存和CPU优化
+	"animation_enabled": false,                    // 禁用动画效果，提升性能
+	"highlight_modified_tabs": true,               // 高亮显示修改过的标签页
+	
+	// 搜索和索引优化
+	"binary_file_patterns": ["*.jpg", "*.jpeg", "*.png", "*.gif", "*.ttf", "*.tga", "*.dds", "*.ico", "*.eot", "*.pdf", "*.swf", "*.jar", "*.zip", "*.7z", "*.rar", "*.tar", "*.gz", "*.bz2"],
+	"preview_on_click": false,                     // 点击时不预览文件，减少内存占用
+	
+	// 自动完成优化
+	"auto_complete_delay": 50,                     // 自动完成延迟50ms，平衡性能和体验
+	"auto_complete_size_limit": 4194304,           // 4MB以上文件禁用自动完成
+	"auto_complete_triggers": [{"selector": "text.html", "characters": "<",}, {"selector": "text.html", "characters": " ",}],
+	"neovintageous_build_version": 13200,
 }
