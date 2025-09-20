@@ -12,21 +12,8 @@
 	"light_color_scheme": "Packages/ayu/ayu-light.sublime-color-scheme",
 	"dark_theme": "ayu-dark.sublime-theme",
 	"light_theme": "ayu-light.sublime-theme",
-	"ignored_packages": ["Vintage"],
+	"ignored_packages": [],
 	"relative_line_numbers": true,
-	"show_mode_in_status_bar": true,            // 状态栏显示模式
-    "relative_line_numbers": true,              // 相对行号
-    "neovintageous_start_in_insert_mode": true,
-    "neovintageous_visualbell": true,            // 可视化铃声
-    "neovintageous_use_sys_clipboard": true,    // 使用系统剪贴板 
-    "neovintageous_clipboard_auto_sync": true,
-    "neovintageous_registers": true,
-    "neovintageous_register_save_to_history": true,
-    "neovintageous_use_ctrl_keys": true,        // 启用 Ctrl 键组合
-    "neovintageous_hlsearch": true,             // 搜索高亮
-    "neovintageous_incsearch": true,            // 增量搜索
-    "neovintageous_ignorecase": true,           // 忽略大小写搜索
-    "neovintageous_smartcase": true,             // 智能大小写
 
 	// 编辑器增强
 	"auto_complete": true,
@@ -37,6 +24,5 @@
 
 	// 性能优化
 	"folder_exclude_patterns": [".svn", ".git", ".hg", "CVS", "node_modules", "__pycache__", "*.pyc"],
-	"index_files": true,
-	"neovintageous_build_version": 13200,
+	"index_files": true
 }
