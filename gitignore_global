@@ -16,3 +16,12 @@ AGENTS.md
 QWEN.md
 .env
 .mine
+
+# JDTLS (Eclipse JDT Language Server) 生成的文件
+.settings/
+.classpath
+.factorypath
+.project
+bin/
+.metadata/
+*.prefs
