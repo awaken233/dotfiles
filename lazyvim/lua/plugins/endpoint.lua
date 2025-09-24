@@ -5,6 +5,8 @@ return {
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },
+    -- 只在 Java 和相关文件类型中加载，针对 Spring Boot 项目优化
+    ft = { "java", "kotlin", "groovy", "xml", "yaml", "yml", "properties" },
     cmd = { "Endpoint", "EndpointRefresh" },
     keys = {
       {
@@ -13,8 +15,19 @@ return {
           require("endpoint").find({})
         end,
         desc = "Endpoint: search",
+        -- 只在相关文件类型中启用快捷键
+        ft = { "java", "kotlin", "groovy", "xml", "yaml", "yml", "properties" },
       },
     },
+    -- 添加条件加载：检测是否为 Spring Boot 项目
+    cond = function()
+      local cwd = vim.fn.getcwd()
+      -- 检查是否存在 Spring Boot 相关文件
+      return vim.fn.filereadable(cwd .. "/pom.xml") == 1 
+        or vim.fn.filereadable(cwd .. "/build.gradle") == 1
+        or vim.fn.filereadable(cwd .. "/build.gradle.kts") == 1
+        or vim.fn.isdirectory(cwd .. "/src/main/java") == 1
+    end,
     config = function()
       require("endpoint").setup({
         picker = {
@@ -22,6 +35,21 @@ return {
         },
         cache = {
           mode = "session",
+        },
+        -- Spring Boot 项目优化配置
+        endpoints = {
+          java = {
+            extensions = { "java", "kt" },
+            patterns = {
+              -- Spring Boot 注解模式
+              "@RequestMapping",
+              "@GetMapping",
+              "@PostMapping",
+              "@PutMapping",
+              "@DeleteMapping",
+              "@PatchMapping",
+            },
+          },
         },
       })
     end,
