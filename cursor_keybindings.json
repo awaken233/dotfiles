@@ -195,10 +195,10 @@
         "command": "editor.action.marker.prevInFiles",
         "when": "editorFocus"
     },
-    // double shift searchEverywhere.search
+    // double shift
     {
         "key": "shift shift",
-        "command": "searchEverywhere.search",
+        "command": "workbench.action.quickOpen",
     },
     // 扩展选择
     {
