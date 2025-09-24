@@ -16,6 +16,8 @@ return {
       vim.fn.stdpath("data") .. "/mason/packages/jdtls/bin/jdtls",
       "--java-executable",
       "/Library/Java/JavaVirtualMachines/zulu-21.jdk/Contents/Home/bin/java",
+      -- 添加 Lombok 支持
+      "--jvm-arg=-javaagent:" .. vim.fn.stdpath("data") .. "/mason/packages/jdtls/lombok.jar",
     },
     -- Spring Boot 项目优化配置
     settings = {
@@ -23,6 +25,16 @@ return {
         -- 提升性能
         configuration = {
           updateBuildConfiguration = "interactive",
+        },
+        -- Lombok 支持配置
+        compile = {
+          nullAnalysis = {
+            mode = "automatic",
+          },
+        },
+        -- 启用注解处理器支持 Lombok
+        eclipse = {
+          downloadSources = true,
         },
         -- 代码完成优化
         completion = {
@@ -68,6 +80,9 @@ return {
         generateConstructorsPromptSupport = true,
         generateDelegateMethodsPromptSupport = true,
         moveRefactoringSupport = true,
+        -- Lombok 相关扩展能力
+        lombokSupport = true,
+        resolveAdditionalTextEditsSupport = true,
       },
     },
   },
