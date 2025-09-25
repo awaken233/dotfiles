@@ -29,3 +29,18 @@ keymap.set("n", "gi", vim.lsp.buf.implementation, { desc = "Goto Implementation"
 -- 交换后: gy = 跳转到下一个标签页, gt = 跳转到类型定义
 keymap.set("n", "gy", "gt", { desc = "Goto next tab" })
 keymap.set("n", "gt", vim.lsp.buf.type_definition, { desc = "Goto Type Definition" })
+
+-- 所有 yank 操作自动复制到系统剪贴板
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Auto copy yank to system clipboard",
+  pattern = "*",
+  callback = function()
+    if vim.v.event.operator == "y" then
+      vim.fn.setreg("+", vim.fn.getreg("0"))
+    end
+  end,
+})
+
+-- 选择整个文件内容的对象 (vie, vae, die, dae, yie, yae 等)
+keymap.set({"o", "x"}, "ie", ":<C-U>normal! ggVG<CR>", { desc = "Select entire file content" })
+keymap.set({"o", "x"}, "ae", ":<C-U>normal! ggVG<CR>", { desc = "Select entire file content" })

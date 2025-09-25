@@ -3,7 +3,7 @@
 -- Add any additional options here
 local opt = vim.opt
 
-opt.clipboard = ""
+opt.clipboard = "" -- 不自动同步系统剪贴板
 opt.expandtab = false -- Use spaces instead of tabs
 opt.ttimeoutlen = 5   -- 立即处理 ESC 键，无延迟退出插入模式
 
