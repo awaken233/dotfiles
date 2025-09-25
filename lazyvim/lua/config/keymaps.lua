@@ -41,6 +41,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   end,
 })
 
+-- F2 切换粘贴模式（现代 Neovim 兼容方案）
+keymap.set("n", "<F2>", function()
+  vim.o.paste = not vim.o.paste
+  if vim.o.paste then
+    print("-- PASTE --")
+  else
+    print("-- NO PASTE --")
+  end
+end, { desc = "Toggle paste mode" })
+
 -- 选择整个文件内容的对象 (vie, vae, die, dae, yie, yae 等)
 keymap.set({"o", "x"}, "ie", ":<C-U>normal! ggVG<CR>", { desc = "Select entire file content" })
 keymap.set({"o", "x"}, "ae", ":<C-U>normal! ggVG<CR>", { desc = "Select entire file content" })
