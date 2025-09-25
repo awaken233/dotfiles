@@ -24,6 +24,12 @@ return {
         "--jvm-arg=-javaagent:" .. vim.fn.stdpath("data") .. "/mason/packages/jdtls/lombok.jar",
       },
       root_dir = root_dir,
+      
+      -- 禁用 LSP 自动格式化
+      on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+      end,
       settings = {
         java = {
           -- 启用 Lombok 注解处理器
