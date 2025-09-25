@@ -122,9 +122,6 @@ project_lazygit() {
 zle -N project_lazygit
 bindkey '^G' project_lazygit
 
-# 安装 cursor cli 才添加的配置
-export PATH="$HOME/.local/bin:$PATH"
-
 # K8s 多集群管理
 function switch-to-dev() {
     kubectx dev
@@ -165,7 +162,3 @@ kfl() {
         kubectl logs "$selected_pod" -f
     fi
 }
-
-
-# Added by CodeBuddy
-export PATH="/Users/ve/.codebuddy/bin:$PATH"
