@@ -10,9 +10,8 @@ local action_state = require("telescope.actions.state")
 local previewers = require("telescope.previewers")
 local utils = require("telescope.utils")
 
--- Spring Boot 端点映射注解模式（只搜索实际的端点映射）
+-- Spring Boot 端点映射注解模式（只搜索方法级别的端点映射）
 local SPRING_ANNOTATIONS = {
-  "@RequestMapping\\(",
   "@GetMapping", 
   "@PostMapping",
   "@PutMapping",
@@ -51,43 +50,61 @@ local function parse_rg_line(line)
   }
 end
 
--- 提取类和方法的路径信息
-local function extract_endpoint_info(file_path, line_num)
-  local lines = vim.fn.readfile(file_path)
-  if not lines then return nil end
-  
-  local class_mapping = ""
-  local method_mapping = ""
-  local class_name = ""
-  local method_name = ""
-  local method_type = ""
-  local mapping_annotation_line = line_num  -- 默认为原始行号
-  
-  -- 向上查找类级别信息（最多查找50行）
-  for i = line_num, math.max(1, line_num - 50), -1 do
+-- 查找文件中的主要类定义（更可靠的方法）
+local function find_main_class(lines)
+  -- 在整个文件中查找第一个 public class（通常是主要类）
+  for i = 1, #lines do
     local line = lines[i] or ""
-    
-    -- 查找类名
-    if line:match("class%s+%w+") then
-      class_name = line:match("class%s+(%w+)")
+    if line:match("public%s+class%s+%w+") then
+      local class_name = line:match("public%s+class%s+(%w+)")
+      return i, class_name
     end
-    
-    -- 查找类级别的 @RequestMapping，支持多种格式
+  end
+  return nil, ""
+end
+
+-- 在类定义附近查找 @RequestMapping
+local function find_request_mapping_before_class(lines, class_line, search_range)
+  local start_line = math.max(1, class_line - search_range)
+  
+  for i = start_line, class_line do
+    local line = lines[i] or ""
     if line:match("@RequestMapping") then
       local mapping = line:match('@RequestMapping%s*%(%s*"([^"]*)"') or
                      line:match('@RequestMapping%s*%(%s*value%s*=%s*"([^"]*)"') or
                      line:match('@RequestMapping%s*%(%s*path%s*=%s*"([^"]*)"')
       if mapping then
-        class_mapping = mapping
+        return mapping
       end
     end
   end
+  return ""
+end
+
+-- 提取类和方法的路径信息
+local function extract_endpoint_info(file_path, line_num)
+  local lines = vim.fn.readfile(file_path)
+  if not lines then return nil end
   
-  -- 查找方法级别的映射注解（向上向下都查找，最多各查找20行）
+  local method_mapping = ""
+  local method_name = ""
+  local method_type = ""
+  local mapping_annotation_line = line_num  -- 默认为原始行号
+  
+  -- 使用最优方案：查找文件中的主要类定义和对应的 @RequestMapping
+  local class_line, class_name = find_main_class(lines)
+  local class_mapping = ""
+  
+  if class_line then
+    class_mapping = find_request_mapping_before_class(lines, class_line, 5)
+  end
+  
+  -- 查找方法级别的映射注解（从当前行开始，向下查找10行）
   local found_method_mapping = false
+  mapping_annotation_line = line_num  -- 默认就是当前行
   
-  -- 首先向上查找映射注解
-  for i = line_num, math.max(1, line_num - 20), -1 do
+  -- 从当前行开始查找方法级别的映射注解
+  for i = line_num, math.min(#lines, line_num + 10) do
     local line = lines[i] or ""
     
     if line:match("@%w*Mapping") and not line:match("@RequestMapping") then
@@ -100,26 +117,6 @@ local function extract_endpoint_info(file_path, line_num)
         mapping_annotation_line = i  -- 记录映射注解的实际行号
         found_method_mapping = true
         break
-      end
-    end
-  end
-  
-  -- 如果向上没找到，向下查找
-  if not found_method_mapping then
-    for i = line_num + 1, math.min(#lines, line_num + 20) do
-      local line = lines[i] or ""
-      
-      if line:match("@%w*Mapping") and not line:match("@RequestMapping") then
-        method_type = line:match("@(%w*)Mapping") or ""
-        local mapping = line:match('@%w*Mapping%s*%(%s*"([^"]*)"') or
-                       line:match('@%w*Mapping%s*%(%s*value%s*=%s*"([^"]*)"') or
-                       line:match('@%w*Mapping%s*%(%s*path%s*=%s*"([^"]*)"')
-        if mapping then
-          method_mapping = mapping
-          mapping_annotation_line = i  -- 记录映射注解的实际行号
-          found_method_mapping = true
-          break
-        end
       end
     end
   end
@@ -169,7 +166,7 @@ local function extract_endpoint_info(file_path, line_num)
   
   -- 清理路径，移除多余的斜杠
   full_path = full_path:gsub("//+", "/")
-  
+
   return {
     path = full_path,
     class_name = class_name,
@@ -185,7 +182,7 @@ end
 local function format_entry(entry)
   local info = entry.endpoint_info
   if not info or info.path == "" then
-    return string.format("%-60s %s:%d", entry.text, utils.path_tail(entry.filename), entry.lnum)
+    return entry.text
   end
   
   -- 获取 HTTP 方法
@@ -202,17 +199,8 @@ local function format_entry(entry)
     http_method = method_map[info.method_type] or "ALL"
   end
   
-  local method_display = string.format("%-6s", http_method)
-  local path_display = string.format("%-35s", info.path)
-  local class_method = info.class_name and (info.class_name .. "#" .. (info.method_name or "")) or ""
-  local file_location = string.format("%s:%d", utils.path_tail(entry.filename), entry.lnum)
-  
-  return string.format("%s %s %-30s %s", 
-    method_display,
-    path_display, 
-    class_method,
-    file_location
-  )
+  -- 简化显示：只显示HTTP方法和路径
+  return string.format("%-6s %s", http_method, info.path)
 end
 
 -- 创建自定义预览器
@@ -313,6 +301,10 @@ function M.search_spring_endpoints()
         if selection then
           vim.cmd("edit " .. selection.filename)
           vim.api.nvim_win_set_cursor(0, { selection.lnum, 0 })  -- 定位到行首
+          -- 确保居中操作在下一个事件循环中执行
+          vim.schedule(function()
+            vim.cmd("normal! zz")  -- 居中显示当前行
+          end)
         end
       end)
       
