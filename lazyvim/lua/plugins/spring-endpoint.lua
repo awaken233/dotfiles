@@ -1,0 +1,27 @@
+-- Spring Boot API 端点搜索插件
+-- 基于 telescope + ripgrep 实现，支持模糊搜索和代码预览
+
+return {
+  {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-fzf-native.nvim",
+    },
+    keys = {
+      {
+        "gl", 
+        function()
+          -- 动态加载工具模块
+          local ok, utils = pcall(require, "utils.spring-endpoint")
+          if ok then
+            utils.search_spring_endpoints()
+          else
+            vim.notify("无法加载 Spring 端点搜索工具", vim.log.levels.ERROR)
+          end
+        end,
+        desc = "搜索 Spring Boot API 端点",
+      },
+    },
+  },
+}
