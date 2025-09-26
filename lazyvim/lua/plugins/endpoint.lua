@@ -5,8 +5,6 @@ return {
     dependencies = {
       "nvim-telescope/telescope.nvim",
     },
-    -- 只在 Java 和相关文件类型中加载，针对 Spring Boot 项目优化
-    ft = { "java", "kotlin", "groovy", "xml", "yaml", "yml", "properties" },
     cmd = { "Endpoint", "EndpointRefresh" },
     keys = {
       {
@@ -15,8 +13,6 @@ return {
           require("endpoint").find({})
         end,
         desc = "Endpoint: search",
-        -- 只在相关文件类型中启用快捷键
-        ft = { "java", "kotlin", "groovy", "xml", "yaml", "yml", "properties" },
       },
     },
     -- 添加条件加载：检测是否为 Spring Boot 项目
@@ -32,29 +28,15 @@ return {
       require("endpoint").setup({
         picker = {
           type = "telescope",
+          options = {
+            telescope = {
+            },
+          },
         },
         cache = {
           mode = "session",
-        },
-        -- Spring Boot 项目优化配置
-        endpoints = {
-          java = {
-            extensions = { "java", "kt" },
-            patterns = {
-              -- Spring Boot 注解模式
-              "@RequestMapping",
-              "@GetMapping",
-              "@PostMapping",
-              "@PutMapping",
-              "@DeleteMapping",
-              "@PatchMapping",
-            },
-          },
         },
       })
     end,
   },
 }
-
--- 返回空表，避免 LazyVim 报错
--- return {}
