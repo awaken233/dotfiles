@@ -4,10 +4,7 @@
 	autocrlf = input
 	pager = delta
 [http]
-	proxy = socks5://127.0.0.1:7890
 	postBuffer = 524288000
-[https]
-	proxy = socks5://127.0.0.1:7890
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
