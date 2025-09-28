@@ -31,6 +31,9 @@ nnoremap - <C-x>
 " <Esc> clears highlights
 nnoremap <Esc> :nohl<CR>
 
+" 回到上次光标位置并居中
+nnoremap `` ``zz
+
 nmap t F
 
 "───────────────────────────────────────────────────────────────────────────────
