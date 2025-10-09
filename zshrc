@@ -31,9 +31,9 @@ alias gcll='gh repo clone'
 alias bs='brew services'
 
 # 跳过测试
-alias mi='mvn clean install -Dmaven.test.skip=true'
+alias mi='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) && mvn clean install -Dmaven.test.skip=true'
 # 下载源码
-alias ms='mvn dependency:resolve -Dclassifier=sources'
+alias ms='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) && mvn dependency:resolve -Dclassifier=sources'
 
 # history-substring-search setting
 bindkey -M emacs '^P' history-substring-search-up
@@ -121,6 +121,19 @@ project_lazygit() {
 # 将函数注册为 zsh 编辑器小部件
 zle -N project_lazygit
 bindkey '^G' project_lazygit
+
+# 快速打开指定项目目录的 nvim
+project_nvim() {
+  local selected_dir=$(fd -t d -d 1 '' ~/IdeaProjects ~/Idea2 ~/PycharmProjects 2>/dev/null | fzf --prompt "选择项目目录> " --preview 'ls -la {}')
+  
+  if [[ -n "$selected_dir" ]]; then
+    cd "$selected_dir" && nvim .
+  fi
+}
+
+# 将函数注册为 zsh 编辑器小部件
+zle -N project_nvim
+bindkey '^V' project_nvim
 
 # K8s 多集群管理
 function switch-to-dev() {
