@@ -25,3 +25,6 @@ QWEN.md
 bin/
 .metadata/
 *.prefs
+
+# 自定义 nacos 配置不提交
+application-dev.yml
