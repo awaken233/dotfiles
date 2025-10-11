@@ -17,6 +17,27 @@ customCommands:
     command: 'cursor . &'
     description: 'Open repository in Cursor'
     context: 'global'
+  # 从 worktree 忽略文件 (取消追踪)
+  - key: 't'
+    context: 'files'
+    description: 'Skip worktree - untrack file temporarily'
+    prompts:
+      - type: 'confirm'
+        title: 'Confirmation'
+        body: 'Do you want to skip worktree (untrack) {{ .SelectedFile.Name }}?'
+    command: git update-index --skip-worktree {{ .SelectedFile.Name }}
+  # 重新将文件纳入 worktree (恢复追踪)
+  - key: 'T'
+    context: 'files'
+    description: 'No-skip worktree - restore file tracking'
+    prompts:
+      - type: 'menuFromCommand'
+        title: 'Choose File to restore tracking'
+        key: 'FileToReconsider'
+        command: bash -c "git ls-files -v | grep ^S"
+        filter: S (?P<fileToReconsider>.*)
+        valueFormat: '{{ .fileToReconsider }}'
+    command: 'git update-index --no-skip-worktree {{ .Form.FileToReconsider }}'
 git:
   # 使用 delta 作为 git 的 pager, 好用的 diff 视图, 点击行号可以使用默认的编辑器编辑
    paging:
