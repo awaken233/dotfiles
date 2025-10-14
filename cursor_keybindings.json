@@ -276,5 +276,17 @@
             "text": "\\\r\n"
         },
         "when": "terminalFocus"
+    },
+    // 当有选中内容时, 添加选中内容到聊天
+    {
+        "key": "cmd+shift+a",
+        "command": "composer.startComposerPrompt",
+        "when": "editorHasSelection"
+    },
+    // 当没有选中内容时, 添加当前文件到聊天
+    {
+        "key": "cmd+shift+a",
+        "command": "composer.addfilestocomposer",
+        "when": "!editorHasSelection"
     }
 ]
