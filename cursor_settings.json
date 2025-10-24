@@ -98,6 +98,7 @@
     { "before": ["g", ";"], "commands": ["workbench.action.navigatePreviousInEditLocations"] },
     { "before": ["<leader>", "v", "c"], "commands":["git.viewChanges"]},
     { "before": ["<leader>", "q", "q"], "commands":["workbench.action.closeWindow"]},
+    { "before": ["v", "v"], "after": ["V"] }
 ],
   "vim.visualModeKeyBindingsNonRecursive": [
     { "before": [ "p", ], "after": [ "p", "g", "v", "y" ] },
@@ -200,9 +201,9 @@
   "cursorpyright.analysis.inlayHints.functionReturnTypes": true,
   "cursorpyright.analysis.inlayHints.variableTypes": true,
   "cursorpyright.analysis.typeCheckingMode": "basic",
-  "cursor.general.disableHttp2": true,
   "http.systemCertificates": true,
   "http.proxyStrictSSL": true,
-  "diffEditor.hideUnchangedRegions.enabled": true,
   "cursor.enable_git_worktrees_setting": true,
+  "cursor.agent_layout_browser_beta_setting": true,
+  "diffEditor.hideUnchangedRegions.enabled": true,
 }
