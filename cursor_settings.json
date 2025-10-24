@@ -54,6 +54,7 @@
     { "before": [ "g", "I" ], "after": ["g", "i"] },
     // 全局搜索文件名
     { "before": [ "<leader>", "f" ], "commands": [ "workbench.action.quickOpen" ] },
+    { "before": [ "<leader>", "<space>" ], "commands": [ "workbench.action.quickOpen" ] },
     // 全局搜索符号
     { "before": [ "<leader>", "s" ,"s"], "commands": [ "workbench.action.showAllSymbols" ] },
     { "before": ["s"], "after": ["<leader>", "<leader>", "2", "s"] },
