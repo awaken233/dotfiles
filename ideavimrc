@@ -128,8 +128,10 @@ nnoremap <leader>cl :action ConsoleView.ClearAll<CR>
 nnoremap <leader>a :action GotoAction<CR>
 nnoremap <leader>f :action GotoFile<CR>
 nnoremap <leader>ss :action GotoSymbol<CR>
-nnoremap <leader><space> :action GotoSymbol<CR>
-vnoremap <leader><space> :action GotoSymbol<CR>
+nnoremap <leader><space> :action GotoFile<CR>
+vnoremap <leader><space> :action GotoFile<CR>
+" nnoremap <leader><space> :action GotoSymbol<CR>
+" vnoremap <leader><space> :action GotoSymbol<CR>
 nnoremap q :action ShowIntentionActions<CR>
 vnoremap q :action ShowIntentionActions<CR>
 
