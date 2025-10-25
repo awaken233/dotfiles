@@ -48,6 +48,12 @@ return {
       settings = {
         java = {
           -- java.home 已废弃，移除此配置
+          -- 内联提示：显示参数名称
+          inlayHints = {
+            parameterNames = {
+              enabled = "all", -- 显示所有参数名称提示
+            },
+          },
           -- 启用 Lombok 注解处理器
           eclipse = {
             downloadSources = true,
