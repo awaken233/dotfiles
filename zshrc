@@ -31,9 +31,9 @@ alias gcll='gh repo clone'
 alias bs='brew services'
 
 # 跳过测试
-alias mi='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) && mvn clean install -Dmaven.test.skip=true'
+alias mi='mvn clean install -Dmaven.test.skip=true'
 # 下载源码
-alias ms='export JAVA_HOME=$(/usr/libexec/java_home -v 1.8) && mvn dependency:resolve -Dclassifier=sources'
+alias ms='mvn dependency:resolve -Dclassifier=sources'
 
 # history-substring-search setting
 bindkey -M emacs '^P' history-substring-search-up
