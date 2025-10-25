@@ -72,14 +72,17 @@ nmap L :tabnext<CR>
 exmap tabprev obcommand workspace:previous-tab
 nmap H :tabprev<CR>
 
-"global search"
+"global search, 要是能像 cmd+shift+f 选中搜索就好了.
 exmap global_search obcommand global-search:open
-nmap <Space><Space> :global_search<CR>
-vmap <Space><Space> :global_search<CR>
+" nmap <Space><Space> :global_search<CR>
+" vmap <Space><Space> :global_search<CR>
 
 exmap switcher_open obcommand switcher:open
 nmap <Space>f :switcher_open<CR>
 vmap <Space>f :switcher_open<CR>
+nmap <Space><Space> :switcher_open<CR>
+vmap <Space><Space> :switcher_open<CR>
+
 
 exmap cp_open obcommand command-palette:open
 nmap <Space>a :cp_open<CR>
