@@ -207,4 +207,7 @@
   "cursor.enable_git_worktrees_setting": true,
   "cursor.agent_layout_browser_beta_setting": true,
   "diffEditor.hideUnchangedRegions.enabled": true,
+  // 符号搜索支持搜索方法名
+  "java.symbols.includeSourceMethodDeclarations": true,
+  "java.jdt.ls.java.home": "/Library/Java/JavaVirtualMachines/zulu-21.jdk/Contents/Home",
 }
