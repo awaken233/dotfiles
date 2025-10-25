@@ -17,11 +17,26 @@ return {
     local project_name = vim.fn.fnamemodify(root_dir, ':t')
     local workspace_dir = vim.fn.stdpath("data") .. "/jdtls-workspace/" .. project_name
     
+    -- jdtls 运行需要 Java 21，但项目可能使用 Java 8
+    local java_21_home = "/Library/Java/JavaVirtualMachines/zulu-21.jdk/Contents/Home"
+    local jdtls_install = vim.fn.stdpath("data") .. "/mason/packages/jdtls"
+    
     local config = {
+      -- 直接使用 Java 21 启动 jdtls，不使用 jdtls 包装脚本
       cmd = {
-        "jdtls",
+        java_21_home .. "/bin/java",
+        "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+        "-Dosgi.bundles.defaultStartLevel=4",
+        "-Declipse.product=org.eclipse.jdt.ls.core.product",
+        "-Dlog.level=ALL",
+        "-Xmx1G",
+        "--add-modules=ALL-SYSTEM",
+        "--add-opens", "java.base/java.util=ALL-UNNAMED",
+        "--add-opens", "java.base/java.lang=ALL-UNNAMED",
+        "-javaagent:" .. jdtls_install .. "/lombok.jar",
+        "-jar", vim.fn.glob(jdtls_install .. "/plugins/org.eclipse.equinox.launcher_*.jar"),
+        "-configuration", jdtls_install .. "/config_mac",
         "-data", workspace_dir,
-        "--jvm-arg=-javaagent:" .. vim.fn.stdpath("data") .. "/mason/packages/jdtls/lombok.jar",
       },
       root_dir = root_dir,
       
@@ -32,6 +47,7 @@ return {
       end,
       settings = {
         java = {
+          -- java.home 已废弃，移除此配置
           -- 启用 Lombok 注解处理器
           eclipse = {
             downloadSources = true,
