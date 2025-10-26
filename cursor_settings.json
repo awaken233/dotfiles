@@ -132,11 +132,15 @@
     "*.iml": true,
     "target": true,
     ".idea": true,
+    ".classpath": true,
+    ".project": true,
+    ".settings": true,
+    ".factorypath": true
   },
   "search.exclude": {
     "**/.venv": true,
     "**/venv": true,
-    ".obsidian": true,
+    ".obsidian": true
   },
   "java.compile.nullAnalysis.mode": "automatic",
   "spring.initializr.defaultJavaVersion": "8",
