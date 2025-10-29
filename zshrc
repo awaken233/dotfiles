@@ -175,3 +175,14 @@ kfl() {
         kubectl logs "$selected_pod" -f
     fi
 }
+
+# 获取指定 deployment 的镜像
+kgdi() {
+    if [ $# -eq 0 ]; then
+        echo "Usage: kgdi <deployment-name>"
+        return 1
+    fi
+    
+    kubectl get deployment "$1" -o jsonpath='{.spec.template.spec.containers[*].image}'
+    echo  # 添加换行
+}
