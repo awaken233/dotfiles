@@ -72,6 +72,10 @@ nmap L :tabnext<CR>
 exmap tabprev obcommand workspace:previous-tab
 nmap H :tabprev<CR>
 
+"Toggle line author info(git blame)
+exmap toggle_author_info obcommand obsidian-git:toggle-line-author-info
+nmap ga :toggle_author_info<CR>
+
 "global search, 要是能像 cmd+shift+f 选中搜索就好了.
 exmap global_search obcommand global-search:open
 " nmap <Space><Space> :global_search<CR>
