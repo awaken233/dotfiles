@@ -82,12 +82,13 @@ rgfzf() {
     --bind "f2:change-prompt(正则搜索> )+reload(rg --line-number --column --smart-case --color=always {q} || true)")
 
   if [ -n "$CHOICE" ]; then
-    # 解析文件名和行号 (格式: filename:line:column:content)
+    # 解析文件名、行号和列号 (格式: filename:line:column:content)
     local filename=$(echo "$CHOICE" | cut -d: -f1)
     local line_number=$(echo "$CHOICE" | cut -d: -f2)
+    local column_number=$(echo "$CHOICE" | cut -d: -f3)
     
-    # 使用 nvim 打开到指定行
-    "$EDITOR" "+$line_number" "$filename"
+    # 使用 nvim 打开到指定行和列
+    nvim "+call cursor(${line_number}, ${column_number})" "$filename"
   fi
 }
 
