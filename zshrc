@@ -66,7 +66,7 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 # 使用bat进行预览, bat会语法高亮, 支持git高亮,需要安装bat
 export FZF_DEFAULT_OPTS="--preview 'bat --color=always --style=numbers --line-range=:500 {}'"
 
-# 定义 rg + fzf 全文搜索函数, enter 打开并跳转到目标行
+# 定义 rg + fzf 全文搜索函数, enter 打开并跳转到目标行和列
 rgfzf() {
   local RG_PREFIX="rg --line-number --column --smart-case --color=always --fixed-strings"
   local INITIAL_QUERY=""
@@ -75,7 +75,7 @@ rgfzf() {
     --multi \
     --delimiter : \
     --preview 'bat --color=always --style=numbers --highlight-line {2} {1}' \
-    --preview-window '+{2}+3/3' \
+    --preview-window 'right,60%,+{2}+3/3,~3,border-left' \
     --ansi --phony --query "$INITIAL_QUERY" \
     --prompt "字面量搜索> " \
     --header "F2:切换到正则模式 | Enter:跳转到目标行" \
