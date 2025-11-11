@@ -213,4 +213,42 @@
   // 符号搜索支持搜索方法名
   "java.symbols.includeSourceMethodDeclarations": true,
   "java.jdt.ls.java.home": "/Library/Java/JavaVirtualMachines/zulu-21.jdk/Contents/Home",
+  "labuladong-leetcode.workspaceFolder": "/Users/ve/idea2/lc-plugin-template/java-template",
+  "labuladong-leetcode.filePath": {
+    "python": {
+      "folder": "leetcode/editor/${endpointType}",
+      "filename": "${kebab-case-name}.${ext}"
+    },
+    "python3": {
+      "folder": "leetcode/editor/${endpointType}",
+      "filename": "${kebab-case-name}.${ext}"
+    },
+    "javascript": {
+      "folder": "leetcode/editor/${endpointType}",
+      "filename": "${kebab-case-name}.${ext}"
+    },
+    "cpp": {
+      "folder": "leetcode/editor/${endpointType}",
+      "filename": "${kebab-case-name}.${ext}"
+    },
+    "golang": {
+      "folder": "leetcode/editor/${endpointType}",
+      "filename": "${snake_case_name}_test.${ext}"
+    },
+    "java": {
+      "folder": "src/main/java/leetcode/editor/${endpointType}",
+      "filename": "${PascalCaseName}.${ext}"
+    },
+    "default": {
+      "folder": "",
+      "filename": "${id}.${kebab-case-name}.${ext}"
+    }
+  },
+  "labuladong-leetcode.defaultLanguage": "java",
+  "labuladong-leetcode.customCodeTemplate": "package leetcode.editor.${question.endpointType};\n\nimport java.util.*;\nimport leetcode.editor.common.*;\n\npublic class $!velocityTool.camelCaseName(${question.titleSlug}) {\n\n${question.codeWithIndent(4)}\n    \n    public static void main(String[] args) {\n#set($className = $!velocityTool.camelCaseName(${question.titleSlug}))\n        Solution solution = new ${className}().new Solution();\n        // put your test code here\n        \n    }\n}",
+  "labuladong-leetcode.hint.configWebviewMarkdown": false,
+  "labuladong-leetcode.hint.commentDescription": false,
+  "labuladong-leetcode.hint.commandShortcut": false,
+  "editor.accessibilitySupport": "on",
+  "git.showCursorWorktrees": true,
 }
