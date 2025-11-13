@@ -199,7 +199,6 @@
   "git.blame.editorDecoration.enabled": false,
   "git.blame.statusBarItem.enabled": false,
   "githd.blameView.enabled": false,
-  "cursor.composer.usageSummaryDisplay": "always",
   "cursorpyright.analysis.autoImportCompletions": true,
   "cursorpyright.analysis.inlayHints.callArgumentNames": "partial",
   "cursorpyright.analysis.inlayHints.functionReturnTypes": true,
@@ -209,7 +208,6 @@
   "http.proxyStrictSSL": true,
   "cursor.enable_git_worktrees_setting": true,
   "cursor.agent_layout_browser_beta_setting": true,
-  "diffEditor.hideUnchangedRegions.enabled": true,
   // 符号搜索支持搜索方法名
   "java.symbols.includeSourceMethodDeclarations": true,
   "java.jdt.ls.java.home": "/Library/Java/JavaVirtualMachines/zulu-21.jdk/Contents/Home",
@@ -249,6 +247,7 @@
   "labuladong-leetcode.hint.configWebviewMarkdown": false,
   "labuladong-leetcode.hint.commentDescription": false,
   "labuladong-leetcode.hint.commandShortcut": false,
-  "editor.accessibilitySupport": "on",
   "git.showCursorWorktrees": true,
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "editor.accessibilitySupport": "off",
 }

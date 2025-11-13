@@ -46,6 +46,9 @@ bind j select-pane -D
 bind k select-pane -U
 bind l select-pane -R
 
+# 切换到最近使用的窗口(默认是l, 但是我修改成移动到右边的 pane)
+bind L last-window
+
 # tmux disable confirmation prompt on kill-window/pane
 bind-key & kill-window
 bind-key x kill-pane
