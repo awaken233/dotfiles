@@ -248,6 +248,7 @@
   "labuladong-leetcode.hint.commentDescription": false,
   "labuladong-leetcode.hint.commandShortcut": false,
   "git.showCursorWorktrees": true,
-  "diffEditor.hideUnchangedRegions.enabled": true,
   "editor.accessibilitySupport": "off",
+  "claudeCode.useTerminal": true,
+  "diffEditor.hideUnchangedRegions.enabled": true,
 }
