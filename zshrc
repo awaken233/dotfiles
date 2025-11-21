@@ -187,3 +187,29 @@ kgdi() {
     kubectl get deployment "$1" -o jsonpath='{.spec.template.spec.containers[*].image}'
     echo  # 添加换行
 }
+
+# awk 提取列函数（跳过表头）
+# 使用示例:
+#   kubectl get pods | col 3          # 提取第3列
+#   cat data.txt | col 2              # 提取第2列
+#   col 1                             # 默认提取第1列
+col() {
+    local col_num=${1:-1}
+    awk -v col=$col_num 'NR>1 {print $col}'
+}
+
+# 常用列的快捷别名
+# 使用示例:
+#   kubectl get pods | col2           # 提取第2列
+#   kubectl get pods | col1           # 提取第1列
+#   cat file.txt | col5               # 提取第5列
+alias col1='col 1'
+alias col2='col 2'
+alias col3='col 3'
+alias col4='col 4'
+alias col5='col 5'
+alias col6='col 6'
+alias col7='col 7'
+alias col8='col 8'
+alias col9='col 9'
+alias col10='col 10'
