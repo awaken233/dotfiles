@@ -213,3 +213,10 @@ alias col7='col 7'
 alias col8='col 8'
 alias col9='col 9'
 alias col10='col 10'
+# Added by Windsurf
+export PATH="/Users/ve/.codeium/windsurf/bin:$PATH"
+
+# Added by Windsurf
+export PATH="/Users/ve/.codeium/windsurf/bin:$PATH"
+
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"

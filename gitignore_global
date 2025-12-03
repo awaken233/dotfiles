@@ -14,6 +14,8 @@ venv
 AGENTS.md
 .gemini-clipboard
 QWEN.md
+.windsurf
+*.pyc
 .env
 .mine
 
