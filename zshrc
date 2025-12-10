@@ -2,14 +2,18 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
+# autoswitch_virtualenv 默认使用 Python
+alias python='python3'
 plugins=(
   git
   extract
-  zsh-syntax-highlighting
   history-substring-search
+	fzf-tab
   zsh-autosuggestions
   z
   kubectl
+	autoswitch_virtualenv
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -216,7 +220,31 @@ alias col10='col 10'
 # Added by Windsurf
 export PATH="/Users/ve/.codeium/windsurf/bin:$PATH"
 
-# Added by Windsurf
-export PATH="/Users/ve/.codeium/windsurf/bin:$PATH"
 
 [[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+# FZF tab的配置
+# 让 git checkout 的分支补全不排序（保持 git 默认顺序）
+zstyle ':completion:*:git-checkout:*' sort false
+
+# 显示 descriptions，并启用分组支持（别在这里放颜色转义）
+zstyle ':completion:*:descriptions' format '[%d]'
+
+# 使用 LS_COLORS 对文件/目录上色（需要你自己设置好 LS_COLORS）
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=32:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+# 不让 zsh 自己弹出菜单，让 fzf-tab 接管
+zstyle ':completion:*' menu no
+
+# cd 补全目录时右侧预览内容（用 eza，没装可以换成 ls）
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1G $realpath'
+
+# 自定义 fzf 参数（颜色、按 Tab 接受等）
+zstyle ':fzf-tab:*' fzf-flags --bind=tab:accept
+
+# 若你想继承 FZF_DEFAULT_OPTS（默认是不会继承的）
+zstyle ':fzf-tab:*' use-fzf-default-opts yes
+
+# 改切换 group 的快捷键（比 F1/F2 顺手）
+zstyle ':fzf-tab:*' switch-group '<' '>'
