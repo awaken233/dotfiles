@@ -240,11 +240,22 @@ zstyle ':completion:*' menu no
 # cd 补全目录时右侧预览内容（用 eza，没装可以换成 ls）
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls -1G $realpath'
 
+zstyle ':fzf-tab:complete:git-checkout:*' fzf-preview \
+  'case "$group" in
+  "modified file") git diff --color=always $word ;;
+  "recent commit object name") git show --color=always $word ;;
+  *) git log --color=always $word ;;
+  esac'
+
+
 # 自定义 fzf 参数（颜色、按 Tab 接受等）
 zstyle ':fzf-tab:*' fzf-flags --bind=tab:accept
 
-# 若你想继承 FZF_DEFAULT_OPTS（默认是不会继承的）
-zstyle ':fzf-tab:*' use-fzf-default-opts yes
+# 若你想继承 FZF_DEFAULT_OPTS（默认是不会继承的） 我默认预览的命令是 bat, 常见预览界面都会报错
+zstyle ':fzf-tab:*' use-fzf-default-opts no
+
+# fzf-tab 专用选项（不带预览，因为预览要按命令单独配置）
+zstyle ':fzf-tab:*' fzf-flags --height=40% --layout=reverse --border --bind=tab:accept
 
 # 改切换 group 的快捷键（比 F1/F2 顺手）
 zstyle ':fzf-tab:*' switch-group '<' '>'
