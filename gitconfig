@@ -50,3 +50,8 @@
 [merge]
 	conflictStyle = zdiff3
 
+; 禁用pager. 为了解决AI执行命令。默认交互式总是卡住的问题
+[pager]
+    diff = sh -c "delta | head -n 100"
+    log  = head -n 100
+    show = head -n 100
