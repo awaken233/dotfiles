@@ -38,6 +38,9 @@ alias bs='brew services'
 alias mi='mvn clean install -Dmaven.test.skip=true'
 # 下载源码
 alias ms='mvn dependency:resolve -Dclassifier=sources'
+# 必须链接公司VPN下载普通jar, 所以单开一个别名, 这样不用链接VPN使用
+alias mvn-ali='mvn -s ~/.m2/settings-ali.xml'
+
 
 # history-substring-search setting
 bindkey -M emacs '^P' history-substring-search-up
