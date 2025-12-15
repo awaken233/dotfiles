@@ -1,0 +1,292 @@
+// Place your key bindings in this file to override the defaults
+[
+    // cmd + o: 查找文件, 默认是 finder 打开文件
+    {
+        "key": "cmd+o",
+        "command": "workbench.action.quickOpen"
+    },
+    // 查找命令, 默认是:查询文件
+    {
+        "key": "cmd+p",
+        "command": "workbench.action.showCommands"
+    },
+    // f4键的多重功能：引用导航 > 搜索结果导航 > git diff操作
+    {
+        "key": "f4",
+        "command": "references-view.next",
+        "when": "reference-list.hasResult && references-view.canNavigate"
+    },
+    {
+        "key": "f4",
+        "command": "goToNextReference",
+        "when": "(inReferenceSearchEditor || referenceSearchVisible) && !(reference-list.hasResult && references-view.canNavigate)"
+    },
+    // {
+    //     "key": "f4",
+    //     "command": "search.action.focusNextSearchResult",
+    //     "when": "(hasSearchResult || inSearchEditor) && !(reference-list.hasResult && references-view.canNavigate) && !(inReferenceSearchEditor || referenceSearchVisible)"
+    // },
+    // 屏蔽 cmd+shift+f f4 默认跳转到下一个
+    {
+        "key": "f4",
+        "command": "-search.action.focusNextSearchResult",
+        "when": "hasSearchResult || inSearchEditor"
+    },
+    {
+        "key": "f4",
+        "command": "git.openFile",
+        // 如果想要 F4 跳转搜索结果, 需要解除屏蔽
+        // "when": "isInDiffEditor && !(reference-list.hasResult && references-view.canNavigate) && !(inReferenceSearchEditor || referenceSearchVisible) && !(hasSearchResult || inSearchEditor)"
+        "when": "isInDiffEditor && !(reference-list.hasResult && references-view.canNavigate) && !(inReferenceSearchEditor || referenceSearchVisible)"
+    },
+    {
+        "key": "f4",
+        "command": "git.openChange",
+        // "when": "!isInDiffEditor && !(reference-list.hasResult && references-view.canNavigate) && !(inReferenceSearchEditor || referenceSearchVisible) && !(hasSearchResult || inSearchEditor)"
+        "when": "!isInDiffEditor && !(reference-list.hasResult && references-view.canNavigate) && !(inReferenceSearchEditor || referenceSearchVisible)"
+    },
+    {
+        "key": "ctrl+t",
+        "command": "editor.action.refactor",
+        "when": "editorHasCodeActionsProvider && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+a",
+        "command": "extension.vim_home",
+        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Visual'"
+    },
+    {
+        "key": "ctrl+e",
+        "command": "extension.vim_end",
+        "when": "editorTextFocus && vim.active && !inDebugRepl && vim.mode == 'Visual'"
+    },
+    // 默认是 cmd+enter
+    {
+        "key": "shift+enter",
+        "command": "editor.action.insertLineAfter",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    // 默认是: alt+cmd+tab
+    {
+        "key": "cmd+e",
+        "command": "workbench.action.showAllEditors",
+    },
+    // ----------------- Explorer
+    // https://github.com/AnthonyAsDev/VSCodeVimSettings
+    // 我觉得比较好的实践:
+    // a/n 新建文件 A/N 新建文件夹
+    // f 在finder 打开
+    // c 复制相对地址, u 复制全路径
+    
+    {
+        "key": "n",
+        "command": "explorer.newFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    },
+    {
+        "key": "shift+n",
+        "command": "explorer.newFolder",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    },
+    {
+        "key": "a",
+        "command": "explorer.newFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    },
+    {
+        "key": "shift+a",
+        "command": "explorer.newFolder",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    },
+    {
+        "key": "y",
+        "command": "filesExplorer.copy",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    },
+    {
+        "key": "x",
+        "command": "filesExplorer.cut",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    },
+    {
+        "key": "shift+p",
+        "command": "filesExplorer.paste",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "r",
+        "command": "renameFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "x",
+        "command": "workbench.files.action.collapseExplorerFolders",
+        "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "s",
+        "command": "explorer.openToSide",
+        "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+    },
+    // 在finder 中打开
+    {
+        "key": "f",
+        "command": "revealFileInOS",
+        "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+    },
+    // {
+    //     "key": "t",
+    //     "command": "openInTerminal",
+    //     "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceIsRoot && !inputFocus"
+    // },
+    // 复制绝对地址
+    {
+        "key": "u",
+        "command": "copyFilePath",
+        "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+    },
+    // 复制相对地址
+    {
+        "key": "c",
+        "command": "copyRelativeFilePath",
+        "when": "explorerViewletFocus && explorerViewletVisible && !inputFocus"
+    },
+    // goto super
+    {
+        "key": "cmd+u",
+        "command": "java.action.navigateToSuperImplementation",
+    },
+    {
+        "key": "alt+`",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    // 关闭其他 tab
+    {
+        "key": "alt+w",
+        "command": "workbench.action.closeOtherEditors"
+    },
+    // 不选中直接复制当前行, 不知道为什么默认的cmd+c不起作用, 必须自定义配置重写才行
+    {
+        "key": "cmd+c",
+        "command": "execCopy",
+        "when": "editorTextFocus"
+    },
+    // shift+cmd+' Maximize Panel Size Maximize Panel Size
+    {
+        "key": "shift+cmd+'",
+        "command": "workbench.action.toggleMaximizedPanel",
+        "when": "panelVisible"
+    },
+    // 跳转到 commit msg 框
+    {
+        "key": "cmd+3",
+        "command": "workbench.view.scm",
+        "when": "workbench.scm.active"
+    },
+    // next error
+    {
+        "key": "f2",
+        "command": "editor.action.marker.nextInFiles",
+        "when": "editorFocus"
+    },
+    {
+        "key": "shift+f2",
+        "command": "editor.action.marker.prevInFiles",
+        "when": "editorFocus"
+    },
+    // double shift
+    {
+        "key": "shift shift",
+        "command": "workbench.action.quickOpen",
+    },
+    // 扩展选择
+    {
+        "key": "alt+up",
+        "command": "editor.action.smartSelect.expand",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "alt+down",
+        "command": "editor.action.smartSelect.shrink",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+alt+z",
+        "command": "git.revertSelectedRanges",
+        "when": "isInDiffEditor && !operationInProgress"
+    },
+    // 默认 cmd+d
+    {
+        "key": "ctrl+g",
+        "command": "editor.action.addSelectionToNextFindMatch",
+        "when": "editorFocus"
+    },
+    // maximizeEditor
+    {
+        "key": "shift+cmd+f12",
+        "command": "workbench.action.maximizeEditorHideSidebar",
+    },
+    // {
+    //     "key": "shift+cmd+t",
+    //     "command": "java.test.goToTest",
+    //     "when": "editorTextFocus"
+    // },
+    {
+        "key": "shift+alt+0",
+        "command": "Switch2IDEA.openFileInIDEA",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+alt+o",
+        "command": "-Switch2IDEA.openFileInIDEA",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "workbench.action.navigateBack",
+        "when": "canNavigateBack"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "workbench.action.navigateForward",
+        "when": "canNavigateForward"
+    },
+    {
+        "key": "cmd+5",
+        "command": "workbench.action.togglePanel"
+    },
+    // {
+    //     "key": "cmd+i",
+    //     "command": "kiroAgent.selectFilesAsContext"
+    // },
+    // {
+    //     "key": "cmd+l",
+    //     "command": "composerMode.chat"
+    // },
+    {
+        "key": "cmd+escape",
+        "command": "-claude-code.runClaude.keyboard",
+        "when": "claude-code.hasClaudeInPath"
+    },
+    {
+        "key": "shift+enter",
+        "command": "workbench.action.terminal.sendSequence",
+        "args": {
+            "text": "\\\r\n"
+        },
+        "when": "terminalFocus"
+    },
+    // // 当有选中内容时, 添加选中内容到聊天
+    {
+        "key": "cmd+shift+a",
+        "command": "kiroAgent.focusContinueInputWithoutClear",
+        "when": "editorHasSelection"
+    },
+    // // 当没有选中内容时, 添加当前文件到聊天
+    // {
+    //     "key": "cmd+shift+a",
+    //     "command": "composer.addfilestocomposer",
+    //     "when": "!editorHasSelection"
+    // }
+]
