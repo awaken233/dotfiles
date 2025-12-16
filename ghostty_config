@@ -38,3 +38,6 @@ quick-terminal-animation-duration = 0
 # 9) 光标：方块样式，不闪烁
 cursor-style = block
 cursor-style-blink = false
+
+# 10) 选中即复制：选中文本自动复制到系统剪贴板（可用 Cmd+V 粘贴）
+copy-on-select = clipboard

@@ -303,7 +303,8 @@
     "which *",
     "du *",
     "stat *",
-    "git mv *"
+    "git mv *",
+    "ghostty --version"
   ],
   "security.workspace.trust.untrustedFiles": "open",
   "diffEditor.hideUnchangedRegions.enabled": true,
