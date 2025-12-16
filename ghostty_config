@@ -1,0 +1,35 @@
+# https://ghostty.org/docs/config
+
+# 1) 字体：先把观感拉满（最值回票价）
+font-family = "JetBrainsMono Nerd Font"
+font-size = 12.5
+
+# 2) 主题：一行切换（并支持深浅色）
+theme = dark:Catppuccin Frappe,light:Catppuccin Latte
+
+# 3) 窗口留白：观感 + 可读性（非常推荐）
+window-padding-x = 10
+window-padding-y = 8
+
+# 4) 半透明 + 背景模糊（按需；喜欢就开）
+background-opacity = 0.9
+background-blur = true
+
+# 5) Shell 集成：让“新 tab/split 继承目录、jump_to_prompt”等更顺滑
+shell-integration = detect
+
+# 6) SSH/Terminfo + 禁止 shell 集成修改光标
+shell-integration-features = ssh-terminfo,ssh-env,no-cursor
+
+# macOS 专属：消除标题栏，更加极简
+macos-titlebar-style = hidden
+
+#  7) 字体加粗：让字体更清晰 macos 有效, 解决字体发虚
+font-thicken = true
+font-thicken-strength = 130
+
+# 8) 快捷终端：瞬间弹出，无动画
+quick-terminal-animation-duration = 0
+# 9) 光标：方块样式，不闪烁
+cursor-style = block
+cursor-style-blink = false

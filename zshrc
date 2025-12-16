@@ -159,6 +159,9 @@ function switch-to-scilink() {
 alias kdev='switch-to-dev'
 alias ksci='switch-to-scilink'
 
+ltail() {
+  command lnav -q -c ':goto -50' "$@"
+}
 
 # 使用 fzf 交互式搜索并选择一个 Pod
 kfp() {
@@ -180,7 +183,7 @@ kfl() {
     local selected_pod=$(kfp)
     # 检查是否选中了 Pod (即 kfp 没有返回空)
     if [[ -n $selected_pod ]]; then
-        kubectl logs "$selected_pod" -f
+        kubectl logs "$selected_pod" -f | ltail
     fi
 }
 

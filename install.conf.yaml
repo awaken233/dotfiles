@@ -43,6 +43,9 @@
     ~/.config/lf:
         create: true
         path: lf
+    ~/.config/ghostty/config:
+        create: true
+        path: ghostty_config
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
