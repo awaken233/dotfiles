@@ -2,6 +2,11 @@
 
 # 1) 字体：先把观感拉满（最值回票价）
 font-family = "JetBrainsMono Nerd Font"
+# 中文 fallback 字体（需先安装：brew install --cask font-lxgw-wenkai）
+# font-family = "LXGW WenKai"
+
+# 窗口启动时最大化
+window-maximize = true
 font-size = 12.5
 
 # 2) 主题：一行切换（并支持深浅色）
