@@ -34,3 +34,6 @@ cursor-style-blink = false
 
 # 10) 选中即复制：选中文本自动复制到系统剪贴板（可用 Cmd+V 粘贴）
 copy-on-select = clipboard
+
+# 适合 Claude Code 等长对话应用
+scrollback-limit = 200000000
