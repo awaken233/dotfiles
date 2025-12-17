@@ -1,0 +1,38 @@
+# https://sw.kovidgoyal.net/kitty/conf.html
+
+# 1) Fonts
+font_family      JetBrainsMono Nerd Font Mono
+font_size        12.0
+
+# 2) Theme Configuration
+# Light: Catppuccin Latte
+# Dark:  Catppuccin Frappe
+# Auto-switch mechanism:
+# Kitty (0.38+) automatically loads 'light-theme.auto.conf' or 'dark-theme.auto.conf'
+# based on the system's appearance setting. These files are symlinked by the dotfiles installer.
+
+# 3) Window Layout
+remember_window_size  yes
+initial_window_width  640
+initial_window_height 400
+os_window_state       maximized
+hide_window_decorations titlebar-only
+
+# 4) Appearance
+background_opacity 0.9
+background_blur 20
+
+# 5) Shell Integration
+# "no-cursor" disables the shell's cursor changing escape codes
+shell_integration enabled no-cursor
+
+# 6) Cursor
+cursor_shape block
+cursor_blink_interval 0
+
+# 7) Copy on Select
+copy_on_select yes
+
+# macOS Specifics
+macos_option_as_alt yes
+macos_quit_when_last_window_closed yes

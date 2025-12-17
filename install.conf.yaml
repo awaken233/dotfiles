@@ -46,6 +46,15 @@
     ~/.config/ghostty/config:
         create: true
         path: ghostty_config
+    ~/.config/kitty/kitty.conf:
+        create: true
+        path: kitty_config
+    ~/.config/kitty/light-theme.auto.conf:
+        create: true
+        path: kitty_theme_light
+    ~/.config/kitty/dark-theme.auto.conf:
+        create: true
+        path: kitty_theme_dark
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
