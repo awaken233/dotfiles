@@ -7,14 +7,10 @@ font-family = "JetBrainsMono Nerd Font"
 
 # 窗口启动时最大化 (需要 Ghostty 1.1.0+)
 maximize = true
-font-size = 12.5
+font-size = 12
 
 # 2) 主题：一行切换（并支持深浅色）
 theme = dark:Catppuccin Frappe,light:Catppuccin Latte
-
-# 3) 窗口留白：观感 + 可读性（非常推荐）
-window-padding-x = 10
-window-padding-y = 10,4
 
 # 4) 半透明 + 背景模糊（按需；喜欢就开）
 background-opacity = 0.9
@@ -29,12 +25,9 @@ shell-integration-features = ssh-terminfo,ssh-env,no-cursor
 # macOS 专属：消除标题栏，更加极简
 macos-titlebar-style = hidden
 
-#  7) 字体加粗：让字体更清晰 macos 有效, 解决字体发虚
-font-thicken = true
-font-thicken-strength = 130
-
 # 8) 快捷终端：瞬间弹出，无动画
 quick-terminal-animation-duration = 0
+
 # 9) 光标：方块样式，不闪烁
 cursor-style = block
 cursor-style-blink = false
