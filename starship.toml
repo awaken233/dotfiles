@@ -4,3 +4,9 @@ format = "$all$kubernetes$line_break$character"
 [kubernetes]
 format = '[⛵$context](cyan bold) '
 disabled = false
+
+[time]
+disabled = false
+format = "[$time]($style) "
+style = "dimmed white"
+time_format = "%H:%M"
