@@ -1,7 +1,7 @@
 # https://ghostty.org/docs/config
 
 # 1) 字体：先把观感拉满（最值回票价）
-font-family = "JetBrainsMono Nerd Font"
+font-family = "JetBrainsMono Nerd Font Mono"
 # 中文 fallback 字体（需先安装：brew install --cask font-lxgw-wenkai）
 # font-family = "LXGW WenKai"
 
