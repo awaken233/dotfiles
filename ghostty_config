@@ -37,3 +37,6 @@ copy-on-select = clipboard
 
 # 适合 Claude Code 等长对话应用
 scrollback-limit = 200000000
+
+# option+. 获取上一个参数
+keybind = alt+.=esc:.
