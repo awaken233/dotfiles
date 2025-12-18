@@ -36,3 +36,6 @@ copy_on_select yes
 # macOS Specifics
 macos_option_as_alt yes
 macos_quit_when_last_window_closed yes
+
+cursor_trail 3
+cursor_trail_decay 0.1 0.4
