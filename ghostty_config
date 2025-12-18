@@ -24,6 +24,8 @@ shell-integration-features = ssh-terminfo,ssh-env,no-cursor
 
 # macOS 专属：消除标题栏，更加极简
 macos-titlebar-style = hidden
+# 将 Option 键视为 Alt/Meta 键
+macos-option-as-alt = true
 
 # 8) 快捷终端：瞬间弹出，无动画
 quick-terminal-animation-duration = 0
@@ -37,6 +39,3 @@ copy-on-select = clipboard
 
 # 适合 Claude Code 等长对话应用
 scrollback-limit = 200000000
-
-# option+. 获取上一个参数
-keybind = alt+.=esc:.
