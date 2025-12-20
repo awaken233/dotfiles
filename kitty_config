@@ -24,11 +24,8 @@ background_blur 20
 
 # 5) Shell Integration
 # "no-cursor" disables the shell's cursor changing escape codes
-shell_integration enabled no-cursor
-
-# 6) Cursor
-cursor_shape block
-cursor_blink_interval 0
+# 在 tmux + NeoVim 里面，插入模式时光标还是 block 形状, 痛苦
+shell_integration no-cursor
 
 # 7) Copy on Select
 copy_on_select yes
@@ -37,5 +34,6 @@ copy_on_select yes
 macos_option_as_alt yes
 macos_quit_when_last_window_closed yes
 
-cursor_trail 3
-cursor_trail_decay 0.1 0.4
+# Cool but useless, will add an extra 200MB of memory footprint
+# cursor_trail 3
+# cursor_trail_decay 0.1 0.4
