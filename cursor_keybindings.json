@@ -77,7 +77,6 @@
     // a/n 新建文件 A/N 新建文件夹
     // f 在finder 打开
     // c 复制相对地址, u 复制全路径
-    
     {
         "key": "n",
         "command": "explorer.newFile",
@@ -277,16 +276,21 @@
         },
         "when": "terminalFocus"
     },
-    // 当有选中内容时, 添加选中内容到聊天
+    // // 当有选中内容时, 添加选中内容到聊天
+    // {
+    //     "key": "cmd+shift+a",
+    //     "command": "composer.startComposerPrompt",
+    //     "when": "editorHasSelection"
+    // },
+    // // 当没有选中内容时, 添加当前文件到聊天
+    // {
+    //     "key": "cmd+shift+a",
+    //     "command": "composer.addfilestocomposer",
+    //     "when": "!editorHasSelection"
+    // },
+    // Codex vs code extension,添加片段到对话框中
     {
         "key": "cmd+shift+a",
-        "command": "composer.startComposerPrompt",
-        "when": "editorHasSelection"
+        "command": "chatgpt.addToThread",
     },
-    // 当没有选中内容时, 添加当前文件到聊天
-    {
-        "key": "cmd+shift+a",
-        "command": "composer.addfilestocomposer",
-        "when": "!editorHasSelection"
-    }
 ]

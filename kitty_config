@@ -23,9 +23,9 @@ background_opacity 0.9
 background_blur 20
 
 # 5) Shell Integration
-# "no-cursor" disables the shell's cursor changing escape codes
-# 在 tmux + NeoVim 里面，插入模式时光标还是 block 形状, 痛苦
-shell_integration no-cursor
+# "no-cursor" 禁用了 shell (zsh) 改变光标形状的序列，以防止干扰 NeoVim 等应用
+# NeoVim 会通过 tmux 转发的序列独立控制光标
+shell_integration enabled no-cursor
 
 # 7) Copy on Select
 copy_on_select yes
