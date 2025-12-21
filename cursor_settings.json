@@ -98,7 +98,8 @@
     { "before": ["g", ";"], "commands": ["workbench.action.navigatePreviousInEditLocations"] },
     { "before": ["<leader>", "v", "c"], "commands":["git.viewChanges"]},
     { "before": ["<leader>", "q", "q"], "commands":["workbench.action.closeWindow"]},
-    { "before": ["v", "v"], "after": ["V"] }
+    { "before": ["v", "v"], "after": ["V"] },
+    { "before": ["<CR>"], "commands": [ "editor.action.smartSelect.expand" ] },
 ],
   "vim.visualModeKeyBindingsNonRecursive": [
     { "before": [ "p", ], "after": [ "p", "g", "v", "y" ] },
@@ -252,4 +253,5 @@
   "claudeCode.useTerminal": true,
   "diffEditor.hideUnchangedRegions.enabled": true,
   "claudeCode.preferredLocation": "panel",
+  "update.mode": "none"
 }
