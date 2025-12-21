@@ -106,6 +106,7 @@
     { "before": ["q"], "commands": ["editor.action.quickFix"] },
     { "before": [ "H"], "commands": [ "workbench.action.previousEditor"] },
     { "before": [ "L"], "commands": [ "workbench.action.nextEditor"] },
+    { "before": ["<CR>"], "commands": [ "editor.action.smartSelect.expand" ] },
   ],
   "vim.insertModeKeyBindingsNonRecursive": [
   ],"diffEditor.renderSideBySide": true,
