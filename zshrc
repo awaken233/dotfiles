@@ -160,7 +160,12 @@ alias kdev='switch-to-dev'
 alias ksci='switch-to-scilink'
 
 ltail() {
-  command lnav -q -c ':goto -50' "$@"
+  if [[ -t 0 ]]; then
+    command lnav -q -c ':goto -50' "$@"
+  else
+    # 读取管道输入时，需要 -t 将 stdin 视为日志文件，否则可能把输入当作按键导致崩溃
+    command lnav -t -q -c ':goto -50' "$@"
+  fi
 }
 
 # 使用 fzf 交互式搜索并选择一个 Pod
@@ -185,6 +190,37 @@ kfl() {
     if [[ -n $selected_pod ]]; then
         kubectl logs "$selected_pod" -f | ltail
     fi
+}
+
+# 使用 fzf 交互式选择一个 Deployment，然后持续追踪其日志（Pod 重启不中断）
+kfd() {
+    local selected_deploy selector
+
+    selected_deploy=$(
+        kubectl get deploy --no-headers 2>/dev/null \
+          | fzf --prompt="Select Deploy> " --preview-window=hidden \
+          | awk 'NF{print $1; exit}'
+    )
+
+    if [[ -z "$selected_deploy" ]]; then
+        return 0
+    fi
+
+    selector=$(
+        kubectl get deploy "$selected_deploy" \
+          -o go-template='{{- $sep := "" -}}{{- range $k,$v := .spec.selector.matchLabels -}}{{- printf "%s%s=%s" $sep $k $v -}}{{- $sep = "," -}}{{- end -}}{{- range .spec.selector.matchExpressions -}}{{- if eq .operator "In" -}}{{- printf "%s%s in (" $sep .key -}}{{- range $i,$val := .values -}}{{- if $i -}},{{- end -}}{{- $val -}}{{- end -}}{{- printf ")" -}}{{- $sep = "," -}}{{- else if eq .operator "NotIn" -}}{{- printf "%s%s notin (" $sep .key -}}{{- range $i,$val := .values -}}{{- if $i -}},{{- end -}}{{- $val -}}{{- end -}}{{- printf ")" -}}{{- $sep = "," -}}{{- else if eq .operator "Exists" -}}{{- printf "%s%s" $sep .key -}}{{- $sep = "," -}}{{- else if eq .operator "DoesNotExist" -}}{{- printf "%s!%s" $sep .key -}}{{- $sep = "," -}}{{- end -}}{{- end -}}' 2>/dev/null
+    )
+
+    if [[ -z "$selector" ]]; then
+        echo "Failed to derive label selector from deployment: $selected_deploy"
+        kubectl get deploy "$selected_deploy" -o go-template='{{printf "%v" .spec.selector}}' 2>/dev/null || true
+        return 1
+    fi
+
+    printf "%s" "$selected_deploy" | pbcopy 2>/dev/null || true
+    printf "%s\n" "$selected_deploy"
+
+    stern --color never --selector "$selector" ".*" | ltail
 }
 
 # 获取指定 deployment 的镜像

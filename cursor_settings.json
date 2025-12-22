@@ -107,6 +107,7 @@
     { "before": [ "H"], "commands": [ "workbench.action.previousEditor"] },
     { "before": [ "L"], "commands": [ "workbench.action.nextEditor"] },
     { "before": ["<CR>"], "commands": [ "editor.action.smartSelect.expand" ] },
+    { "before": [ "<leader>", "<space>" ], "commands": [ "workbench.action.quickOpen" ] }
   ],
   "vim.insertModeKeyBindingsNonRecursive": [
   ],"diffEditor.renderSideBySide": true,
@@ -253,6 +254,5 @@
   "editor.accessibilitySupport": "off",
   "claudeCode.useTerminal": true,
   "diffEditor.hideUnchangedRegions.enabled": true,
-  "claudeCode.preferredLocation": "panel",
-  "update.mode": "none"
+  "claudeCode.preferredLocation": "panel"
 }
