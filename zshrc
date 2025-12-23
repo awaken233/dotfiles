@@ -217,10 +217,11 @@ kfd() {
         return 1
     fi
 
+    printf "selector: %s\n" "$selector"
     printf "%s" "$selected_deploy" | pbcopy 2>/dev/null || true
     printf "%s\n" "$selected_deploy"
 
-    stern --color never --selector "$selector" ".*" | ltail
+    stern --output raw --color never --selector "$selector" ".*" | ltail
 }
 
 # 获取指定 deployment 的镜像
