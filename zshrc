@@ -27,6 +27,7 @@ alias -g G='| rg -i -F'
 alias -g L='| less'
 alias -g F='| fzf'
 alias -g C='| pbcopy'
+alias -g Y='-o yaml'
 alias vim='nvim'
 alias v='nvim'
 alias vi='nvim'
@@ -217,9 +218,9 @@ kfd() {
         return 1
     fi
 
-    printf "selector: %s\n" "$selector"
-    printf "%s" "$selected_deploy" | pbcopy 2>/dev/null || true
-    printf "%s\n" "$selected_deploy"
+    # printf "selector: %s\n" "$selector"
+    # printf "%s" "$selected_deploy" | pbcopy 2>/dev/null || true
+    # printf "%s\n" "$selected_deploy"
 
     stern --output raw --color never --selector "$selector" ".*" | ltail
 }
