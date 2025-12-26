@@ -17,6 +17,18 @@ set scrolloff 10
 # Use the `dim` attribute instead of underline for the cursor in the preview pane
 set cursorpreviewfmt "\033[7;2m"
 
+# Nerd Fonts 图标支持
+set icons true
+
+# 显示文件/目录大小信息
+set info size
+
+# 显示目录中的文件数量
+set dircounts
+
+# 边输入边筛选
+set incsearch true
+
 # use enter for shell commands
 map <enter> shell
 
