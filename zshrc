@@ -160,13 +160,9 @@ function switch-to-scilink() {
 alias kdev='switch-to-dev'
 alias ksci='switch-to-scilink'
 
+# lnav 实现的 tail：-t 将 stdin 视为日志内容，-q 静默模式，-c 执行命令跳转到末尾
 ltail() {
-  if [[ -t 0 ]]; then
-    command lnav -q -c ':goto -50' "$@"
-  else
-    # 读取管道输入时，需要 -t 将 stdin 视为日志文件，否则可能把输入当作按键导致崩溃
-    command lnav -t -q -c ':goto -50' "$@"
-  fi
+  command lnav -t -q -c ':goto 100%' "$@"
 }
 
 # 使用 fzf 交互式搜索并选择一个 Pod
