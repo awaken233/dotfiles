@@ -13,6 +13,8 @@ set -g bell-action none
 
 # Turn the mouse on, but without copy mode dragging
 set -g mouse on
+# 滚动一下就可以使用鼠标复制了
+set -g set-clipboard on
 unbind -n MouseDrag1Pane
 unbind -Tcopy-mode MouseDrag1Pane
 
