@@ -31,6 +31,9 @@ bind -T copy-mode-vi Y send-keys -X copy-end-of-line
 # 修改prifix和命令键之间的之间的按键时间
 set -sg escape-time 100
 
+# Set history limit
+set -g history-limit 1000000
+
 bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
 
