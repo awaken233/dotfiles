@@ -16,13 +16,15 @@ set -g mouse on
 # 滚动一下就可以使用鼠标复制了
 set -g set-clipboard on
 unbind -n MouseDrag1Pane
-unbind -Tcopy-mode MouseDrag1Pane
+unbind -T copy-mode MouseDrag1Pane # 禁用复制模式下的鼠标拖拽
 
 
 # allow utf8 support
 set -q -g status-utf8 on     # expect UTF-8 (tmux < 2.2)
 setw -q -g utf8 on
 
+# 按两次进入复制模式
+bind-key C-b copy-mode
 # vi copy mode
 setw -g mode-keys vi
 bind -T copy-mode-vi v send-keys -X begin-selection
