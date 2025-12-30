@@ -268,13 +268,13 @@
         "command": "-claude-code.runClaude.keyboard",
         "when": "claude-code.hasClaudeInPath"
     },
-    {
-        "key": "shift+enter",
-        "command": "workbench.action.terminal.sendSequence",
-        "args": {
-            "text": "\\\r\n"
-        },
-        "when": "terminalFocus"
+  {
+    "key": "shift+enter",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\\\r\n"
+    },
+    "when": "terminalFocus"
     },
     // // 当有选中内容时, 添加选中内容到聊天
     // {

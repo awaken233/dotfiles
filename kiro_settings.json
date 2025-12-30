@@ -311,7 +311,7 @@
   "security.workspace.trust.untrustedFiles": "open",
   "diffEditor.hideUnchangedRegions.enabled": true,
   "workbench.preferredDarkColorTheme": "Monokai Dimmed",
-  "workbench.preferredLightColorTheme": "Monokai Dimmed",
+  "workbench.preferredLightColorTheme": "Solarized Light",
   "kiroAgent.trustedTools": [
     "webFetch",
     "remote_web_search"

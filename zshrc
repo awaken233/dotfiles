@@ -299,3 +299,7 @@ zstyle ':fzf-tab:*' fzf-flags --height=40% --layout=reverse --border --bind=tab:
 
 # 改切换 group 的快捷键（比 F1/F2 顺手）
 zstyle ':fzf-tab:*' switch-group '<' '>'
+
+
+# Added by CodeBuddy CN
+export PATH="/Users/ve/.codebuddy/bin:$PATH"
