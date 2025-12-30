@@ -63,8 +63,9 @@ export VISUAL=nvim
 export PAGER=bat
 export EDITOR=/opt/homebrew/bin/nvim
 
-# 设置bat的主题
-export BAT_THEME="Dracula"
+# 设置bat的主题，根据系统外观自动切换
+export BAT_THEME_LIGHT="GitHub"
+export BAT_THEME_DARK="Monokai Extended"
 
 # fzf setting
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
