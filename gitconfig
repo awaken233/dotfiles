@@ -47,6 +47,7 @@
 [delta]
 	navigate = true
 	light = true
+	syntax-theme = GitHub
 [merge]
 	conflictStyle = zdiff3
 
