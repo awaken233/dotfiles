@@ -35,3 +35,5 @@ copy-on-select = clipboard
 
 # 适合 Claude Code 等长对话应用
 scrollback-limit = 200000000
+# 使用 Shift+Enter 发送消息（适用于 AI 对话工具）
+keybind = shift+enter=text:\x1b\r
