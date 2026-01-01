@@ -37,3 +37,7 @@ macos_quit_when_last_window_closed yes
 # Cool but useless, will add an extra 200MB of memory footprint
 # cursor_trail 3
 # cursor_trail_decay 0.1 0.4
+
+# 把 kitty_mod+Y 设为“复制上一个命令输出到剪贴板”
+map kitty_mod+y copy_last_command_output
+
