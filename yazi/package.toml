@@ -4,9 +4,24 @@ rev = "80cd5b5"
 hash = "56fdabc96fc1f4d53c96eb884b02a5be"
 
 [[plugin.deps]]
-use = "DreamMaoMao/bookmarks"
-rev = "fa65ba2"
-hash = "cbce5906c0644dedda0c40bfc95c2678"
+use = "yazi-rs/plugins:git"
+rev = "80cd5b5"
+hash = "170317244d60fbe70ad3cc3353358480"
+
+[[plugin.deps]]
+use = "Rolv-Apneseth/starship"
+rev = "eca1861"
+hash = "e519d894e94ded741e06aae4d4775981"
+
+[[plugin.deps]]
+use = "llanosrocas/yaziline"
+rev = "6266926"
+hash = "9917ab5cb9bdbab7ca7f2501f84f0f11"
+
+[[plugin.deps]]
+use = "h-hg/yamb"
+rev = "5f2e22e"
+hash = "699fe07e0d2d1b4af8dafb84168eeb04"
 
 [flavor]
 deps = []

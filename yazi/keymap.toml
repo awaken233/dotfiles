@@ -2,10 +2,13 @@
 
 [mgr]
 prepend_keymap = [
-  # 书签 (bookmarks.yazi) - b for Bookmark
-  { on = ["b", "a"], run = "plugin bookmarks save",   desc = "Add bookmark" },
-  { on = ["b", "g"], run = "plugin bookmarks jump",   desc = "Go to bookmark" },
-  { on = ["b", "d"], run = "plugin bookmarks delete", desc = "Delete bookmark" },
+  # 书签 (yamb) - b for Bookmark
+  # b,a 添加 | b,g 按键跳转 | b,G fzf跳转 | b,d 删除 | b,r 重命名
+  { on = ["b", "a"], run = "plugin yamb -- save",          desc = "Add bookmark" },
+  { on = ["b", "g"], run = "plugin yamb -- jump_by_key",   desc = "Jump bookmark by key" },
+  { on = ["b", "G"], run = "plugin yamb -- jump_by_fzf",   desc = "Jump bookmark by fzf" },
+  { on = ["b", "d"], run = "plugin yamb -- delete_by_key", desc = "Delete bookmark by key" },
+  { on = ["b", "r"], run = "plugin yamb -- rename_by_key", desc = "Rename bookmark by key" },
 
   # smart-enter：目录就进入，文件就打开
   { on = "<Enter>", run = "plugin smart-enter", desc = "Enter directory or open file" },
