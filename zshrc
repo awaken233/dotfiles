@@ -26,7 +26,6 @@ alias rm='trash'
 # 忽略大小写和正则
 alias -g G='| rg -i -F'
 alias -g L='| less'
-alias -g F='| fzf'
 alias -g C='| pbcopy'
 alias -g Y='-o yaml'
 alias vim='nvim'
