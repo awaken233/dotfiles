@@ -21,7 +21,7 @@ source $ZSH/oh-my-zsh.sh
 # alias
 alias proxy='export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890'
 alias unproxy='unset http_proxy https_proxy all_proxy'
-alias rm="trash -F"
+alias rm="mv -t ~/.Trash"
 # 忽略大小写和正则
 alias -g G='| rg -i -F'
 alias -g L='| less'
