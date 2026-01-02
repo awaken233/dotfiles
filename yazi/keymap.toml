@@ -26,4 +26,7 @@ prepend_keymap = [
 
   # 快捷路径
   { on = ["g", "D"], run = "cd ~/Documents", desc = "Go to Documents" },
+
+  # LazyGit
+  { on = "<C-g>", run = 'shell "lazygit" --block --confirm', desc = "Open LazyGit" },
 ]
