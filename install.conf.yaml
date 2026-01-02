@@ -40,9 +40,6 @@
     ~/.config/nvim:
         create: true
         path: lazyvim
-    ~/.config/lf:
-        create: true
-        path: lf
     ~/.config/yazi:
         create: true
         path: yazi
