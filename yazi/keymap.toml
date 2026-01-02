@@ -10,6 +10,10 @@ prepend_keymap = [
   { on = ["b", "d"], run = "plugin yamb -- delete_by_key", desc = "Delete bookmark by key" },
   { on = ["b", "r"], run = "plugin yamb -- rename_by_key", desc = "Rename bookmark by key" },
 
+  # 压缩 (compress) - c,a for Compress Archive
+  # 支持 zip, 7z, tar.gz, tar.xz, tar.bz2 等格式
+  { on = ["c", "a"], run = "plugin compress", desc = "Archive selected files" },
+
   # smart-enter：目录就进入，文件就打开
   { on = "<Enter>", run = "plugin smart-enter", desc = "Enter directory or open file" },
 
