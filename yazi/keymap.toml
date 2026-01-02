@@ -1,0 +1,23 @@
+# ~/.config/yazi/keymap.toml
+
+[mgr]
+prepend_keymap = [
+  # smart-enter：目录就进入，文件就打开
+  { on = "<Enter>", run = "plugin smart-enter", desc = "Enter directory or open file" },
+
+  # 当前目录开启 shell
+  { on = "!", run = 'shell "$SHELL" --block --confirm', desc = "Open shell here" },
+
+  # 书签：保存 / 跳转 / 删除
+  { on = ["B", "S"], run = "plugin bookmarks save",       desc = "Save bookmark" },
+  { on = ["B", "J"], run = "plugin bookmarks jump",       desc = "Jump bookmark" },
+  { on = ["b", "d"], run = "plugin bookmarks delete",     desc = "Delete bookmark" },
+  { on = ["b", "D"], run = "plugin bookmarks delete_all", desc = "Delete all" },
+
+  # zoxide / fzf 快速跳转
+  { on = ";", run = "plugin zoxide", desc = "Jump via zoxide" },
+  { on = ":", run = "plugin fzf",    desc = "Jump via fzf" },
+
+  # 快捷路径
+  { on = ["g", "D"], run = "cd ~/Documents", desc = "Go to Documents" },
+]

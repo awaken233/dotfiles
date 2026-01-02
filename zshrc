@@ -20,7 +20,9 @@ source $ZSH/oh-my-zsh.sh
 # alias
 alias proxy='export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890'
 alias unproxy='unset http_proxy https_proxy all_proxy'
-rm() { mv "$@" ~/.Trash; }
+# trash 是 keg-only（因与 macOS 自带功能冲突，Homebrew 不自动链接到 /opt/homebrew/bin），需手动添加 PATH
+export PATH="/opt/homebrew/opt/trash/bin:$PATH"
+alias rm='trash'
 # 忽略大小写和正则
 alias -g G='| rg -i -F'
 alias -g L='| less'

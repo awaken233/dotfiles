@@ -43,6 +43,9 @@
     ~/.config/lf:
         create: true
         path: lf
+    ~/.config/yazi:
+        create: true
+        path: yazi
     ~/.config/ghostty/config:
         create: true
         path: ghostty_config

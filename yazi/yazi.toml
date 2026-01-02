@@ -1,0 +1,7 @@
+# ~/.config/yazi/yazi.toml
+
+[mgr]
+# 默认显示隐藏文件
+show_hidden    = true
+# 行信息：修改时间
+linemode       = "mtime"

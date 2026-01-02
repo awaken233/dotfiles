@@ -1,0 +1,12 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "80cd5b5"
+hash = "56fdabc96fc1f4d53c96eb884b02a5be"
+
+[[plugin.deps]]
+use = "DreamMaoMao/bookmarks"
+rev = "fa65ba2"
+hash = "cbce5906c0644dedda0c40bfc95c2678"
+
+[flavor]
+deps = []
