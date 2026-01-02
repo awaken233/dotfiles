@@ -5,6 +5,10 @@ set shell zsh
 set relativenumber
 set previewer ~/.config/lf/pv.sh
 set hidden true
+# 增量搜索, 只显示过滤搜索结果
+set incfilter true
+map f filter
+
 
 # 设置shell选项，使命令更安全（出错时退出，未定义变量时报错）
 set shellopts '-eu'
