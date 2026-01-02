@@ -1,4 +1,5 @@
 # 官方网址 https://github.com/gokcehan/lf 
+# 官方示例 https://github.com/gokcehan/lf/blob/master/etc/lfrc.example
 # interpreter for shell commands
 set shell zsh
 set relativenumber
@@ -57,7 +58,7 @@ cmd finder_here &{{
     open -a Finder "$PWD"
 }}
 
-cmd trash %set -f; mv $fx ~/.Trash
+cmd trash %set -f; mkdir -p ~/.Trash; mv -n ${(f)fx} ~/.Trash
 
 # extract the current file with the right command
 # (xkcd link: https://xkcd.com/1168/)
@@ -140,7 +141,7 @@ map R reload
 map a :push %touch<space>
 map A :push %mkdir<space>-p<space>
 
-map x %trash -F ${(f)fx}
+map x trash
 
 # 用默认程序打开文件
 map o :push %open<space>$f<enter>
@@ -160,4 +161,3 @@ map <c-s> :fzf_search
 map <c-f> :fzf_jump
 
 map i $~/.config/lf/pv.sh $f | less -R
-
