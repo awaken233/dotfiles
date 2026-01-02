@@ -312,7 +312,7 @@ function f() {
 	command yazi "$@" --cwd-file="$tmp"
 	IFS= read -r -d '' cwd < "$tmp"
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
-	rm -f -- "$tmp"
+	command rm -f -- "$tmp"
 }
 
 # zoxide 目录跳转
