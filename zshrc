@@ -12,6 +12,7 @@ plugins=(
   zsh-autosuggestions
   kubectl
 	autoswitch_virtualenv
+  zoxide
   zsh-syntax-highlighting
 )
 
@@ -314,5 +315,3 @@ function f() {
 	command rm -f -- "$tmp"
 }
 
-# zoxide 目录跳转
-eval "$(zoxide init zsh)"
