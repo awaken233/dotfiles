@@ -17,6 +17,12 @@ imap <C-e> <Esc>g$a
 exmap jumpToLink obcommand mrj-jump-to-link:activate-lightspeed-jump
 nmap s :jumpToLink<CR>
 
+" Better scrolling and searching with centered always
+noremap <C-d> <C-d>zz
+noremap <C-u> <C-u>zz
+noremap n nzzzv
+noremap N Nzzzv
+
 " obsidian-vimrc-support 现在已经默认支持 [[ / ]]"
 " exmap next_header obcommand obsidian-editor-shortcuts:goToNextHeading
 " nmap ]m :next_header
