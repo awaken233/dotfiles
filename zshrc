@@ -10,7 +10,6 @@ plugins=(
   history-substring-search
 	fzf-tab
   zsh-autosuggestions
-  z
   kubectl
 	autoswitch_virtualenv
   zsh-syntax-highlighting
@@ -313,3 +312,6 @@ function y() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	rm -f -- "$tmp"
 }
+
+# zoxide 目录跳转
+eval "$(zoxide init zsh)"
