@@ -2,17 +2,16 @@
 
 [mgr]
 prepend_keymap = [
+  # 书签 (bookmarks.yazi) - b for Bookmark
+  { on = ["b", "a"], run = "plugin bookmarks save",   desc = "Add bookmark" },
+  { on = ["b", "g"], run = "plugin bookmarks jump",   desc = "Go to bookmark" },
+  { on = ["b", "d"], run = "plugin bookmarks delete", desc = "Delete bookmark" },
+
   # smart-enter：目录就进入，文件就打开
   { on = "<Enter>", run = "plugin smart-enter", desc = "Enter directory or open file" },
 
   # 当前目录开启 shell
   { on = "!", run = 'shell "$SHELL" --block --confirm', desc = "Open shell here" },
-
-  # 书签：保存 / 跳转 / 删除
-  { on = ["B", "S"], run = "plugin bookmarks save",       desc = "Save bookmark" },
-  { on = ["B", "J"], run = "plugin bookmarks jump",       desc = "Jump bookmark" },
-  { on = ["b", "d"], run = "plugin bookmarks delete",     desc = "Delete bookmark" },
-  { on = ["b", "D"], run = "plugin bookmarks delete_all", desc = "Delete all" },
 
   # zoxide / fzf 快速跳转
   { on = ";", run = "plugin zoxide", desc = "Jump via zoxide" },
