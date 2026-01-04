@@ -13,6 +13,7 @@
     ~/.zshrc: zshrc
     ~/.tmux.conf: tmuxconf
     ~/.gitignore_global: gitignore_global
+    ~/.gemini/.geminiignore: geminiignore
     ~/Library/Application Support/lazygit/config.yml: lazygit_config
     ~/Library/Application Support/Sublime Text/Packages/User/Preferences.sublime-settings: sublime_settings
     ~/Library/Application Support/Cursor/User/settings.json:

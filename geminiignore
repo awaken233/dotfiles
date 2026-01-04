@@ -1,0 +1,79 @@
+/node_modules/
+/dist/
+/build/
+/out/
+/target/          # Maven / Gradle 默认输出
+/.gradle/
+/.gradle/
+/.idea/
+/.venv/
+/venv/
+/.env
+.env.*
+/logs/
+/*.log
+
+# =========================
+# Java 相关
+# =========================
+# 编译输出
+*.class
+*.jar
+*.war
+*.ear
+
+# Java crash 日志
+hs_err_pid*
+replay_pid*
+
+# 常见工具目录
+/.settings/
+/.classpath
+/.project
+/.springBeans
+
+# Lombok / annotation processors 等生成目录（按需）
+/generated/
+/generated-sources/
+
+# =========================
+# Python 相关
+# =========================
+# 字节码缓存
+__pycache__/
+/*.py[cod]
+*$py.class
+
+# 构建工具
+/build/
+/dist/
+/eggs/
+/*.egg-info
+/.eggs/
+
+# 虚拟环境（全局再兜一层）
+/env/
+/.venv/
+/venv/
+/.conda/
+/.mypy_cache/
+/.pytest_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# 工具缓存
+/.ruff_cache/
+/.pytype/
+/.pyre/
+
+# =========================
+# OS & 编辑器杂项
+# =========================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+/.idea/
+*.iml
