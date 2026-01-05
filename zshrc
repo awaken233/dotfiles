@@ -44,14 +44,7 @@ alias ms='mvn dependency:resolve -Dclassifier=sources'
 alias mvn-ali='mvn -s ~/.m2/settings-ali.xml'
 
 
-# history-substring-search setting
-bindkey -M emacs '^P' history-substring-search-up
-bindkey -M emacs '^N' history-substring-search-down
-# tmux up/down search
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-# zsh-autosuggestions 只接受一个单词
-bindkey '^F' forward-word
+# history-substring-search / zsh-autosuggestions 的按键绑定统一放到下方 “ZLE 自定义按键绑定” 区域
 
 # tmux 真彩色配置
 export TERM="screen-256color"
@@ -104,7 +97,6 @@ rgfzf() {
 
 # 将函数注册为 zsh 编辑器小部件
 zle -N rgfzf
-bindkey '^S' rgfzf
 
 
 # 当使用 ctrl+r 切换了 repo, 退出 shell 将将当前目录切换到 repo 目录, 如果希望不切换目录, 可以按下 shift+Q
@@ -131,7 +123,6 @@ project_lazygit() {
 
 # 将函数注册为 zsh 编辑器小部件
 zle -N project_lazygit
-bindkey '^G' project_lazygit
 
 # 快速打开指定项目目录的 nvim
 project_nvim() {
@@ -144,7 +135,6 @@ project_nvim() {
 
 # 将函数注册为 zsh 编辑器小部件
 zle -N project_nvim
-bindkey '^V' project_nvim
 
 # zoxide：将 zi 注册为 zsh 编辑器小部件（交互式跳转）
 zi_widget() {
@@ -158,6 +148,23 @@ zi_widget() {
 }
 
 zle -N zi_widget
+
+# ZLE 自定义按键绑定（集中放这里便于查占用/改键）
+# - Ctrl+P/Ctrl+N：history-substring-search-up/down（覆盖默认的上一条/下一条历史）
+# - ↑/↓：history-substring-search-up/down（用于 tmux 下上/下箭头也能搜索）
+# - Ctrl+F：forward-word（覆盖默认的 forward-char；用于 zsh-autosuggestions 只接受一个单词）
+# - Ctrl+S：rgfzf（默认常见为 history-incremental-search-forward；且可能被终端当作 XON/XOFF）
+# - Ctrl+G：project_lazygit（覆盖默认的 send-break/中断类行为）
+# - Ctrl+V：project_nvim（覆盖默认的 quoted-insert）
+# - Ctrl+Q：zi_widget（覆盖默认的 push-line）
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey '^F' forward-word
+bindkey '^S' rgfzf
+bindkey '^G' project_lazygit
+bindkey '^V' project_nvim
 bindkey '^Q' zi_widget
 
 # K8s 多集群管理
