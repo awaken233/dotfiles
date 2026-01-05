@@ -146,6 +146,20 @@ project_nvim() {
 zle -N project_nvim
 bindkey '^V' project_nvim
 
+# zoxide：将 zi 注册为 zsh 编辑器小部件（交互式跳转）
+zi_widget() {
+  if (( $+functions[zi] )); then
+    zi
+    zle reset-prompt
+  else
+    zle -M "zi: function not found (is zoxide loaded?)"
+    return 1
+  fi
+}
+
+zle -N zi_widget
+bindkey '^Q' zi_widget
+
 # K8s 多集群管理
 function switch-to-dev() {
     kubectx dev
@@ -314,4 +328,3 @@ function f() {
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	command rm -f -- "$tmp"
 }
-
