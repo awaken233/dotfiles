@@ -241,7 +241,7 @@ kfd() {
     # printf "%s" "$selected_deploy" | pbcopy 2>/dev/null || true
     # printf "%s\n" "$selected_deploy"
 
-    stern --output raw --color never --selector "$selector" ".*" | ltail
+    command lnav -q -c ':goto 100%' -e "stern --output raw --color never --selector ${selector:q} '.*'"
 }
 
 # 获取指定 deployment 的镜像
