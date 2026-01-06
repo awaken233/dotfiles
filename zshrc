@@ -47,7 +47,7 @@ alias mvn-ali='mvn -s ~/.m2/settings-ali.xml'
 # history-substring-search / zsh-autosuggestions 的按键绑定统一放到下方 “ZLE 自定义按键绑定” 区域
 
 # tmux 真彩色配置
-export TERM="screen-256color"
+# export TERM="screen-256color"
 # 设置zsh的prompt, 需要安装starship
 eval "$(starship init zsh)"
 
