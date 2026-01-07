@@ -214,7 +214,7 @@ kfl() {
 
 # 使用 fzf 交互式选择一个 Deployment，然后持续追踪其日志（Pod 重启不中断）
 kfd() {
-    local selected_deploy selector
+    local selected_deploy
 
     selected_deploy=$(
         kubectl get deploy --no-headers 2>/dev/null \
@@ -226,22 +226,7 @@ kfd() {
         return 0
     fi
 
-    selector=$(
-        kubectl get deploy "$selected_deploy" \
-          -o go-template='{{- $sep := "" -}}{{- range $k,$v := .spec.selector.matchLabels -}}{{- printf "%s%s=%s" $sep $k $v -}}{{- $sep = "," -}}{{- end -}}{{- range .spec.selector.matchExpressions -}}{{- if eq .operator "In" -}}{{- printf "%s%s in (" $sep .key -}}{{- range $i,$val := .values -}}{{- if $i -}},{{- end -}}{{- $val -}}{{- end -}}{{- printf ")" -}}{{- $sep = "," -}}{{- else if eq .operator "NotIn" -}}{{- printf "%s%s notin (" $sep .key -}}{{- range $i,$val := .values -}}{{- if $i -}},{{- end -}}{{- $val -}}{{- end -}}{{- printf ")" -}}{{- $sep = "," -}}{{- else if eq .operator "Exists" -}}{{- printf "%s%s" $sep .key -}}{{- $sep = "," -}}{{- else if eq .operator "DoesNotExist" -}}{{- printf "%s!%s" $sep .key -}}{{- $sep = "," -}}{{- end -}}{{- end -}}' 2>/dev/null
-    )
-
-    if [[ -z "$selector" ]]; then
-        echo "Failed to derive label selector from deployment: $selected_deploy"
-        kubectl get deploy "$selected_deploy" -o go-template='{{printf "%v" .spec.selector}}' 2>/dev/null || true
-        return 1
-    fi
-
-    # printf "selector: %s\n" "$selector"
-    # printf "%s" "$selected_deploy" | pbcopy 2>/dev/null || true
-    # printf "%s\n" "$selected_deploy"
-
-    command lnav -q -c ':goto 100%' -e "stern --output raw --color never --selector ${selector:q} '.*'"
+    command lnav -q -c ':goto 100%' -e "stern --output raw --color never deployment/${selected_deploy:q}"
 }
 
 # 获取指定 deployment 的镜像
