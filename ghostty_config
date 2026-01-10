@@ -2,8 +2,7 @@
 
 # 1) 字体：先把观感拉满（最值回票价）
 font-family = "JetBrainsMono Nerd Font Mono"
-# 中文 fallback 字体（需先安装：brew install --cask font-lxgw-wenkai）
-# font-family = "LXGW WenKai"
+font-family = "PingFang SC"
 
 # 窗口启动时最大化 (需要 Ghostty 1.1.0+)
 maximize = true
@@ -35,5 +34,6 @@ copy-on-select = clipboard
 
 # 适合 Claude Code 等长对话应用
 scrollback-limit = 200000000
-# 使用 Shift+Enter 发送消息（适用于 AI 对话工具）
-keybind = shift+enter=text:\x1b\r
+
+# 可以点击链接
+link-url = true
