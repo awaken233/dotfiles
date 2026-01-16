@@ -32,3 +32,4 @@ bin/
 # 自定义 nacos 配置不提交
 application-dev.yml
 settings.local.json
+.ace-tool/
