@@ -16,6 +16,7 @@ prepend_keymap = [
 
   # smart-enter: 智能打开
   { on = "l",       run = "plugin smart-enter", desc = "Smart enter" },
+  { on = "<Right>", run = "plugin smart-enter", desc = "Smart enter" },
   { on = "<Enter>", run = "plugin smart-enter", desc = "Smart enter" },
 
   # 当前目录开启 shell
