@@ -14,8 +14,9 @@ prepend_keymap = [
   # 支持 zip, 7z, tar.gz, tar.xz, tar.bz2 等格式
   { on = ["c", "a"], run = "plugin compress", desc = "Archive selected files" },
 
-  # smart-enter：目录就进入，文件就打开
-  { on = "<Enter>", run = "plugin smart-enter", desc = "Enter directory or open file" },
+  # smart-enter: 智能打开
+  { on = "l",       run = "plugin smart-enter", desc = "Smart enter" },
+  { on = "<Enter>", run = "plugin smart-enter", desc = "Smart enter" },
 
   # 当前目录开启 shell
   { on = "!", run = 'shell "$SHELL" --block --confirm', desc = "Open shell here" },
