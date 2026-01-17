@@ -139,7 +139,23 @@ zle -N project_nvim
 # zoxide：将 zi 注册为 zsh 编辑器小部件（交互式跳转）
 zi_widget() {
   if (( $+functions[zi] )); then
-    zi
+    # 基于 zoxide 默认配置，替换 --exact 为 --no-exact，并添加智能匹配选项
+    # 核心改动: --no-exact (启用模糊匹配) + -i (忽略大小写) + --algo=v2 (智能权重)
+    _ZO_FZF_OPTS=" \
+      --no-exact \
+      -i \
+      --algo=v2 \
+      --no-sort \
+      --bind=ctrl-z:ignore,btab:up,tab:down \
+      --cycle \
+      --keep-right \
+      --border=sharp \
+      --height=45% \
+      --info=inline \
+      --layout=reverse \
+      --tabstop=1 \
+      --exit-0 \
+    " zi
     zle reset-prompt
   else
     zle -M "zi: function not found (is zoxide loaded?)"
