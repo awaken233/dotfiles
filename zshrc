@@ -169,14 +169,21 @@ zle -N zi_widget
 # - Ctrl+P/Ctrl+N：history-substring-search-up/down（覆盖默认的上一条/下一条历史）
 # - ↑/↓：history-substring-search-up/down（用于 tmux 下上/下箭头也能搜索）
 # - Ctrl+F：forward-word（覆盖默认的 forward-char；用于 zsh-autosuggestions 只接受一个单词）
+#          使用 whitespace word style，只以空格为分隔符（例如 /、- 等符号不再是分隔符）
 # - Ctrl+S：rgfzf（默认常见为 history-incremental-search-forward；且可能被终端当作 XON/XOFF）
 # - Ctrl+G：project_lazygit（覆盖默认的 send-break/中断类行为）
 # - Ctrl+V：project_nvim（覆盖默认的 quoted-insert）
 # - Ctrl+Q：zi_widget（覆盖默认的 push-line）
+
 bindkey -M emacs '^P' history-substring-search-up
 bindkey -M emacs '^N' history-substring-search-down
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
+# 设置 forward-word 只以空格为分隔符（不再把 / - . 等符号当作单词边界）
+# 记录：zsh 默认（不加载任何 rc）使用 word style=normal，且 WORDCHARS='*?_-.[]~=/&;!#$%^(){}<>'（包含 /）
+autoload -U select-word-style
+select-word-style whitespace
+
 bindkey '^F' forward-word
 bindkey '^S' rgfzf
 bindkey '^G' project_lazygit
