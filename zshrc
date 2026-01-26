@@ -203,8 +203,15 @@ function switch-to-scilink() {
     echo "✅ 已切换到scilink环境"
 }
 
+function switch-to-scilink2() {
+    kubectx scilink
+    kubens scilink2
+    echo "✅ 已切换到scilink2环境"
+}
+
 alias kdev='switch-to-dev'
 alias ksci='switch-to-scilink'
+alias ksci2='switch-to-scilink2'
 
 # lnav 实现的 tail：-t 将 stdin 视为日志内容，-q 静默模式，-c 执行命令跳转到末尾
 ltail() {
@@ -342,4 +349,35 @@ function f() {
 	IFS= read -r -d '' cwd < "$tmp"
 	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
 	command rm -f -- "$tmp"
+}
+
+# OpenCode 启动助手: 自动处理 Tmux 会话与端口
+# 不再tmux打开tmux, 并且防止端口冲突.
+oc() {
+    local base_name=$(basename "$PWD")
+    local path_hash=$(echo -n "$PWD" | md5sum | cut -c1-4)
+    local session_name="${base_name}-${path_hash}"
+    
+    # Find available port
+    local port=4096
+    while [ $port -lt 5096 ]; do
+        if ! lsof -i :$port >/dev/null 2>&1; then
+            break
+        fi
+        port=$((port + 1))
+    done
+    
+    export OPENCODE_PORT=$port
+    
+    if [ -n "$TMUX" ]; then
+        opencode --port $port "$@"
+    else
+        local oc_cmd="OPENCODE_PORT=$port opencode --port $port $*; exec $SHELL"
+        if tmux has-session -t "$session_name" 2>/dev/null; then
+            tmux new-window -t "$session_name" -c "$PWD" "$oc_cmd"
+            tmux attach-session -t "$session_name"
+        else
+            tmux new-session -s "$session_name" -c "$PWD" "$oc_cmd"
+        fi
+    fi
 }
