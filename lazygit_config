@@ -6,6 +6,8 @@ gui:
   # show nerdFont
   nerdFontsVersion: "3"
   language: "en"
+  # 启用大块模式, 更方便选择, 减少敲击次数
+  useHunkModeInStagingView: false
 customCommands:
   # 使用 idea 打开当前目录
   - key: '<f2>'
@@ -40,6 +42,6 @@ customCommands:
     command: 'git update-index --no-skip-worktree {{ .Form.FileToReconsider }}'
 git:
   # 使用 delta 作为 git 的 pager, 好用的 diff 视图, 点击行号可以使用默认的编辑器编辑
-   paging:
-     colorArg: always
-     pager: delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+  pagers:
+    - colorArg: always
+      pager: delta --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
