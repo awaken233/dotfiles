@@ -30,5 +30,5 @@ prepend_keymap = [
   { on = ["g", "D"], run = "cd ~/Documents", desc = "Go to Documents" },
 
   # LazyGit
-  { on = "<C-g>", run = 'shell "lazygit" --block --confirm', desc = "Open LazyGit" },
+  { on = "<C-g>", run = 'shell "lazygit" --block', desc = "Open LazyGit" },
 ]
