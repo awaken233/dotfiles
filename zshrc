@@ -355,7 +355,12 @@ function f() {
 # 不再tmux打开tmux, 并且防止端口冲突.
 oc() {
     local base_name=$(basename "$PWD")
-    local path_hash=$(echo -n "$PWD" | md5sum | cut -c1-4)
+    local path_hash
+    if (( $+commands[md5sum] )); then
+        path_hash=$(echo -n "$PWD" | md5sum | cut -c1-4)
+    else
+        path_hash=$(echo -n "$PWD" | md5 | cut -c1-4)
+    fi
     local session_name="${base_name}-${path_hash}"
     
     # Find available port
