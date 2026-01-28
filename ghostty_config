@@ -36,4 +36,8 @@ copy-on-select = clipboard
 scrollback-limit = 200000000
 
 # 可以点击链接
+# 在tmux中使用 Cmd+Shift+Click 点击链接, 
 link-url = true
+
+# 滚动倍率
+mouse-scroll-multiplier = precision:0.1,discrete:1
