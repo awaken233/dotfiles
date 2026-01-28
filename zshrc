@@ -61,6 +61,10 @@ export EDITOR=/opt/homebrew/bin/nvim
 export BAT_THEME_LIGHT="GitHub"
 export BAT_THEME_DARK="Monokai Extended"
 
+# bat 实际读取的是 BAT_THEME（不是 BAT_THEME_LIGHT/DARK）
+# 解决Ctrl+s 看不清楚的问题
+export BAT_THEME="${BAT_THEME_LIGHT}"
+
 # fzf setting
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # 使用 rg 进行搜索, 而不是find搜索, 需要安装ripgrep, 且忽略.git 目录
