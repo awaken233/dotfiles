@@ -254,5 +254,5 @@
   "editor.accessibilitySupport": "off",
   "claudeCode.useTerminal": true,
   "diffEditor.hideUnchangedRegions.enabled": true,
-  "claudeCode.preferredLocation": "panel","update.mode": "none"
+  "claudeCode.preferredLocation": "panel"
 }
