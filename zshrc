@@ -355,6 +355,9 @@ function f() {
 	command rm -f -- "$tmp"
 }
 
+# 默认为256，避免执行 OC 命令时出现当前链接数超过文件句柄数 FD 的数量。 
+ulimit -n 16384
+
 # OpenCode 启动助手: 自动处理 Tmux 会话与端口
 # 不再tmux打开tmux, 并且防止端口冲突.
 oc() {

@@ -56,3 +56,5 @@
     diff = sh -c "delta | head -n 100"
     log  = head -n 100
     show = head -n 100
+[safe]
+	directory = *
