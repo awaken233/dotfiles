@@ -36,10 +36,20 @@ vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
   callback = function()
     if vim.v.event.operator == "y" then
-      vim.fn.setreg("+", vim.fn.getreg("0"))
+      local ok, err = pcall(function()
+        vim.fn.setreg("+", vim.fn.getreg("0"))
+      end)
+      if not ok and not vim.g.__clipboard_yank_warned then
+        vim.g.__clipboard_yank_warned = true
+        vim.notify("Auto-copy to system clipboard failed: " .. tostring(err), vim.log.levels.WARN)
+      end
     end
   end,
 })
+
+keymap.set("n", "gr", "<Plug>ReplaceWithRegisterOperator", { desc = "Replace with register", remap = true })
+keymap.set("x", "gr", "<Plug>ReplaceWithRegisterVisual", { desc = "Replace with register", remap = true })
+keymap.set("n", "grr", "<Plug>ReplaceWithRegisterLine", { desc = "Replace line with register", remap = true })
 
 -- F2 切换粘贴模式（现代 Neovim 兼容方案）
 keymap.set("n", "<F2>", function()
