@@ -2,7 +2,7 @@
 format = "$all$kubernetes$line_break$character"
 
 [kubernetes]
-format = '[⛵$namespace](cyan bold) '
+format = '[⛵$context](cyan bold) '
 disabled = false
 
 [time]

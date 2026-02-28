@@ -380,11 +380,11 @@ oc() {
     done
     
     export OPENCODE_PORT=$port
-     
+    
     if [ -n "$TMUX" ]; then
-        opencode --port "$port" -c "$@"
+        opencode --port $port "$@"
     else
-        local oc_cmd="OPENCODE_PORT=$port opencode --port $port -c $*; exec $SHELL"
+        local oc_cmd="OPENCODE_PORT=$port opencode --port $port $*; exec $SHELL"
         if tmux has-session -t "$session_name" 2>/dev/null; then
             tmux new-window -t "$session_name" -c "$PWD" "$oc_cmd"
             tmux attach-session -t "$session_name"
