@@ -277,20 +277,25 @@
     "when": "terminalFocus"
     },
     // // 当有选中内容时, 添加选中内容到聊天
-    // {
-    //     "key": "cmd+shift+a",
-    //     "command": "composer.startComposerPrompt",
-    //     "when": "editorHasSelection"
-    // },
-    // // 当没有选中内容时, 添加当前文件到聊天
-    // {
-    //     "key": "cmd+shift+a",
-    //     "command": "composer.addfilestocomposer",
-    //     "when": "!editorHasSelection"
-    // },
-    // Codex vs code extension,添加片段到对话框中
     {
         "key": "cmd+shift+a",
-        "command": "chatgpt.addToThread",
+        "command": "composer.startComposerPrompt",
+        "when": "editorHasSelection"
     },
+    // 当没有选中内容时, 添加当前文件到聊天
+    {
+        "key": "cmd+shift+a",
+        "command": "composer.addfilestocomposer",
+        "when": "!editorHasSelection"
+    },
+    {
+        "key": "alt+cmd+s",
+        "command": "workbench.action.toggleUnifiedSidebarFromKeyboard",
+        "when": "cursor.agentIdeUnification.enabled == true && !isAuxiliaryWindowFocusedContext"
+    },
+    // Codex vs code extension,添加片段到对话框中
+    // {
+    //     "key": "cmd+shift+a",
+    //     "command": "chatgpt.addToThread",
+    // },
 ]

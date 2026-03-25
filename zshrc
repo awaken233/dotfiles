@@ -32,6 +32,7 @@ alias -g Y='-o yaml'
 alias vim='nvim'
 alias v='nvim'
 alias vi='nvim'
+alias oc='opencode'
 # 支持 OWNER/REPO 和 https://github.com/cli/cli
 alias gcll='gh repo clone'
 alias bs='brew services'
@@ -355,41 +356,6 @@ function f() {
 	command rm -f -- "$tmp"
 }
 
-# 默认为256，避免执行 OC 命令时出现当前链接数超过文件句柄数 FD 的数量。 
-ulimit -n 16384
 
-# OpenCode 启动助手: 自动处理 Tmux 会话与端口
-# 不再tmux打开tmux, 并且防止端口冲突.
-oc() {
-    local base_name=$(basename "$PWD")
-    local path_hash
-    if (( $+commands[md5sum] )); then
-        path_hash=$(echo -n "$PWD" | md5sum | cut -c1-4)
-    else
-        path_hash=$(echo -n "$PWD" | md5 | cut -c1-4)
-    fi
-    local session_name="${base_name}-${path_hash}"
-    
-    # Find available port
-    local port=4096
-    while [ $port -lt 5096 ]; do
-        if ! lsof -i :$port >/dev/null 2>&1; then
-            break
-        fi
-        port=$((port + 1))
-    done
-    
-    export OPENCODE_PORT=$port
-    
-    if [ -n "$TMUX" ]; then
-        opencode --port $port "$@"
-    else
-        local oc_cmd="OPENCODE_PORT=$port opencode --port $port $*; exec $SHELL"
-        if tmux has-session -t "$session_name" 2>/dev/null; then
-            tmux new-window -t "$session_name" -c "$PWD" "$oc_cmd"
-            tmux attach-session -t "$session_name"
-        else
-            tmux new-session -s "$session_name" -c "$PWD" "$oc_cmd"
-        fi
-    fi
-}
+# bun completions
+[ -s "/Users/ve/.bun/_bun" ] && source "/Users/ve/.bun/_bun"

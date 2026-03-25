@@ -253,6 +253,6 @@
   "git.showCursorWorktrees": true,
   "editor.accessibilitySupport": "off",
   "claudeCode.useTerminal": true,
-  "diffEditor.hideUnchangedRegions.enabled": true,
-  "claudeCode.preferredLocation": "panel"
+  "claudeCode.preferredLocation": "panel",
+  "diffEditor.hideUnchangedRegions.enabled": true
 }

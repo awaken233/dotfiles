@@ -34,3 +34,9 @@ application-dev.yml
 settings.local.json
 .ace-tool/
 .sisyphus
+.agent
+node_modules
+.worktree
+.claude
+CLAUDE.md
+.gitnexus
